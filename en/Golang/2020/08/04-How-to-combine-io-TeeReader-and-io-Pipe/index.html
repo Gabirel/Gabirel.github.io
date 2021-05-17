@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"godeep.pro","root":"/","scheme":"Mala","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="This post can explain and show you how to combine io.TeeReader() and io.Pipe together in Golang. You can easily use bytes.Buffer with io.TeeReader() easily according to the official documents in here.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to combine io.TeeReader and io.Pipe">
+<meta property="og:url" content="https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/index.html">
+<meta property="og:site_name" content="Go Deep | Blog">
+<meta property="og:description" content="This post can explain and show you how to combine io.TeeReader() and io.Pipe together in Golang. You can easily use bytes.Buffer with io.TeeReader() easily according to the official documents in here.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-04T13:43:00.000Z">
+<meta property="article:modified_time" content="2020-08-05T12:03:35.137Z">
+<meta property="article:author" content="Gabriel Farnsworth">
+<meta property="article:tag" content="Golang">
+<meta property="article:tag" content="TeeReader">
+<meta property="article:tag" content="Pipe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>How to combine io.TeeReader and io.Pipe | Go Deep | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Go Deep | Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Go Deep and Be professional</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initial-modification-based-on-its-example"><span class="nav-number">1.</span> <span class="nav-text">Initial modification based on its example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fix-the-bug"><span class="nav-number">2.</span> <span class="nav-text">Fix the bug!</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gabriel Farnsworth</p>
+  <div class="site-description" itemprop="description">Just Go Deep</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Gabirel" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Gabirel" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gabilvlace@gmail.com" title="E-Mail → mailto:gabilvlace@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GabrielDeVaa" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GabrielDeVaa" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://youzhiye.github.io/" title="https:&#x2F;&#x2F;youzhiye.github.io" rel="noopener" target="_blank">y0uz</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/Gabirel" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gabriel Farnsworth">
+      <meta itemprop="description" content="Just Go Deep">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Go Deep | Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to combine io.TeeReader and io.Pipe
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-04 21:43:00" itemprop="dateCreated datePublished" datetime="2020-08-04T21:43:00+08:00">2020-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-05 20:03:35" itemprop="dateModified" datetime="2020-08-05T20:03:35+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This post can explain and show you how to combine <code>io.TeeReader()</code> and <code>io.Pipe</code> together in Golang.</p>
+<p>You can easily use <code>bytes.Buffer</code> with <code>io.TeeReader()</code> easily according to the official documents in <a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">here</a>.</p>
+<p>But you will notice that you may encounter some issues if you choose to use <code>io.Pipe</code> . Here I am.</p>
+<p><strong>Notice: This post is for the beginners, not the well-knowledged Golang programmer.</strong></p>
+<a id="more"></a>
+
+
+
+<h1 id="Initial-modification-based-on-its-example"><a href="#Initial-modification-based-on-its-example" class="headerlink" title="Initial modification based on its example"></a>Initial modification based on its example</h1><p>As a beginner, you may easily come up with these kind of modifications below.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If you run the code, you can get error message:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>This comes from that you are <a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">attempting this on the same thread</a>, which will give you a panic hammer on your head.</p>
+<h1 id="Fix-the-bug"><a href="#Fix-the-bug" class="headerlink" title="Fix the bug!"></a>Fix the bug!</h1><p>You can easily fix it via small modifications and add synchronizations.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>done</code> chan is added to make sure synchronizations happens correctly before main thread exits.</p>
+</li>
+<li><p><code>pw.Close()</code> must be performed inside another goroutine with <code>printall(tr)</code>. This is because <code>TeeReader</code> returns a Reader that writes to w what it reads from r.</p>
+</li>
+<li><p>Due to the existence of goroutine, you can change the order of two separate <code>go func(){}</code> unlike the example provided by <code>io.TeeReader()</code></p>
+</li>
+</ul>
+<p>Hope this post does help you in some way.</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gabriel Farnsworth
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/" title="How to combine io.TeeReader and io.Pipe">https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Golang/" rel="tag"># Golang</a>
+              <a href="/tags/TeeReader/" rel="tag"># TeeReader</a>
+              <a href="/tags/Pipe/" rel="tag"># Pipe</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/zh-CN/Golang/2020/08/01-Golang%E4%B8%ADTeeReader%E7%9A%84Writer%E8%BE%93%E5%87%BA%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/" rel="prev" title="Golang中TeeReader的Writer输出为空的问题小记">
+      <i class="fa fa-chevron-left"></i> Golang中TeeReader的Writer输出为空的问题小记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/" rel="next" title="Golang中把io.TeeReader and io.Pipe结合使用">
+      Golang中把io.TeeReader and io.Pipe结合使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gabriel Farnsworth</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://github.com/next-geek/next-geek" class="theme-link" rel="noopener" target="_blank">NexT.Mala</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://godeep.pro/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e7665f929216b30d7fa3',
+      clientSecret: '3cd611cc9384541573db91c0b1801cc7273508f8',
+      repo        : 'gabirel.github.io',
+      owner       : 'Gabirel',
+      admin       : ['Gabirel'],
+      id          : '65faf429c587923de62b27ae2f6dba2e',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
