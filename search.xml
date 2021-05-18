@@ -153,6 +153,118 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Notes - English</title>
+    <url>/en/Gossip/2017/05/30-Notes/</url>
+    <content><![CDATA[<h1 id="Main-body"><a href="#Main-body" class="headerlink" title="Main body"></a>Main body</h1><div class="note info"><p>The theme of blog, which is <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>, almost has been done.</p>
+</div>
+
+<p>My only one purpose of doing this is to show off.</p>
+<p>“Hey, buddy, look at my blog. Awesome. Right? “</p>
+<p>Hahahahahaha……</p>
+<p>But I didn’t know this costs me so much.</p>
+<a id="more"></a>
+
+<h1 id="What-am-I-going-to-do-with-this-blog"><a href="#What-am-I-going-to-do-with-this-blog" class="headerlink" title="What am I going to do with this blog?"></a>What am I going to do with this blog?</h1><ol>
+<li><p>The theme of the blog should keep updated with the current technology. So, this theme maybe changes a lot or add some useless stuff(I hope it could be useful:D )</p>
+</li>
+<li><p>My blog’s name is ** go deep **. So I definitely pay attention to the quality of my articles in my blog. Perhaps some articles looks too easy for you since I am not good at everything what you guys excel at. So, be lenient. Thanks.</p>
+</li>
+</ol>
+<p>But,</p>
+<p>I make sure that I will do my best to write all posts.</p>
+<p>Sometimes, it happens to me that some posts are ** totally useless ** especially in China while I have already spent a lot of time in that. Damn!!!</p>
+<p>So, the summary is:</p>
+<div class="note danger"><p>** QUALITIES OF POSTS FIRSTS! DEFINITELY! **</p>
+</div>
+
+<h1 id="Gossips"><a href="#Gossips" class="headerlink" title="Gossips"></a>Gossips</h1><p>Why did I say this theme costs me a lot?</p>
+<p>Because <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is created in January, 2017. Mountains of stuff is killing me, which is main reason I didn’t do it so quickly.</p>
+<p>When I went to <a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a> to check my repository, I was surprised by the statistical data. DAMN. 103d for only 1 issue.</p>
+<p>I have been fixing this theme for this recent two weeks.<br>Okay, it is encourageing that <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is getting better. (So I can show off, Hahaha)</p>
+<p>The issues of my blog should get fixed later since a lot of troublesome trivial matters are killing me again. I can’t get affected by these.</p>
+<p>And also, I bought three-year domain.(Damn, it costs me 191￥ = 27$) Come on. I am still a poor student. That’s expensive to me.</p>
+<p>Fine, I hope blog derserve this.</p>
+<h1 id="Future-Plan"><a href="#Future-Plan" class="headerlink" title="Future Plan"></a>Future Plan</h1><div class="note primary"><p>1.Master Degreen First</p>
+</div>
+
+<p>Some people may ask: Why don’t you just go to work?</p>
+<p>Yeah, probably. But my educational background could look better.</p>
+<p>Why need higher degree? Any reasons?</p>
+<p>:) Nuh. I have decided to have one master degree. THere’s no special reasons for this. That’s all.</p>
+<div class="note primary"><p>2.Professional Skills Second</p>
+</div>
+
+<p>I have to earn to live, right? So, I need my professional skill prepared in the future. Or what difference between me and <code>salty fish</code>(Okay, this is a joke in China. Salty fish means man who doesn’t have any dreams.)</p>
+<p>Also,</p>
+<blockquote class="blockquote-center">
+<p>Men must have dreams. Even you have already become one of salty fish, then be the most salty one.</p>
+
+</blockquote>
+
+<center>
+<img src="/en/Gossip/2017/05/30-Notes/salty-fish-has-a-dream.jpg" class="">
+</center>
+
+<div class="note primary"><p>3.Front-end Knowledge, such CSS, HTML, Javascript</p>
+</div>
+
+<p>This is for showing off my blog. :D</p>
+<div class="note primary"><p>4.C++ or Java?</p>
+</div>
+
+<p>Unfortunately, I can do C++ and Java both.</p>
+<p>This is a little troublesome bacause I only have to choose one to expel at.</p>
+<p>However, I am young now that I wanna be the best in Java and C++.</p>
+<p>C++ is main coding language, with assistant by Kotlin( Java just backs up )</p>
+<div class="note primary"><p>5.Keep multi-language version of posts</p>
+</div>
+
+<p>I can only speak in Chinese(native), English and Japanese. I will try to write muti-language version of posts to you.</p>
+<p>Why I do this? Anyway, noone visits your blog.</p>
+<p>:D I don’t care. I am just for myself and for practicing.</p>
+<p>Maybe I will add Korean later~</p>
+<p>Just Looking Forword.</p>
+<blockquote class="blockquote-center">
+<p>The End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The template of gradle(kotlin and java)</title>
+    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
+    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
+<a id="more"></a>
+
+
+
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Gradle</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Gradle</tag>
+        <tag>Java</tag>
+        <tag>Kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to solve nothing showed in grey box of Discord</title>
     <url>/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We all know that what discord is and what it does. Okay, if you don’t know what it is, just skip this post.</p>
@@ -199,9 +311,66 @@
         <category>Software</category>
       </categories>
       <tags>
+        <tag>English</tag>
         <tag>Discord</tag>
         <tag>Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0/1 Knapsack problem solver code</title>
+    <url>/en/Algorithm/2019/10/05-0-1-Knapsack-problem-solver-code/</url>
+    <content><![CDATA[<p>This post only shows the correct source code which solving 0/1 knapsack prolem.</p>
+<p>I hope the source code could be helpful to you.</p>
+<a id="more"></a>
+
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>In this post, one example is listed:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Maximum capacity</th>
+<th align="center">The number of items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center"><strong>Weight</strong></td>
+<td align="center"><strong>Value</strong></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><p>The source code is as follows:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;              <span class="comment">// the number of items</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> Capacity = <span class="number">10</span>;      <span class="comment">// the volumn of knapsack</span></span><br><span class="line">  <span class="keyword">int</span> weight[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;; <span class="comment">// the volumn of i-th item (index starting from 1)</span></span><br><span class="line">  <span class="keyword">int</span> value[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;  <span class="comment">// the value of i-th item</span></span><br><span class="line">  <span class="keyword">int</span> F[N + <span class="number">1</span>][Capacity + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;  <span class="comment">// status</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123; <span class="comment">// as for i-th item</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">      F[i][j] = F[i - <span class="number">1</span>][j]; <span class="comment">// do not choose i-th item (default)</span></span><br><span class="line">      <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">          F[i][j] &lt; F[i - <span class="number">1</span>][j - weight[i]] + value[i]) &#123; <span class="comment">// if value is higher, then choose i-th item</span></span><br><span class="line">        F[i][j] = F[i - <span class="number">1</span>][j - weight[i]] + value[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max value: "</span> &lt;&lt; F[N][Capacity] &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// in this case: 11</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Status: "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%2d "</span>, F[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Max value: 11</span><br><span class="line">Status:</span><br><span class="line"> 0  0  0  0  0  0  0  0  0  0  0</span><br><span class="line"> 0  0  0  4  4  4  4  4  4  4  4</span><br><span class="line"> 0  0  0  4  5  5  5  9  9  9  9</span><br><span class="line"> 0  0  0  4  5  6  6  9 10 11 11</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
         <tag>English</tag>
+        <tag>Knapsack</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -348,6 +517,170 @@
       </tags>
   </entry>
   <entry>
+    <title>How to combine io.TeeReader and io.Pipe</title>
+    <url>/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/</url>
+    <content><![CDATA[<p>This post can explain and show you how to combine <code>io.TeeReader()</code> and <code>io.Pipe</code> together in Golang.</p>
+<p>You can easily use <code>bytes.Buffer</code> with <code>io.TeeReader()</code> easily according to the official documents in <a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">here</a>.</p>
+<p>But you will notice that you may encounter some issues if you choose to use <code>io.Pipe</code> . Here I am.</p>
+<p><strong>Notice: This post is for the beginners, not the well-knowledged Golang programmer.</strong></p>
+<a id="more"></a>
+
+
+
+<h1 id="Initial-modification-based-on-its-example"><a href="#Initial-modification-based-on-its-example" class="headerlink" title="Initial modification based on its example"></a>Initial modification based on its example</h1><p>As a beginner, you may easily come up with these kind of modifications below.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If you run the code, you can get error message:</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>This comes from that you are <a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">attempting this on the same thread</a>, which will give you a panic hammer on your head.</p>
+<h1 id="Fix-the-bug"><a href="#Fix-the-bug" class="headerlink" title="Fix the bug!"></a>Fix the bug!</h1><p>You can easily fix it via small modifications and add synchronizations.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>done</code> chan is added to make sure synchronizations happens correctly before main thread exits.</p>
+</li>
+<li><p><code>pw.Close()</code> must be performed inside another goroutine with <code>printall(tr)</code>. This is because <code>TeeReader</code> returns a Reader that writes to w what it reads from r.</p>
+</li>
+<li><p>Due to the existence of goroutine, you can change the order of two separate <code>go func(){}</code> unlike the example provided by <code>io.TeeReader()</code></p>
+</li>
+</ul>
+<p>Hope this post does help you in some way.</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Pipe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rust Merge Strings Alternately</title>
+    <url>/en/Rust/2021/05/18-Rust-Merge-Strings-Alternately/</url>
+    <content><![CDATA[<p>This posts comes from the real project scenario.</p>
+<p>Later, I surprisedly find there is one problem in Leetcode.</p>
+<p>Personally I not a fan of solving Leetcode problems. Let’s write a post here since they provide detailed descriptions.</p>
+<p>The problem is easy-level one and not complicated. So, just make it become onf of my cheatseets then.</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Source：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">Click Me: Leetcode-1768</a></p>
+<p>Description:</p>
+<p>You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.</p>
+<p>Return the merged string.</p>
+<p>Example 1:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcr"</span></span><br><span class="line"><span class="string">Explanation:</span> The merged string will be merged <span class="keyword">as</span> <span class="string">so:</span></span><br><span class="line"><span class="string">word1:</span>  a   b   c</span><br><span class="line"><span class="string">word2:</span>    p   q   r</span><br><span class="line"><span class="string">merged:</span> a p b q c r</span><br></pre></td></tr></table></figure>
+
+
+<p>Example 2:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqrs"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word2 is longer, <span class="string">"rs"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b </span><br><span class="line"><span class="string">word2:</span>    p   q   r   s</span><br><span class="line"><span class="string">merged:</span> a p b q   r   s</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcd"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word1 is longer, <span class="string">"cd"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b   c   d</span><br><span class="line"><span class="string">word2:</span>    p   q </span><br><span class="line"><span class="string">merged:</span> a p b q c   d</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The algorithm itself is quite simple so I won’t repeat this in here. Let’s show the code directly:</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Rust</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>扎记 - 中文</title>
+    <url>/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
+</div>
+
+<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
+<p>但是没想到代价是这么大的。</p>
+<a id="more"></a>
+
+<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
+<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
+</li>
+<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
+</li>
+</ol>
+<p>但是，</p>
+<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
+<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
+<p>所以，</p>
+<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
+</div>
+
+<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
+<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
+<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
+<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
+<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
+<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
+</div>
+
+<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
+<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
+<p>那为什么要高学历呢？有什么理由么？</p>
+<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
+<div class="note primary"><p>2.专业技能给弄一弄</p>
+</div>
+
+<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
+<p>再说了，</p>
+<blockquote class="blockquote-center">
+<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
+
+</blockquote>
+
+<center>
+<img src="/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
+</center>
+
+<div class="note primary"><p>3.前端知识折腾一下</p>
+</div>
+
+<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
+<p>博客写得逼格高，自己才看得爽</p>
+<div class="note primary"><p>4.语言选择</p>
+</div>
+
+<p>很不幸，我既** 会 ** C++又会Java。</p>
+<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
+<p>现在太年轻，很任性，两个都想专精～～</p>
+<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
+<div class="note primary"><p>5.尽量保证文章多语言版本</p>
+</div>
+
+<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
+<p>或许以后会加韩文～尽情期待吧 :)</p>
+<blockquote class="blockquote-center">
+<p>完 </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Atbash Cipher Code Refactoring Record</title>
     <url>/en/Rust/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the main exercise of exercism in rust.</p>
@@ -422,89 +755,6 @@
       </tags>
   </entry>
   <entry>
-    <title>0/1 Knapsack problem solver code</title>
-    <url>/en/Algorithm/2019/10/05-0-1-Knapsack-problem-solver-code/</url>
-    <content><![CDATA[<p>This post only shows the correct source code which solving 0/1 knapsack prolem.</p>
-<p>I hope the source code could be helpful to you.</p>
-<a id="more"></a>
-
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>In this post, one example is listed:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Maximum capacity</th>
-<th align="center">The number of items</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">10</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center"><strong>Weight</strong></td>
-<td align="center"><strong>Value</strong></td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">5</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">6</td>
-</tr>
-</tbody></table>
-<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><p>The source code is as follows:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;              <span class="comment">// the number of items</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> Capacity = <span class="number">10</span>;      <span class="comment">// the volumn of knapsack</span></span><br><span class="line">  <span class="keyword">int</span> weight[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;; <span class="comment">// the volumn of i-th item (index starting from 1)</span></span><br><span class="line">  <span class="keyword">int</span> value[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;  <span class="comment">// the value of i-th item</span></span><br><span class="line">  <span class="keyword">int</span> F[N + <span class="number">1</span>][Capacity + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;  <span class="comment">// status</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123; <span class="comment">// as for i-th item</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">      F[i][j] = F[i - <span class="number">1</span>][j]; <span class="comment">// do not choose i-th item (default)</span></span><br><span class="line">      <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">          F[i][j] &lt; F[i - <span class="number">1</span>][j - weight[i]] + value[i]) &#123; <span class="comment">// if value is higher, then choose i-th item</span></span><br><span class="line">        F[i][j] = F[i - <span class="number">1</span>][j - weight[i]] + value[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max value: "</span> &lt;&lt; F[N][Capacity] &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// in this case: 11</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Status: "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%2d "</span>, F[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Max value: 11</span><br><span class="line">Status:</span><br><span class="line"> 0  0  0  0  0  0  0  0  0  0  0</span><br><span class="line"> 0  0  0  4  4  4  4  4  4  4  4</span><br><span class="line"> 0  0  0  4  5  5  5  9  9  9  9</span><br><span class="line"> 0  0  0  4  5  6  6  9 10 11 11</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Knapsack</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The template of gradle(kotlin and java)</title>
-    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
-    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
-<a id="more"></a>
-
-
-
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Gradle</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Gradle</tag>
-        <tag>Java</tag>
-        <tag>Kotlin</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>随筆 - 日本語</title>
     <url>/ja/Gossip/2017/06/21-%E9%9A%8F%E7%AD%86/</url>
     <content><![CDATA[<h1 id="本文"><a href="#本文" class="headerlink" title="本文"></a>本文</h1><div class="note info"><p>ブログのテーマ<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>はほとんど終わりました。</p>
@@ -573,6 +823,230 @@
       <tags>
         <tag>Life</tag>
         <tag>日本語</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
+    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
+<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
+<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
+<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
+<a id="more"></a>
+
+<hr>
+<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你运行这段代码，你会得到如下的错误信息：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
+<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
+<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
+<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
+</ul>
+<p>希望这篇文章对你有用。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Pipe</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rust版Basic Calculator II以及改进</title>
+    <url>/zh-CN/Rust/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
+    <content><![CDATA[<p>此文源自于<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">Leetcode的基本计算机II</a>。</p>
+<p>使用Rust语言完成，共计有两个版本。</p>
+<p>一个是基础版本（可以完成题目的要求），另一个是在此基础之上的改进（可以完成所有的运算符的要求）。</p>
+<p>无论是基础版还是改进版，均使用Rust版本。无其他语言版本。</p>
+<a id="more"></a>
+
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>原始题源：<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a><br>中文题源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a></p>
+<p>题目描述：</p>
+<p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。</p>
+<ul>
+<li><p>示例 1：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">"3+2*2"</span></span><br><span class="line">输出：<span class="number">7</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例 2：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3/2 "</span></span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例 3：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3+5 / 2 "</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><h2 id="解法1：基础计算解法"><a href="#解法1：基础计算解法" class="headerlink" title="解法1：基础计算解法"></a>解法1：基础计算解法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>加法压入栈中</li>
+<li>减法压入负数的数字</li>
+<li>乘法和除法直接运算即可，并把结果压入栈中</li>
+</ul>
+<p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v1.rs</code>)如下：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</span></span><br><span class="line"><span class="comment">/// PS：v1只能应对`+-*/`，不能处理带括号情况，甚至是其他优先级的情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> stack = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> pre_sign = <span class="string">'+'</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (idx, c) <span class="keyword">in</span> s.chars().enumerate() &#123;</span><br><span class="line">        <span class="keyword">if</span> c.is_numeric() &#123;</span><br><span class="line">            num = num * <span class="number">10</span> + parse_as_int(c)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> !c.is_numeric() &amp;&amp; !c.is_whitespace() || idx == n - <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">match</span> pre_sign &#123;</span><br><span class="line">                <span class="string">'+'</span> =&gt; stack.push(num),</span><br><span class="line">                <span class="string">'-'</span> =&gt; stack.push(-num),</span><br><span class="line">                <span class="string">'*'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev * num);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">'/'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev / num);</span><br><span class="line">                &#125;</span><br><span class="line">                _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            pre_sign = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.iter().sum()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="解法2：改进型全适应解法"><a href="#解法2：改进型全适应解法" class="headerlink" title="解法2：改进型全适应解法"></a>解法2：改进型全适应解法</h2><h3 id="改进的地方"><a href="#改进的地方" class="headerlink" title="改进的地方"></a>改进的地方</h3><ul>
+<li>使用双栈（数字栈和运算符栈）</li>
+<li>适用于有括号的表达式</li>
+<li>适用于<code>+ - * / ^ %</code>的运算符</li>
+</ul>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</a></p>
+<p><strong>思路一句话总结：模拟人计算表达式的过程，遇到括号先算括号内部的，遇到高优先级的先计算高优先级</strong></p>
+<p>思路具体如下：</p>
+<ul>
+<li>一共有两个栈：数字栈和运算符栈</li>
+<li><code>(</code>: 直接加入运算符栈中，等待与之匹配的<code>)</code></li>
+<li><code>+ - * / ^ %</code>: 需要将操作放入运算符栈中。</li>
+<li>只有「栈内运算符」比「当前运算符」优先级高/同等，才进行运算，（直到没有操作或者遇到左括号），计算结果放到栈中</li>
+</ul>
+<p>该算法来源中有个例子，比如当前已读取的运算符为<code>2 + 1</code>（完整的运算符为：<code>2 + 1 * 2</code>）。</p>
+<ol>
+<li>如果后面是<code>+ 2</code>或者是<code>- 1</code>，满足「栈内运算符」比「当前运算符」优先级相等或者更高，说明可以直接运算<code>2 + 1</code>然后把结果放入数字栈中</li>
+<li>如果后面是<code>* 2</code>或者是<code>/ 1</code>，当前的运算符为<code>*</code>或者<code>/</code>，比栈内运算符<code>+</code>要高，所以要先计算<code>*</code>或者<code>/</code>。即，「栈内运算符」比「当前运算符」低，不能直接运算<code>2 + 1</code>，只能先运算后面<code>1 * 2</code>。</li>
+</ol>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v2.rs</code>)如下：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</span></span><br><span class="line"><span class="comment">/// PS：v2只能应对`+-*/%^`，甚至可以处理带括号的情况</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 原理：</span></span><br><span class="line"><span class="comment">/// 因为这套「表达式计算」处理逻辑，本质上模拟了人脑的处理逻辑：根据下一位的运算符优先级决定当前运算符是否可以马上计算。</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 改变：未完全按照原solution进行处理，暂时不考虑复杂情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> s = remove_whitespace(&amp;s);</span><br><span class="line">    <span class="keyword">if</span> s.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> nums_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ops_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> ops_priority = setup_op_priority();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; n &#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.chars().nth(i).unwrap();</span><br><span class="line">        <span class="keyword">match</span> c &#123;</span><br><span class="line">            <span class="string">'('</span> =&gt; ops_stack.push(c),</span><br><span class="line">            <span class="string">')'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 计算到最近一个左括号为止</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">                    <span class="keyword">if</span> ops_stack.last().unwrap() == &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                        ops_stack.pop();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="string">'0'</span>..=<span class="string">'9'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 把所有的数字都探测完成，然后压栈保存</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> j = i;</span><br><span class="line">                <span class="keyword">while</span> j &lt; n &amp;&amp; s.chars().nth(j).unwrap().is_numeric() &#123;</span><br><span class="line">                    <span class="keyword">let</span> j_char = s.chars().nth(j).unwrap();</span><br><span class="line">                    num = num * <span class="number">10</span> + parse_as_int(j_char);</span><br><span class="line">                    j += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">                nums_stack.push(num);</span><br><span class="line">            &#125;</span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="comment">// 分支：其他操作符号（无括号的运算符）</span></span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="comment">// 有一个新操作要入栈时，先把栈内可以算的都算了</span></span><br><span class="line">                <span class="comment">// 只有满足「栈内运算符」比「当前运算符」优先级高/同等，才进行运算</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &amp;&amp; ops_stack.last().unwrap() != &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev_op = ops_stack.last().unwrap();</span><br><span class="line">                    <span class="keyword">if</span> ops_priority.get(prev_op) &gt;= ops_priority.get(&amp;c) &#123;</span><br><span class="line">                        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ops_stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算剩余的栈中的数据</span></span><br><span class="line">    <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿出结果</span></span><br><span class="line">    nums_stack.pop().unwrap()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">calc</span></span>(nums_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, ops_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;) &#123;</span><br><span class="line">    <span class="keyword">let</span> b = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> a = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> op = ops_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="keyword">match</span> op &#123;</span><br><span class="line">        <span class="string">'+'</span> =&gt; a + b,</span><br><span class="line">        <span class="string">'-'</span> =&gt; a - b,</span><br><span class="line">        <span class="string">'*'</span> =&gt; a * b,</span><br><span class="line">        <span class="string">'/'</span> =&gt; a / b,</span><br><span class="line">        <span class="string">'%'</span> =&gt; a % b,</span><br><span class="line">        <span class="string">'^'</span> =&gt; a.pow(b <span class="keyword">as</span> <span class="built_in">u32</span>),</span><br><span class="line">        _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">    &#125;;</span><br><span class="line">    nums_stack.push(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">setup_op_priority</span></span>() -&gt; HashMap&lt;<span class="built_in">char</span>, <span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> map = HashMap::new();</span><br><span class="line">    map.insert(<span class="string">'+'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'-'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'*'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'/'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'%'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'^'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">remove_whitespace</span></span>(s: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    s.split_whitespace().collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Rust</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang中TeeReader的Writer输出为空的问题小记</title>
+    <url>/zh-CN/Golang/2020/08/01-Golang%E4%B8%ADTeeReader%E7%9A%84Writer%E8%BE%93%E5%87%BA%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>这是一个在工作的时候遇到的<code>TeeReader</code>的<code>Writer</code>为空的问题。花了一点时间解决。</p>
+<p>并且根据官方示例代码做出一定的调整，发现了一个比较有意思的现象。但是没有什么人说到这个问题。</p>
+<p>并且，由于对Golang的流式处理不熟悉，途中遇到了很多的问题。</p>
+<p>因此，来对记录一下<code>TeeReader</code>的解读。</p>
+<a id="more"></a>
+
+<h1 id="TeeReader"><a href="#TeeReader" class="headerlink" title="TeeReader"></a>TeeReader</h1><h2 id="TeeReader的描述"><a href="#TeeReader的描述" class="headerlink" title="TeeReader的描述"></a>TeeReader的描述</h2><p>首先放出<code>TeeReader</code>的源代码。代码比较简单，如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TeeReader</span><span class="params">(r Reader, w Writer)</span> <span class="title">Reader</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;teeReader&#123;r, w&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> teeReader <span class="keyword">struct</span> &#123;</span><br><span class="line">	r Reader</span><br><span class="line">	w Writer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *teeReader)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	n, err = t.r.Read(p)</span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> n, err := t.w.Write(p[:n]); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, err</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>官方的英文解释如下：</p>
+<blockquote>
+<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
+<p>All reads from r performed through it are matched with corresponding writes to w. There is no internal buffering - the write must complete before the read completes. </p>
+<p>Any error encountered while writing is reported as a read error.</p>
+</blockquote>
+<p>第一句话对于中文语言者可能没有那么好理解，它的意思其实非常简单：</p>
+<blockquote class="blockquote-center">
+<p>就是将 r 中的数据读出后同时写入 w 中，然后 <code>teeReader</code> 本身也是可以读取数据的，这样，就相当于复制出了一条数据流。 </p>
+
+</blockquote>
+
+<h2 id="TeeReader的用法"><a href="#TeeReader的用法" class="headerlink" title="TeeReader的用法"></a>TeeReader的用法</h2><p>官方的源代码示例如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">tee := io.TeeReader(r, &amp;buf)</span><br><span class="line"></span><br><span class="line">printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">	b, err := ioutil.ReadAll(r)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其输出结果可得：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read # &lt;= 这个是*io.teeReader</span><br><span class="line">some io.Reader stream to be read # &lt;= 这个是*bytes.Buffer</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="TeeReader为什么Writer为空？"><a href="#TeeReader为什么Writer为空？" class="headerlink" title="TeeReader为什么Writer为空？"></a>TeeReader为什么Writer为空？</h2><p><code>TeeReader</code>的参数是一个reader和一个writer。但是为什么有时候writer会是空的？</p>
+<p>这也是我在实际工作中遇到的一个问题。</p>
+<p>这里，我们来把源代码示例的<code>printall</code>的输出顺序调整一下，如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//修改前的</span></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改过后的</span></span><br><span class="line">printall(&amp;buf)</span><br><span class="line">printall(tee)</span><br></pre></td></tr></table></figure>
+
+<p>这个时候输出即可看到，一个输出结果，也就是：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个时候如果使用<code>reflect.typeOf()</code>去看他们的输出类型，输出结果为：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">*bytes.Buffer: *io.teeReader: some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因此，可以看得到这里的<code>bytes.Buffer</code>输出内容为空，但是<code>teeReader</code>是不空的。</p>
+<p><strong>那么为什么会这样呢？</strong></p>
+<p><strong><em>A：</em></strong>其实，这是由于<code>teeReader</code>必须要完成了过后，才会写入到<code>buf</code>当中。因此，提前写诗没有任何数据的。</p>
+<p>这个也符合官方原文的英文解释：</p>
+<blockquote>
+<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
+</blockquote>
+<p>希望对你有用。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>中文</tag>
+        <tag>Writer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Rust-字符串交替合并</title>
+    <url>/zh-CN/Rust/2021/05/18-Rust-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%A4%E6%9B%BF%E5%90%88%E5%B9%B6/</url>
+    <content><![CDATA[<p>此需求来源于实际的工作场景。</p>
+<p>后发现在Leetcode上面也有这样的题目，我个人不喜欢Leetcode，但是既然有了也方便提供题目描述，于是就干脆记录一下。</p>
+<p>本身算法不复杂，属于Easy级别的题目。算是当成一个自己的小抄吧。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>英文题源：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a><br>中文题源：<a href="https://leetcode-cn.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a></p>
+<p>题目描述：</p>
+<p>给你两个字符串 word1 和 word2 。请你从 word1 开始，通过交替添加字母来合并字符串。<br>如果一个字符串比另一个字符串长，就将多出来的字母追加到合并后字符串的末尾。返回合并后的字符串 </p>
+<p>示例 1：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line">输出：<span class="string">"apbqcr"</span></span><br><span class="line">解释：字符串合并情况如下所示：</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c r</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line">输出：<span class="string">"apbqrs"</span></span><br><span class="line">解释：注意，word2 比 word1 长，<span class="string">"rs"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span> </span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r   s</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span>   r   s</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line">输出：<span class="string">"apbqcd"</span></span><br><span class="line">解释：注意，word1 比 word2 长，<span class="string">"cd"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c   d</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span> </span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c   d</span><br></pre></td></tr></table></figure>
+
+<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><p>本质上思路比较简单，就不再赘述。直接贴代码：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Rust</tag>
+        <tag>中文</tag>
       </tags>
   </entry>
   <entry>
@@ -1789,483 +2263,9 @@
         <category>Language</category>
       </categories>
       <tags>
+        <tag>中文</tag>
         <tag>Korean</tag>
         <tag>Notes</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>扎记 - 中文</title>
-    <url>/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
-</div>
-
-<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
-<p>但是没想到代价是这么大的。</p>
-<a id="more"></a>
-
-<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
-<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
-</li>
-<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
-</li>
-</ol>
-<p>但是，</p>
-<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
-<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
-<p>所以，</p>
-<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
-</div>
-
-<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
-<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
-<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
-<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
-<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
-<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
-</div>
-
-<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
-<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
-<p>那为什么要高学历呢？有什么理由么？</p>
-<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
-<div class="note primary"><p>2.专业技能给弄一弄</p>
-</div>
-
-<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
-<p>再说了，</p>
-<blockquote class="blockquote-center">
-<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
-
-</blockquote>
-
-<center>
-<img src="/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
-</center>
-
-<div class="note primary"><p>3.前端知识折腾一下</p>
-</div>
-
-<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
-<p>博客写得逼格高，自己才看得爽</p>
-<div class="note primary"><p>4.语言选择</p>
-</div>
-
-<p>很不幸，我既** 会 ** C++又会Java。</p>
-<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
-<p>现在太年轻，很任性，两个都想专精～～</p>
-<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
-<div class="note primary"><p>5.尽量保证文章多语言版本</p>
-</div>
-
-<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
-<p>或许以后会加韩文～尽情期待吧 :)</p>
-<blockquote class="blockquote-center">
-<p>完 </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Gossip</category>
-      </categories>
-      <tags>
-        <tag>Life</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to combine io.TeeReader and io.Pipe</title>
-    <url>/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/</url>
-    <content><![CDATA[<p>This post can explain and show you how to combine <code>io.TeeReader()</code> and <code>io.Pipe</code> together in Golang.</p>
-<p>You can easily use <code>bytes.Buffer</code> with <code>io.TeeReader()</code> easily according to the official documents in <a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">here</a>.</p>
-<p>But you will notice that you may encounter some issues if you choose to use <code>io.Pipe</code> . Here I am.</p>
-<p><strong>Notice: This post is for the beginners, not the well-knowledged Golang programmer.</strong></p>
-<a id="more"></a>
-
-
-
-<h1 id="Initial-modification-based-on-its-example"><a href="#Initial-modification-based-on-its-example" class="headerlink" title="Initial modification based on its example"></a>Initial modification based on its example</h1><p>As a beginner, you may easily come up with these kind of modifications below.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>If you run the code, you can get error message:</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
-
-<p>This comes from that you are <a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">attempting this on the same thread</a>, which will give you a panic hammer on your head.</p>
-<h1 id="Fix-the-bug"><a href="#Fix-the-bug" class="headerlink" title="Fix the bug!"></a>Fix the bug!</h1><p>You can easily fix it via small modifications and add synchronizations.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>done</code> chan is added to make sure synchronizations happens correctly before main thread exits.</p>
-</li>
-<li><p><code>pw.Close()</code> must be performed inside another goroutine with <code>printall(tr)</code>. This is because <code>TeeReader</code> returns a Reader that writes to w what it reads from r.</p>
-</li>
-<li><p>Due to the existence of goroutine, you can change the order of two separate <code>go func(){}</code> unlike the example provided by <code>io.TeeReader()</code></p>
-</li>
-</ul>
-<p>Hope this post does help you in some way.</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Pipe</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Notes - English</title>
-    <url>/en/Gossip/2017/05/30-Notes/</url>
-    <content><![CDATA[<h1 id="Main-body"><a href="#Main-body" class="headerlink" title="Main body"></a>Main body</h1><div class="note info"><p>The theme of blog, which is <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>, almost has been done.</p>
-</div>
-
-<p>My only one purpose of doing this is to show off.</p>
-<p>“Hey, buddy, look at my blog. Awesome. Right? “</p>
-<p>Hahahahahaha……</p>
-<p>But I didn’t know this costs me so much.</p>
-<a id="more"></a>
-
-<h1 id="What-am-I-going-to-do-with-this-blog"><a href="#What-am-I-going-to-do-with-this-blog" class="headerlink" title="What am I going to do with this blog?"></a>What am I going to do with this blog?</h1><ol>
-<li><p>The theme of the blog should keep updated with the current technology. So, this theme maybe changes a lot or add some useless stuff(I hope it could be useful:D )</p>
-</li>
-<li><p>My blog’s name is ** go deep **. So I definitely pay attention to the quality of my articles in my blog. Perhaps some articles looks too easy for you since I am not good at everything what you guys excel at. So, be lenient. Thanks.</p>
-</li>
-</ol>
-<p>But,</p>
-<p>I make sure that I will do my best to write all posts.</p>
-<p>Sometimes, it happens to me that some posts are ** totally useless ** especially in China while I have already spent a lot of time in that. Damn!!!</p>
-<p>So, the summary is:</p>
-<div class="note danger"><p>** QUALITIES OF POSTS FIRSTS! DEFINITELY! **</p>
-</div>
-
-<h1 id="Gossips"><a href="#Gossips" class="headerlink" title="Gossips"></a>Gossips</h1><p>Why did I say this theme costs me a lot?</p>
-<p>Because <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is created in January, 2017. Mountains of stuff is killing me, which is main reason I didn’t do it so quickly.</p>
-<p>When I went to <a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a> to check my repository, I was surprised by the statistical data. DAMN. 103d for only 1 issue.</p>
-<p>I have been fixing this theme for this recent two weeks.<br>Okay, it is encourageing that <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is getting better. (So I can show off, Hahaha)</p>
-<p>The issues of my blog should get fixed later since a lot of troublesome trivial matters are killing me again. I can’t get affected by these.</p>
-<p>And also, I bought three-year domain.(Damn, it costs me 191￥ = 27$) Come on. I am still a poor student. That’s expensive to me.</p>
-<p>Fine, I hope blog derserve this.</p>
-<h1 id="Future-Plan"><a href="#Future-Plan" class="headerlink" title="Future Plan"></a>Future Plan</h1><div class="note primary"><p>1.Master Degreen First</p>
-</div>
-
-<p>Some people may ask: Why don’t you just go to work?</p>
-<p>Yeah, probably. But my educational background could look better.</p>
-<p>Why need higher degree? Any reasons?</p>
-<p>:) Nuh. I have decided to have one master degree. THere’s no special reasons for this. That’s all.</p>
-<div class="note primary"><p>2.Professional Skills Second</p>
-</div>
-
-<p>I have to earn to live, right? So, I need my professional skill prepared in the future. Or what difference between me and <code>salty fish</code>(Okay, this is a joke in China. Salty fish means man who doesn’t have any dreams.)</p>
-<p>Also,</p>
-<blockquote class="blockquote-center">
-<p>Men must have dreams. Even you have already become one of salty fish, then be the most salty one.</p>
-
-</blockquote>
-
-<center>
-<img src="/en/Gossip/2017/05/30-Notes/salty-fish-has-a-dream.jpg" class="">
-</center>
-
-<div class="note primary"><p>3.Front-end Knowledge, such CSS, HTML, Javascript</p>
-</div>
-
-<p>This is for showing off my blog. :D</p>
-<div class="note primary"><p>4.C++ or Java?</p>
-</div>
-
-<p>Unfortunately, I can do C++ and Java both.</p>
-<p>This is a little troublesome bacause I only have to choose one to expel at.</p>
-<p>However, I am young now that I wanna be the best in Java and C++.</p>
-<p>C++ is main coding language, with assistant by Kotlin( Java just backs up )</p>
-<div class="note primary"><p>5.Keep multi-language version of posts</p>
-</div>
-
-<p>I can only speak in Chinese(native), English and Japanese. I will try to write muti-language version of posts to you.</p>
-<p>Why I do this? Anyway, noone visits your blog.</p>
-<p>:D I don’t care. I am just for myself and for practicing.</p>
-<p>Maybe I will add Korean later~</p>
-<p>Just Looking Forword.</p>
-<blockquote class="blockquote-center">
-<p>The End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Gossip</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rust版Basic Calculator II以及改进</title>
-    <url>/zh-CN/Algorithm/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
-    <content><![CDATA[<p>此文源自于<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">Leetcode的基本计算机II</a>。</p>
-<p>使用Rust语言完成，共计有两个版本。</p>
-<p>一个是基础版本（可以完成题目的要求），另一个是在此基础之上的改进（可以完成所有的运算符的要求）。</p>
-<p>无论是基础版还是改进版，均使用Rust版本。无其他语言版本。</p>
-<a id="more"></a>
-
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>原始题源：<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a><br>中文题源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a></p>
-<p>题目描述：</p>
-<p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。</p>
-<ul>
-<li><p>示例 1：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">"3+2*2"</span></span><br><span class="line">输出：<span class="number">7</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例 2：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3/2 "</span></span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例 3：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3+5 / 2 "</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><h2 id="解法1：基础计算解法"><a href="#解法1：基础计算解法" class="headerlink" title="解法1：基础计算解法"></a>解法1：基础计算解法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>加法压入栈中</li>
-<li>减法压入负数的数字</li>
-<li>乘法和除法直接运算即可，并把结果压入栈中</li>
-</ul>
-<p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</a></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v1.rs</code>)如下：</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</span></span><br><span class="line"><span class="comment">/// PS：v1只能应对`+-*/`，不能处理带括号情况，甚至是其他优先级的情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> stack = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> pre_sign = <span class="string">'+'</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (idx, c) <span class="keyword">in</span> s.chars().enumerate() &#123;</span><br><span class="line">        <span class="keyword">if</span> c.is_numeric() &#123;</span><br><span class="line">            num = num * <span class="number">10</span> + parse_as_int(c)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> !c.is_numeric() &amp;&amp; !c.is_whitespace() || idx == n - <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">match</span> pre_sign &#123;</span><br><span class="line">                <span class="string">'+'</span> =&gt; stack.push(num),</span><br><span class="line">                <span class="string">'-'</span> =&gt; stack.push(-num),</span><br><span class="line">                <span class="string">'*'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev * num);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">'/'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev / num);</span><br><span class="line">                &#125;</span><br><span class="line">                _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            pre_sign = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.iter().sum()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="解法2：改进型全适应解法"><a href="#解法2：改进型全适应解法" class="headerlink" title="解法2：改进型全适应解法"></a>解法2：改进型全适应解法</h2><h3 id="改进的地方"><a href="#改进的地方" class="headerlink" title="改进的地方"></a>改进的地方</h3><ul>
-<li>使用双栈（数字栈和运算符栈）</li>
-<li>适用于有括号的表达式</li>
-<li>适用于<code>+ - * / ^ %</code>的运算符</li>
-</ul>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</a></p>
-<p><strong>思路一句话总结：模拟人计算表达式的过程，遇到括号先算括号内部的，遇到高优先级的先计算高优先级</strong></p>
-<p>思路具体如下：</p>
-<ul>
-<li>一共有两个栈：数字栈和运算符栈</li>
-<li><code>(</code>: 直接加入运算符栈中，等待与之匹配的<code>)</code></li>
-<li><code>+ - * / ^ %</code>: 需要将操作放入运算符栈中。</li>
-<li>只有「栈内运算符」比「当前运算符」优先级高/同等，才进行运算，（直到没有操作或者遇到左括号），计算结果放到栈中</li>
-</ul>
-<p>该算法来源中有个例子，比如当前已读取的运算符为<code>2 + 1</code>（完整的运算符为：<code>2 + 1 * 2</code>）。</p>
-<ol>
-<li>如果后面是<code>+ 2</code>或者是<code>- 1</code>，满足「栈内运算符」比「当前运算符」优先级相等或者更高，说明可以直接运算<code>2 + 1</code>然后把结果放入数字栈中</li>
-<li>如果后面是<code>* 2</code>或者是<code>/ 1</code>，当前的运算符为<code>*</code>或者<code>/</code>，比栈内运算符<code>+</code>要高，所以要先计算<code>*</code>或者<code>/</code>。即，「栈内运算符」比「当前运算符」低，不能直接运算<code>2 + 1</code>，只能先运算后面<code>1 * 2</code>。</li>
-</ol>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v2.rs</code>)如下：</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</span></span><br><span class="line"><span class="comment">/// PS：v2只能应对`+-*/%^`，甚至可以处理带括号的情况</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 原理：</span></span><br><span class="line"><span class="comment">/// 因为这套「表达式计算」处理逻辑，本质上模拟了人脑的处理逻辑：根据下一位的运算符优先级决定当前运算符是否可以马上计算。</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 改变：未完全按照原solution进行处理，暂时不考虑复杂情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> s = remove_whitespace(&amp;s);</span><br><span class="line">    <span class="keyword">if</span> s.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> nums_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ops_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> ops_priority = setup_op_priority();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; n &#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.chars().nth(i).unwrap();</span><br><span class="line">        <span class="keyword">match</span> c &#123;</span><br><span class="line">            <span class="string">'('</span> =&gt; ops_stack.push(c),</span><br><span class="line">            <span class="string">')'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 计算到最近一个左括号为止</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">                    <span class="keyword">if</span> ops_stack.last().unwrap() == &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                        ops_stack.pop();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="string">'0'</span>..=<span class="string">'9'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 把所有的数字都探测完成，然后压栈保存</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> j = i;</span><br><span class="line">                <span class="keyword">while</span> j &lt; n &amp;&amp; s.chars().nth(j).unwrap().is_numeric() &#123;</span><br><span class="line">                    <span class="keyword">let</span> j_char = s.chars().nth(j).unwrap();</span><br><span class="line">                    num = num * <span class="number">10</span> + parse_as_int(j_char);</span><br><span class="line">                    j += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">                nums_stack.push(num);</span><br><span class="line">            &#125;</span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="comment">// 分支：其他操作符号（无括号的运算符）</span></span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="comment">// 有一个新操作要入栈时，先把栈内可以算的都算了</span></span><br><span class="line">                <span class="comment">// 只有满足「栈内运算符」比「当前运算符」优先级高/同等，才进行运算</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &amp;&amp; ops_stack.last().unwrap() != &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev_op = ops_stack.last().unwrap();</span><br><span class="line">                    <span class="keyword">if</span> ops_priority.get(prev_op) &gt;= ops_priority.get(&amp;c) &#123;</span><br><span class="line">                        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ops_stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算剩余的栈中的数据</span></span><br><span class="line">    <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿出结果</span></span><br><span class="line">    nums_stack.pop().unwrap()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">calc</span></span>(nums_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, ops_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;) &#123;</span><br><span class="line">    <span class="keyword">let</span> b = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> a = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> op = ops_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="keyword">match</span> op &#123;</span><br><span class="line">        <span class="string">'+'</span> =&gt; a + b,</span><br><span class="line">        <span class="string">'-'</span> =&gt; a - b,</span><br><span class="line">        <span class="string">'*'</span> =&gt; a * b,</span><br><span class="line">        <span class="string">'/'</span> =&gt; a / b,</span><br><span class="line">        <span class="string">'%'</span> =&gt; a % b,</span><br><span class="line">        <span class="string">'^'</span> =&gt; a.pow(b <span class="keyword">as</span> <span class="built_in">u32</span>),</span><br><span class="line">        _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">    &#125;;</span><br><span class="line">    nums_stack.push(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">setup_op_priority</span></span>() -&gt; HashMap&lt;<span class="built_in">char</span>, <span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> map = HashMap::new();</span><br><span class="line">    map.insert(<span class="string">'+'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'-'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'*'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'/'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'%'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'^'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">remove_whitespace</span></span>(s: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    s.split_whitespace().collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Rust</category>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Rust</tag>
-        <tag>Algorithm</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
-    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
-<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
-<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
-<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
-<a id="more"></a>
-
-<hr>
-<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果你运行这段代码，你会得到如下的错误信息：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
-
-<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
-<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
-<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
-<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
-</ul>
-<p>希望这篇文章对你有用。</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>中文</tag>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Pipe</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Golang中TeeReader的Writer输出为空的问题小记</title>
-    <url>/zh-CN/Golang/2020/08/01-Golang%E4%B8%ADTeeReader%E7%9A%84Writer%E8%BE%93%E5%87%BA%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</url>
-    <content><![CDATA[<p>这是一个在工作的时候遇到的<code>TeeReader</code>的<code>Writer</code>为空的问题。花了一点时间解决。</p>
-<p>并且根据官方示例代码做出一定的调整，发现了一个比较有意思的现象。但是没有什么人说到这个问题。</p>
-<p>并且，由于对Golang的流式处理不熟悉，途中遇到了很多的问题。</p>
-<p>因此，来对记录一下<code>TeeReader</code>的解读。</p>
-<a id="more"></a>
-
-<h1 id="TeeReader"><a href="#TeeReader" class="headerlink" title="TeeReader"></a>TeeReader</h1><h2 id="TeeReader的描述"><a href="#TeeReader的描述" class="headerlink" title="TeeReader的描述"></a>TeeReader的描述</h2><p>首先放出<code>TeeReader</code>的源代码。代码比较简单，如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TeeReader</span><span class="params">(r Reader, w Writer)</span> <span class="title">Reader</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;teeReader&#123;r, w&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> teeReader <span class="keyword">struct</span> &#123;</span><br><span class="line">	r Reader</span><br><span class="line">	w Writer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *teeReader)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	n, err = t.r.Read(p)</span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> n, err := t.w.Write(p[:n]); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, err</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>官方的英文解释如下：</p>
-<blockquote>
-<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
-<p>All reads from r performed through it are matched with corresponding writes to w. There is no internal buffering - the write must complete before the read completes. </p>
-<p>Any error encountered while writing is reported as a read error.</p>
-</blockquote>
-<p>第一句话对于中文语言者可能没有那么好理解，它的意思其实非常简单：</p>
-<blockquote class="blockquote-center">
-<p>就是将 r 中的数据读出后同时写入 w 中，然后 <code>teeReader</code> 本身也是可以读取数据的，这样，就相当于复制出了一条数据流。 </p>
-
-</blockquote>
-
-<h2 id="TeeReader的用法"><a href="#TeeReader的用法" class="headerlink" title="TeeReader的用法"></a>TeeReader的用法</h2><p>官方的源代码示例如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">tee := io.TeeReader(r, &amp;buf)</span><br><span class="line"></span><br><span class="line">printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">	b, err := ioutil.ReadAll(r)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>其输出结果可得：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read # &lt;= 这个是*io.teeReader</span><br><span class="line">some io.Reader stream to be read # &lt;= 这个是*bytes.Buffer</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="TeeReader为什么Writer为空？"><a href="#TeeReader为什么Writer为空？" class="headerlink" title="TeeReader为什么Writer为空？"></a>TeeReader为什么Writer为空？</h2><p><code>TeeReader</code>的参数是一个reader和一个writer。但是为什么有时候writer会是空的？</p>
-<p>这也是我在实际工作中遇到的一个问题。</p>
-<p>这里，我们来把源代码示例的<code>printall</code>的输出顺序调整一下，如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//修改前的</span></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改过后的</span></span><br><span class="line">printall(&amp;buf)</span><br><span class="line">printall(tee)</span><br></pre></td></tr></table></figure>
-
-<p>这个时候输出即可看到，一个输出结果，也就是：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这个时候如果使用<code>reflect.typeOf()</code>去看他们的输出类型，输出结果为：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">*bytes.Buffer: *io.teeReader: some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
-
-
-
-<p>因此，可以看得到这里的<code>bytes.Buffer</code>输出内容为空，但是<code>teeReader</code>是不空的。</p>
-<p><strong>那么为什么会这样呢？</strong></p>
-<p><strong><em>A：</em></strong>其实，这是由于<code>teeReader</code>必须要完成了过后，才会写入到<code>buf</code>当中。因此，提前写诗没有任何数据的。</p>
-<p>这个也符合官方原文的英文解释：</p>
-<blockquote>
-<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
-</blockquote>
-<p>希望对你有用。</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>中文</tag>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Writer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rust-字符串交替合并</title>
-    <url>/zh-CN/Rust/2021/05/18-Rust-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%A4%E6%9B%BF%E5%90%88%E5%B9%B6/</url>
-    <content><![CDATA[<p>此需求来源于实际的工作场景。</p>
-<p>后发现在Leetcode上面也有这样的题目，我个人不喜欢Leetcode，但是既然有了也方便提供题目描述，于是就干脆记录一下。</p>
-<p>本身算法不复杂，属于Easy级别的题目。算是当成一个自己的小抄吧。</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>英文题源：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a><br>中文题源：<a href="https://leetcode-cn.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a></p>
-<p>题目描述：</p>
-<p>给你两个字符串 word1 和 word2 。请你从 word1 开始，通过交替添加字母来合并字符串。<br>如果一个字符串比另一个字符串长，就将多出来的字母追加到合并后字符串的末尾。返回合并后的字符串 </p>
-<p>示例 1：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line">输出：<span class="string">"apbqcr"</span></span><br><span class="line">解释：字符串合并情况如下所示：</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c r</span><br></pre></td></tr></table></figure>
-
-<p>示例 2：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line">输出：<span class="string">"apbqrs"</span></span><br><span class="line">解释：注意，word2 比 word1 长，<span class="string">"rs"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span> </span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r   s</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span>   r   s</span><br></pre></td></tr></table></figure>
-
-<p>示例 3：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line">输出：<span class="string">"apbqcd"</span></span><br><span class="line">解释：注意，word1 比 word2 长，<span class="string">"cd"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c   d</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span> </span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c   d</span><br></pre></td></tr></table></figure>
-
-<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><p>本质上思路比较简单，就不再赘述。直接贴代码：</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>Rust</tag>
-        <tag>Algorithm</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rust Merge Strings Alternately</title>
-    <url>/en/Rust/2021/05/18-Rust-Merge-Strings-Alternately/</url>
-    <content><![CDATA[<p>This posts comes from the real project scenario.</p>
-<p>Later, I surprisedly find there is one problem in Leetcode.</p>
-<p>Personally I not a fan of solving Leetcode problems. Let’s write a post here since they provide detailed descriptions.</p>
-<p>The problem is easy-level one and not complicated. So, just make it become onf of my cheatseets then.</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Source：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">Click Me: Leetcode-1768</a></p>
-<p>Description:</p>
-<p>You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.</p>
-<p>Return the merged string.</p>
-<p>Example 1:</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcr"</span></span><br><span class="line"><span class="string">Explanation:</span> The merged string will be merged <span class="keyword">as</span> <span class="string">so:</span></span><br><span class="line"><span class="string">word1:</span>  a   b   c</span><br><span class="line"><span class="string">word2:</span>    p   q   r</span><br><span class="line"><span class="string">merged:</span> a p b q c r</span><br></pre></td></tr></table></figure>
-
-
-<p>Example 2:</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqrs"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word2 is longer, <span class="string">"rs"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b </span><br><span class="line"><span class="string">word2:</span>    p   q   r   s</span><br><span class="line"><span class="string">merged:</span> a p b q   r   s</span><br></pre></td></tr></table></figure>
-
-<p>Example 3:</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcd"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word1 is longer, <span class="string">"cd"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b   c   d</span><br><span class="line"><span class="string">word2:</span>    p   q </span><br><span class="line"><span class="string">merged:</span> a p b q c   d</span><br></pre></td></tr></table></figure>
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The algorithm itself is quite simple so I won’t repeat this in here. Let’s show the code directly:</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Rust</tag>
       </tags>
   </entry>
 </search>
