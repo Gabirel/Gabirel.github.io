@@ -2029,4 +2029,43 @@
         <tag>中文</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rust-字符串交替合并</title>
+    <url>/zh-CN/Rust/2021/05/18-Rust-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%A4%E6%9B%BF%E5%90%88%E5%B9%B6/</url>
+    <content><![CDATA[<p>此需求来源于实际的工作场景。</p>
+<p>后发现在Leetcode上面也有这样的题目，我个人不喜欢Leetcode，但是既然有了也方便提供题目描述，于是就干脆记录一下。</p>
+<p>本身算法不复杂，属于Easy级别的题目。算是当成一个自己的小抄吧。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>英文题源：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a><br>中文题源：<a href="https://leetcode-cn.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">点我: Leetcode-1768</a></p>
+<p>题目描述：</p>
+<p>给你两个字符串 word1 和 word2 。请你从 word1 开始，通过交替添加字母来合并字符串。<br>如果一个字符串比另一个字符串长，就将多出来的字母追加到合并后字符串的末尾。返回合并后的字符串 </p>
+<p>示例 1：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line">输出：<span class="string">"apbqcr"</span></span><br><span class="line">解释：字符串合并情况如下所示：</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c r</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line">输出：<span class="string">"apbqrs"</span></span><br><span class="line">解释：注意，word2 比 word1 长，<span class="string">"rs"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span> </span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span>   r   s</span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span>   r   s</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">输入：word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line">输出：<span class="string">"apbqcd"</span></span><br><span class="line">解释：注意，word1 比 word2 长，<span class="string">"cd"</span> 需要追加到合并后字符串的末尾。</span><br><span class="line">word1：  <span class="selector-tag">a</span>   <span class="selector-tag">b</span>   c   d</span><br><span class="line">word2：    <span class="selector-tag">p</span>   <span class="selector-tag">q</span> </span><br><span class="line">合并后：  <span class="selector-tag">a</span> <span class="selector-tag">p</span> <span class="selector-tag">b</span> <span class="selector-tag">q</span> c   d</span><br></pre></td></tr></table></figure>
+
+<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><p>本质上思路比较简单，就不再赘述。直接贴代码：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Rust</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
 </search>
