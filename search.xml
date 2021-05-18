@@ -2228,4 +2228,44 @@
         <tag>中文</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rust Merge Strings Alternately</title>
+    <url>/en/Rust/2021/05/18-Rust-Merge-Strings-Alternately/</url>
+    <content><![CDATA[<p>This posts comes from the real project scenario.</p>
+<p>Later, I surprisedly find there is one problem in Leetcode.</p>
+<p>Personally I not a fan of solving Leetcode problems. Let’s write a post here since they provide detailed descriptions.</p>
+<p>The problem is easy-level one and not complicated. So, just make it become onf of my cheatseets then.</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Source：<a href="https://leetcode.com/problems/merge-strings-alternately/" target="_blank" rel="noopener">Click Me: Leetcode-1768</a></p>
+<p>Description:</p>
+<p>You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.</p>
+<p>Return the merged string.</p>
+<p>Example 1:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abc"</span>, word2 = <span class="string">"pqr"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcr"</span></span><br><span class="line"><span class="string">Explanation:</span> The merged string will be merged <span class="keyword">as</span> <span class="string">so:</span></span><br><span class="line"><span class="string">word1:</span>  a   b   c</span><br><span class="line"><span class="string">word2:</span>    p   q   r</span><br><span class="line"><span class="string">merged:</span> a p b q c r</span><br></pre></td></tr></table></figure>
+
+
+<p>Example 2:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"ab"</span>, word2 = <span class="string">"pqrs"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqrs"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word2 is longer, <span class="string">"rs"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b </span><br><span class="line"><span class="string">word2:</span>    p   q   r   s</span><br><span class="line"><span class="string">merged:</span> a p b q   r   s</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Input:</span> word1 = <span class="string">"abcd"</span>, word2 = <span class="string">"pq"</span></span><br><span class="line"><span class="string">Output:</span> <span class="string">"apbqcd"</span></span><br><span class="line"><span class="string">Explanation:</span> Notice that <span class="keyword">as</span> word1 is longer, <span class="string">"cd"</span> is appended to the end.</span><br><span class="line"><span class="string">word1:</span>  a   b   c   d</span><br><span class="line"><span class="string">word2:</span>    p   q </span><br><span class="line"><span class="string">merged:</span> a p b q c   d</span><br></pre></td></tr></table></figure>
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>The algorithm itself is quite simple so I won’t repeat this in here. Let’s show the code directly:</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3def"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abcdef"</span>.to_string(), <span class="string">"123"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        <span class="string">"a1b2c3456"</span>,</span><br><span class="line">        merge_alternately(<span class="string">"abc"</span>.to_string(), <span class="string">"123456"</span>.to_string())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Rust</tag>
+      </tags>
+  </entry>
 </search>
