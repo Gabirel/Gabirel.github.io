@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en,zh-CN,ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"godeep.pro","root":"/","scheme":"Mala","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="IntroductionThis comes from the side exercise of exercism in rust. Mentor gaetanww helped me a lot on code refactoring and logical improvements advice with great patience and careful instruction. He e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code Refactoring of Bob - Exercism in Rust">
+<meta property="og:url" content="https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/index.html">
+<meta property="og:site_name" content="Go Deep | Blog">
+<meta property="og:description" content="IntroductionThis comes from the side exercise of exercism in rust. Mentor gaetanww helped me a lot on code refactoring and logical improvements advice with great patience and careful instruction. He e">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-14T13:15:38.000Z">
+<meta property="article:modified_time" content="2021-05-18T07:20:45.470Z">
+<meta property="article:author" content="Gabriel Farnsworth">
+<meta property="article:tag" content="English">
+<meta property="article:tag" content="Rust">
+<meta property="article:tag" content="Exercism">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Code Refactoring of Bob - Exercism in Rust | Go Deep | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Go Deep | Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Go Deep and Be professional</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Instructions"><span class="nav-number">1.1.</span> <span class="nav-text">Instructions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-suite"><span class="nav-number">1.2.</span> <span class="nav-text">Test suite</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-1"><span class="nav-number">2.1.</span> <span class="nav-text">Version 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version-1"><span class="nav-number">2.2.</span> <span class="nav-text">Comments on Version 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-2"><span class="nav-number">2.3.</span> <span class="nav-text">Version 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version2"><span class="nav-number">2.4.</span> <span class="nav-text">Comments on Version2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-3"><span class="nav-number">2.5.</span> <span class="nav-text">Version 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version-3"><span class="nav-number">2.6.</span> <span class="nav-text">Comments on Version 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-4"><span class="nav-number">2.7.</span> <span class="nav-text">Version 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version4"><span class="nav-number">2.8.</span> <span class="nav-text">Comments on Version4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-5"><span class="nav-number">2.9.</span> <span class="nav-text">Version 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version-5"><span class="nav-number">2.10.</span> <span class="nav-text">Comments on Version 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-6"><span class="nav-number">2.11.</span> <span class="nav-text">Version 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version-6"><span class="nav-number">2.12.</span> <span class="nav-text">Comments on Version 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-7"><span class="nav-number">2.13.</span> <span class="nav-text">Version 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-on-Version-7"><span class="nav-number">2.14.</span> <span class="nav-text">Comments on Version 7</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Gabriel Farnsworth</p>
+  <div class="site-description" itemprop="description">Just Go Deep</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Gabirel" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Gabirel" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gabilvlace@gmail.com" title="E-Mail → mailto:gabilvlace@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GabrielDeVaa" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GabrielDeVaa" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://youzhiye.github.io/" title="https:&#x2F;&#x2F;youzhiye.github.io" rel="noopener" target="_blank">y0uz</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/Gabirel" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Gabriel Farnsworth">
+      <meta itemprop="description" content="Just Go Deep">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Go Deep | Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Code Refactoring of Bob - Exercism in Rust
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-14 21:15:38" itemprop="dateCreated datePublished" datetime="2019-10-14T21:15:38+08:00">2019-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-18 15:20:45" itemprop="dateModified" datetime="2021-05-18T15:20:45+08:00">2021-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the side exercise of exercism in rust.</p>
+<p>Mentor <code>gaetanww</code> helped me a lot on code refactoring and logical improvements advice with great patience and careful instruction. He even changed my attitude towards work and researching. I have nothing else to say to express my thanks to my mentor.</p>
+<p>So I decide to record the whole process of code improvements and advice from <code>gaetanww</code>.</p>
+<p>I am pretty sure that you could gain lessons from this post as well.</p>
+<a id="more"></a>
+
+<div class="note info"><p>Exercise Introduction:</p>
+</div>
+
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>Bob is a lackadaisical teenager. In conversation, his responses are very limited.</p>
+<p>Bob answers ‘Sure.’ if you ask him a question, such as “How are you?”.</p>
+<p>He answers ‘Whoa, chill out!’ if you YELL AT HIM (in all capitals).</p>
+<p>He answers ‘Calm down, I know what I’m doing!’ if you yell a question at him.</p>
+<p>He says ‘Fine. Be that way!’ if you address him without actually saying anything.</p>
+<p>He answers ‘Whatever.’ to anything else.</p>
+<p>Bob’s conversational partner is a purist when it comes to written communication and always follows normal rules regarding sentence punctuation in English.</p>
+<h2 id="Test-suite"><a href="#Test-suite" class="headerlink" title="Test suite"></a>Test suite</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> bob;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">process_response_case</span></span>(phrase: &amp;<span class="built_in">str</span>, expected_response: &amp;<span class="built_in">str</span>) &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(bob::reply(phrase), expected_response);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_stating_something</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Tom-ay-to, tom-aaaah-to."</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_shouting</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"WATCH OUT!"</span>, <span class="string">"Whoa, chill out!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_shouting_gibberish</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"FCECDFCAAB"</span>, <span class="string">"Whoa, chill out!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_asking_a_question</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Does this cryogenic chamber make me look fat?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_asking_a_numeric_question</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"You are, what, like 15?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_asking_gibberish</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"fffbbcbeab?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_talking_forcefully</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Let's go make out behind the gym!"</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_using_acronyms_in_regular_speech</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"It's OK if you don't want to go to the DMV."</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_forceful_question</span></span>() &#123;</span><br><span class="line">    process_response_case(</span><br><span class="line">        <span class="string">"WHAT THE HELL WERE YOU THINKING?"</span>,</span><br><span class="line">        <span class="string">"Calm down, I know what I'm doing!"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_shouting_numbers</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"1, 2, 3 GO!"</span>, <span class="string">"Whoa, chill out!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_no_letters</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"1, 2, 3"</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_question_with_no_letters</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"4?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_shouting_with_special_characters</span></span>() &#123;</span><br><span class="line">    process_response_case(</span><br><span class="line">        <span class="string">"ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"</span>,</span><br><span class="line">        <span class="string">"Whoa, chill out!"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_shouting_with_no_exclamation_mark</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"I HATE THE DMV"</span>, <span class="string">"Whoa, chill out!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_statement_containing_question_mark</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Ending with ? means a question."</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_nonletters_with_question</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">":) ?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_prattling_on</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Wait! Hang on. Are you going to be OK?"</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_silence</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">""</span>, <span class="string">"Fine. Be that way!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_prolonged_silence</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"          "</span>, <span class="string">"Fine. Be that way!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_alternate_silence</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"\t\t\t\t\t\t\t\t\t\t"</span>, <span class="string">"Fine. Be that way!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_multiple_line_question</span></span>() &#123;</span><br><span class="line">    process_response_case(</span><br><span class="line">        <span class="string">"\nDoes this cryogenic chamber make me look fat?\nNo."</span>,</span><br><span class="line">        <span class="string">"Whatever."</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_starting_with_whitespace</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"         hmmmmmmm..."</span>, <span class="string">"Whatever."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_ending_with_whitespace</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"Okay if like my  spacebar  quite a bit?   "</span>, <span class="string">"Sure."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_other_whitespace</span></span>() &#123;</span><br><span class="line">    process_response_case(<span class="string">"\n\r \t"</span>, <span class="string">"Fine. Be that way!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_nonquestion_ending_with_whitespace</span></span>() &#123;</span><br><span class="line">    process_response_case(</span><br><span class="line">        <span class="string">"This is a statement ending with whitespace      "</span>,</span><br><span class="line">        <span class="string">"Whatever."</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> is_all_capitalized(message) &amp;&amp; have_letters(message) &#123;</span><br><span class="line">        <span class="keyword">if</span> message.chars().nth(message.len() - <span class="number">1</span>) == <span class="literal">Some</span>(<span class="string">'?'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> have_letters(message) &#123;</span><br><span class="line">        <span class="keyword">if</span> message.trim().chars().nth(message.trim().len() - <span class="number">1</span>) == <span class="literal">Some</span>(<span class="string">'?'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Sure."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Whatever."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> have_nothing(message) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> message.chars().nth(message.len() - <span class="number">1</span>) == <span class="literal">Some</span>(<span class="string">'?'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Sure."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Whatever."</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..message.len() &#123;</span><br><span class="line">        <span class="keyword">let</span> f = message.chars().nth(i);</span><br><span class="line">        <span class="keyword">if</span> f &gt;= <span class="literal">Some</span>(<span class="string">'a'</span>) &amp;&amp; f &lt;= <span class="literal">Some</span>(<span class="string">'z'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..message.len() &#123;</span><br><span class="line">        <span class="keyword">let</span> f = message.chars().nth(i);</span><br><span class="line">        <span class="keyword">if</span> f &gt;= <span class="literal">Some</span>(<span class="string">'a'</span>) &amp;&amp; f &lt;= <span class="literal">Some</span>(<span class="string">'z'</span>) || f &gt;= <span class="literal">Some</span>(<span class="string">'A'</span>) &amp;&amp; f &lt;= <span class="literal">Some</span>(<span class="string">'Z'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_nothing</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> !have_letters(message) &#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..message.len() &#123;</span><br><span class="line">            <span class="keyword">let</span> f = message.chars().nth(i);</span><br><span class="line">            <span class="keyword">if</span> f != <span class="literal">Some</span>(<span class="string">' '</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\n'</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\t'</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\r'</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version-1"><a href="#Comments-on-Version-1" class="headerlink" title="Comments on Version 1"></a>Comments on Version 1</h2><ul>
+<li><p>Check out using <code>match</code> instead of <code>if</code>. For some things, like destructuring, it’s required. It’s an idiom specific to Rust, so I always default to it unless the logic is comparing many different things and a match, in that case, makes it messy.</p>
+</li>
+<li><p>Have a look at <a href="https://doc.rust-lang.org/std/string/struct.String.html#method.ends_with" target="_blank" rel="noopener"><code>.ends_with()</code></a> to check if it’s a question, it expresses your intent better.</p>
+</li>
+<li><p>at line 48 you wrote:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> f != <span class="literal">Some</span>(<span class="string">' '</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\n'</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\t'</span>) &amp;&amp; f != <span class="literal">Some</span>(<span class="string">'\r'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The method <code>.trim()</code> gets rid of all these characters for you :)</p>
+</li>
+<li><p>We don’t necessarily need to create separate functions here. We can put this all in one by setting these calls to variables instead (check iterator methods, like <code>.any()</code> etc.)</p>
+</li>
+<li><p>Your function <code>is_all_capitalized()</code> does not handle non-ASCII characters.</p>
+</li>
+</ul>
+<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> message.trim().ends_with(<span class="string">"?"</span>) &#123;</span><br><span class="line">        <span class="keyword">match</span> is_all_capitalized(message.trim()) &#123;</span><br><span class="line">            <span class="literal">true</span> =&gt; <span class="keyword">if</span> have_letters(message.trim()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Sure."</span>;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="literal">false</span> =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> message.trim().len() &lt;= <span class="number">0</span> &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>,</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> is_all_capitalized(message.trim()) &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> have_letters(message.trim()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"Whatever."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> message.chars() &#123;</span><br><span class="line">        <span class="keyword">match</span> ch &#123;</span><br><span class="line">            <span class="string">'a'</span>..=<span class="string">'z'</span> =&gt; <span class="keyword">return</span> <span class="literal">false</span>,</span><br><span class="line">            _ =&gt; &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..message.len() &#123;</span><br><span class="line">        <span class="keyword">let</span> f = message.chars().nth(i);</span><br><span class="line">        <span class="keyword">if</span> f &gt;= <span class="literal">Some</span>(<span class="string">'a'</span>) &amp;&amp; f &lt;= <span class="literal">Some</span>(<span class="string">'z'</span>) || f &gt;= <span class="literal">Some</span>(<span class="string">'A'</span>) &amp;&amp; f &lt;= <span class="literal">Some</span>(<span class="string">'Z'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version2"><a href="#Comments-on-Version2" class="headerlink" title="Comments on Version2"></a>Comments on Version2</h2><ul>
+<li><p>One of the main goals of exercism is to teach ‘fluency’ in a programming language. One of the aspects of fluency in Rust is finding information easily in the standard library and third-party libraries, there is often a way to do things more shortly, correctly and efficiently.</p>
+<p>For example, you can replace some of your functions by methods on characters (<code>.is_alphabetic()</code>, <code>.is_uppercase</code>) or iterators and strings (<code>.is_empty()</code> instead of <code>string.len() == 0</code>). May I suggest you look up these functions and see if it would help you? It might also bring some edge-cases that you haven’t considered (Is <code>Ü</code> uppercase and/or alphabetic? ).</p>
+<ul>
+<li>My answer: <code>Ü</code> is uppercase and is not alphabetic.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version 3"></a>Version 3</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> message.trim().ends_with(<span class="string">"?"</span>) &#123;</span><br><span class="line">        <span class="keyword">match</span> is_all_capitalized(message.trim()) &#123;</span><br><span class="line">            <span class="literal">true</span> =&gt; <span class="keyword">if</span> have_letters(message.trim()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Sure."</span>;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="literal">false</span> =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> message.trim().is_empty() &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>,</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> is_all_capitalized(message.trim()) &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> have_letters(message.trim()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"Whatever."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> message.chars() &#123;</span><br><span class="line">        <span class="keyword">match</span> ch.is_uppercase() &#123;</span><br><span class="line">            <span class="literal">false</span> =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> ch.is_ascii_alphabetic() &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="built_in">println!</span>(<span class="string">"&#123;&#125;: &#123;&#125;"</span>, ch, ch.is_uppercase());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> message.chars() &#123;</span><br><span class="line">        <span class="keyword">match</span> ch.is_ascii_alphabetic() &#123;</span><br><span class="line">            <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="literal">true</span>,</span><br><span class="line">            _ =&gt; &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version-3"><a href="#Comments-on-Version-3" class="headerlink" title="Comments on Version 3"></a>Comments on Version 3</h2><ul>
+<li><p>You recompute <code>message.trim()</code> several times (at line 2, 12, 16 and 18), it could be better to store it in a variable like:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> trimmed_message = message.trim();</span><br><span class="line">or even</span><br><span class="line"><span class="keyword">let</span> message = message.trim();</span><br></pre></td></tr></table></figure>
+
+<p>This is probably going to get optimized by the compiler, but it would at least make your program a bit shorter.</p>
+</li>
+<li><p>In the functions <code>is_all_capitalized</code> and <code>have_letters</code> you use an iterator (<code>message.chars()</code>) match on the elements to verify some properties on them. You can rewrite those two functions with only iterators methods, would you like to try it?</p>
+<p>It would look a bit like that:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> is_all_capitalized = message.chars().method1(...);</span><br></pre></td></tr></table></figure>
+
+<p>If you’re stuck, have a look at the <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.any" target="_blank" rel="noopener">any()</a> and <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.all" target="_blank" rel="noopener">all()</a> methods.</p>
+</li>
+</ul>
+<h2 id="Version-4"><a href="#Version-4" class="headerlink" title="Version 4"></a>Version 4</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> message = message.trim();</span><br><span class="line">    <span class="keyword">if</span> message.ends_with(<span class="string">"?"</span>) &#123;</span><br><span class="line">        <span class="keyword">match</span> is_all_capitalized(message) &#123;</span><br><span class="line">            <span class="literal">true</span> =&gt; <span class="keyword">if</span> have_letters(message) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Sure."</span>;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="literal">false</span> =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> message.is_empty() &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>,</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> is_all_capitalized(message) &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> have_letters(message) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"Whatever."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    !message.chars().any(|x| x.is_ascii_alphabetic() &amp;&amp; x.is_lowercase())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().any(|x| x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version4"><a href="#Comments-on-Version4" class="headerlink" title="Comments on Version4"></a>Comments on Version4</h2><ul>
+<li><p>You can use <code>match</code> statements on tuples. For example:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">match</span> (condition1, condition2) &#123;</span><br><span class="line">    (_, <span class="literal">true</span>) =&gt; ...,</span><br><span class="line">    (<span class="literal">true</span>, <span class="literal">false</span>) =&gt; ..., </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Can you use that to make your code more straightforward?</p>
+</li>
+</ul>
+<h2 id="Version-5"><a href="#Version-5" class="headerlink" title="Version 5"></a>Version 5</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> message = message.trim();</span><br><span class="line">    <span class="keyword">if</span> message.ends_with(<span class="string">"?"</span>) &#123;</span><br><span class="line">        <span class="keyword">match</span> (is_all_capitalized(message), have_letters(message)) &#123;</span><br><span class="line">            (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>,</span><br><span class="line">            (<span class="literal">true</span>, <span class="literal">false</span>) =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">            (<span class="literal">false</span>, _) =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> message.is_empty() &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>,</span><br><span class="line">        _ =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> (is_all_capitalized(message), have_letters(message)) &#123;</span><br><span class="line">        (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>,</span><br><span class="line">        (_, _) =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"Whatever."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    !message.chars().any(|x| x.is_ascii_alphabetic() &amp;&amp; x.is_lowercase())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().any(|x| x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version-5"><a href="#Comments-on-Version-5" class="headerlink" title="Comments on Version 5"></a>Comments on Version 5</h2><ul>
+<li><p>We don’t tend to use lots of return statements, so if you have a lot of them you might be able to iprove your code. The reason why wer don’t use them so much is that it makes the control flow of your program more difficult to read.<br>For example, in that exercise, you can get rid of all the return statements and have only one big match. Try and find how to do it :)</p>
+</li>
+<li><p>One way you can move forward with this exercise is to store boolean results in variable: for example:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> is_empty = message.is_empty();</span><br><span class="line"><span class="keyword">let</span> is_question = message.ends_with(<span class="string">"?"</span>);</span><br><span class="line"><span class="keyword">let</span> is_all_capitalized = etc...</span><br></pre></td></tr></table></figure>
+
+<p>Hopefully this will clear things up for the <code>match</code> statement.</p>
+</li>
+</ul>
+<h2 id="Version-6"><a href="#Version-6" class="headerlink" title="Version 6"></a>Version 6</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> message = message.trim();</span><br><span class="line">    <span class="keyword">let</span> is_empty = message.is_empty();</span><br><span class="line">    <span class="keyword">let</span> is_question = message.ends_with(<span class="string">"?"</span>);</span><br><span class="line">    <span class="keyword">let</span> is_all_capitalized = is_all_capitalized(message);</span><br><span class="line">    <span class="keyword">let</span> is_having_letters = have_letters(message);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">match</span> is_question &#123;</span><br><span class="line">        <span class="literal">true</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">match</span> (is_all_capitalized, is_having_letters) &#123;</span><br><span class="line">                (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="keyword">return</span> <span class="string">"Calm down, I know what I'm doing!"</span>,</span><br><span class="line">                (<span class="literal">true</span>, <span class="literal">false</span>) =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">                (<span class="literal">false</span>, _) =&gt; <span class="keyword">return</span> <span class="string">"Sure."</span>,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="literal">false</span> =&gt; &#123;</span><br><span class="line">            <span class="keyword">match</span> is_empty &#123;</span><br><span class="line">                <span class="literal">true</span> =&gt; <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>,</span><br><span class="line">                <span class="literal">false</span> =&gt; <span class="keyword">match</span> (is_all_capitalized, is_having_letters) &#123;</span><br><span class="line">                    (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="keyword">return</span> <span class="string">"Whoa, chill out!"</span>,</span><br><span class="line">                    (_, _) =&gt; &#123;&#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="string">"Whatever."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().all(|x| x.is_ascii_alphabetic() &amp;&amp; x.is_uppercase() || !x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().any(|x| x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version-6"><a href="#Comments-on-Version-6" class="headerlink" title="Comments on Version 6"></a>Comments on Version 6</h2><ul>
+<li>Rust  has other paradigms that are fun and interesting to explore. One of them is that Rust is an <a href="https://doc.rust-lang.org/1.8.0/book/glossary.html#expression-oriented-language" target="_blank" rel="noopener">expression-oriented language</a> where all statements return a value, and that’s why you don’t necessarily need a <code>return</code> to return a value from a function. You’ll see that if you avoid using it (when it makes sense to, returning early is a valid use case for using <code>return</code>) it will compose very well with other bits of rust code.</li>
+</ul>
+<hr>
+<p>As for your code, if you want to get rid of te return statements, try:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">match</span>(is_question, is_question, is_having_letters, etc.) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>I think you can simplify the problem to have two or three variables in the match statements.</p>
+<p>Consider matching with:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> is_yelled = is_all_capitalized &amp;&amp; is_having_letters;</span><br><span class="line"><span class="keyword">match</span> (is_empty, is_question, is_yelled) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Or even:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> message.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">match</span> (is_question, is_yelled) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Your code can be refactored. Please see:</p>
+</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> message.is_empty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">match</span> (is_question, is_yelled) &#123;</span><br><span class="line">    (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="string">"Calm down, I know what I'm doing!"</span>,</span><br><span class="line">    (<span class="literal">true</span>, <span class="literal">false</span>) =&gt; <span class="string">"Sure."</span>,</span><br><span class="line">    (<span class="literal">false</span>, <span class="literal">true</span>) =&gt; <span class="string">"Whoa, chill out!"</span>,</span><br><span class="line">    (<span class="literal">false</span>, <span class="literal">false</span>) =&gt; <span class="string">"Whatever."</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Version-7"><a href="#Version-7" class="headerlink" title="Version 7"></a>Version 7</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reply</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; &amp;<span class="built_in">str</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> message = message.trim();</span><br><span class="line">    <span class="keyword">let</span> is_question = message.ends_with(<span class="string">"?"</span>);</span><br><span class="line">    <span class="keyword">let</span> is_yelled = is_all_capitalized(message) &amp;&amp; have_letters(message);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> message.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Fine. Be that way!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">match</span> (is_question, is_yelled) &#123;</span><br><span class="line">        (<span class="literal">true</span>, <span class="literal">true</span>) =&gt; <span class="string">"Calm down, I know what I'm doing!"</span>,</span><br><span class="line">        (<span class="literal">true</span>, <span class="literal">false</span>) =&gt; <span class="string">"Sure."</span>,</span><br><span class="line">        (<span class="literal">false</span>, <span class="literal">true</span>) =&gt; <span class="string">"Whoa, chill out!"</span>,</span><br><span class="line">        (<span class="literal">false</span>, <span class="literal">false</span>) =&gt; <span class="string">"Whatever."</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">is_all_capitalized</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().all(|x| x.is_ascii_alphabetic() &amp;&amp; x.is_uppercase() || !x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">have_letters</span></span>(message: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">bool</span> &#123;</span><br><span class="line">    message.chars().any(|x| x.is_ascii_alphabetic())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Comments-on-Version-7"><a href="#Comments-on-Version-7" class="headerlink" title="Comments on Version 7"></a>Comments on Version 7</h2><ul>
+<li>Well done!</li>
+</ul>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gabriel Farnsworth
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/" title="Code Refactoring of Bob - Exercism in Rust">https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"># English</a>
+              <a href="/tags/Rust/" rel="tag"># Rust</a>
+              <a href="/tags/Exercism/" rel="tag"># Exercism</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/en/Algorithm/2019/10/05-0-1-Knapsack-problem-solver-code/" rel="prev" title="0/1 Knapsack problem solver code">
+      <i class="fa fa-chevron-left"></i> 0/1 Knapsack problem solver code
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/en/Rust/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/" rel="next" title="Atbash Cipher Code Refactoring Record">
+      Atbash Cipher Code Refactoring Record <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gabriel Farnsworth</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://github.com/next-geek/next-geek" class="theme-link" rel="noopener" target="_blank">NexT.Mala</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://godeep.pro/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/',]
+      });
+      });
+  </script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e7665f929216b30d7fa3',
+      clientSecret: '3cd611cc9384541573db91c0b1801cc7273508f8',
+      repo        : 'gabirel.github.io',
+      owner       : 'Gabirel',
+      admin       : ['Gabirel'],
+      id          : '397d5c0ac7954e20f06a6b91160f1d27',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

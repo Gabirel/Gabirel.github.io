@@ -153,94 +153,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Notes - English</title>
-    <url>/en/Gossip/2017/05/30-Notes/</url>
-    <content><![CDATA[<h1 id="Main-body"><a href="#Main-body" class="headerlink" title="Main body"></a>Main body</h1><div class="note info"><p>The theme of blog, which is <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>, almost has been done.</p>
-</div>
-
-<p>My only one purpose of doing this is to show off.</p>
-<p>“Hey, buddy, look at my blog. Awesome. Right? “</p>
-<p>Hahahahahaha……</p>
-<p>But I didn’t know this costs me so much.</p>
-<a id="more"></a>
-
-<h1 id="What-am-I-going-to-do-with-this-blog"><a href="#What-am-I-going-to-do-with-this-blog" class="headerlink" title="What am I going to do with this blog?"></a>What am I going to do with this blog?</h1><ol>
-<li><p>The theme of the blog should keep updated with the current technology. So, this theme maybe changes a lot or add some useless stuff(I hope it could be useful:D )</p>
-</li>
-<li><p>My blog’s name is ** go deep **. So I definitely pay attention to the quality of my articles in my blog. Perhaps some articles looks too easy for you since I am not good at everything what you guys excel at. So, be lenient. Thanks.</p>
-</li>
-</ol>
-<p>But,</p>
-<p>I make sure that I will do my best to write all posts.</p>
-<p>Sometimes, it happens to me that some posts are ** totally useless ** especially in China while I have already spent a lot of time in that. Damn!!!</p>
-<p>So, the summary is:</p>
-<div class="note danger"><p>** QUALITIES OF POSTS FIRSTS! DEFINITELY! **</p>
-</div>
-
-<h1 id="Gossips"><a href="#Gossips" class="headerlink" title="Gossips"></a>Gossips</h1><p>Why did I say this theme costs me a lot?</p>
-<p>Because <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is created in January, 2017. Mountains of stuff is killing me, which is main reason I didn’t do it so quickly.</p>
-<p>When I went to <a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a> to check my repository, I was surprised by the statistical data. DAMN. 103d for only 1 issue.</p>
-<p>I have been fixing this theme for this recent two weeks.<br>Okay, it is encourageing that <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is getting better. (So I can show off, Hahaha)</p>
-<p>The issues of my blog should get fixed later since a lot of troublesome trivial matters are killing me again. I can’t get affected by these.</p>
-<p>And also, I bought three-year domain.(Damn, it costs me 191￥ = 27$) Come on. I am still a poor student. That’s expensive to me.</p>
-<p>Fine, I hope blog derserve this.</p>
-<h1 id="Future-Plan"><a href="#Future-Plan" class="headerlink" title="Future Plan"></a>Future Plan</h1><div class="note primary"><p>1.Master Degreen First</p>
-</div>
-
-<p>Some people may ask: Why don’t you just go to work?</p>
-<p>Yeah, probably. But my educational background could look better.</p>
-<p>Why need higher degree? Any reasons?</p>
-<p>:) Nuh. I have decided to have one master degree. THere’s no special reasons for this. That’s all.</p>
-<div class="note primary"><p>2.Professional Skills Second</p>
-</div>
-
-<p>I have to earn to live, right? So, I need my professional skill prepared in the future. Or what difference between me and <code>salty fish</code>(Okay, this is a joke in China. Salty fish means man who doesn’t have any dreams.)</p>
-<p>Also,</p>
-<blockquote class="blockquote-center">
-<p>Men must have dreams. Even you have already become one of salty fish, then be the most salty one.</p>
-
-</blockquote>
-
-<center>
-<img src="/en/Gossip/2017/05/30-Notes/salty-fish-has-a-dream.jpg" class="">
-</center>
-
-<div class="note primary"><p>3.Front-end Knowledge, such CSS, HTML, Javascript</p>
-</div>
-
-<p>This is for showing off my blog. :D</p>
-<div class="note primary"><p>4.C++ or Java?</p>
-</div>
-
-<p>Unfortunately, I can do C++ and Java both.</p>
-<p>This is a little troublesome bacause I only have to choose one to expel at.</p>
-<p>However, I am young now that I wanna be the best in Java and C++.</p>
-<p>C++ is main coding language, with assistant by Kotlin( Java just backs up )</p>
-<div class="note primary"><p>5.Keep multi-language version of posts</p>
-</div>
-
-<p>I can only speak in Chinese(native), English and Japanese. I will try to write muti-language version of posts to you.</p>
-<p>Why I do this? Anyway, noone visits your blog.</p>
-<p>:D I don’t care. I am just for myself and for practicing.</p>
-<p>Maybe I will add Korean later~</p>
-<p>Just Looking Forword.</p>
-<blockquote class="blockquote-center">
-<p>The End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Gossip</category>
-      </categories>
-      <tags>
-        <tag>Life</tag>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to solve nothing showed in grey box of Discord</title>
-    <url>/en/Discord/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/</url>
+    <url>/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We all know that what discord is and what it does. Okay, if you don’t know what it is, just skip this post.</p>
 <p>This post is only for those who have showing issue in their grey box.</p>
 <div class="note info"><p>Platform: Linux Arch-like</p>
@@ -251,7 +165,7 @@
 
 <h1 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h1><p>If you update your discord to <code>Linux-v0.0.2</code>, you should encounter this issue that nothing shows in the grey box of Discord below.</p>
 <center>
-<img src="/en/Discord/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank.png" class="" title="Nothing shows in grey box">
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank.png" class="" title="Nothing shows in grey box">
 </center>
 
 <p>Okay, this is easy.</p>
@@ -262,7 +176,7 @@
 </blockquote>
 <h1 id="Another-problem-when-trying-to-install-libc"><a href="#Another-problem-when-trying-to-install-libc" class="headerlink" title="Another problem when trying to install libc++"></a>Another problem when trying to install libc++</h1><h2 id="Issue-1"><a href="#Issue-1" class="headerlink" title="Issue"></a>Issue</h2><p>As you can see the pic below:</p>
 <center>
-<img src="/en/Discord/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank-error.png" class="" title="PGP signatures could not be verifed!">
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank-error.png" class="" title="PGP signatures could not be verifed!">
 </center>
 
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Execute the following to import keys using gpg:</p>
@@ -271,7 +185,7 @@
 </blockquote>
 <h1 id="Why-need-libc"><a href="#Why-need-libc" class="headerlink" title="Why need libc++"></a>Why need libc++</h1><p>As you can see in libc++ in <a href="https://aur.archlinux.org/packages/libc%2B%2B/" target="_blank" rel="noopener">AUR</a>, libc++ is required by discord.</p>
 <center>
-<img src="/en/Discord/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/why-discord-need-this.png" class="" title="libc++ is requried by discord">
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/why-discord-need-this.png" class="" title="libc++ is requried by discord">
 </center>
 
 <p>Actually, it’s really weird that Discord needs libc++ at <code>v0.0.2</code>. It doesn’t need libc++ before.</p>
@@ -282,175 +196,17 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>Discord</category>
+        <category>Software</category>
       </categories>
       <tags>
-        <tag>English</tag>
         <tag>Discord</tag>
         <tag>Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The template of gradle(kotlin and java)</title>
-    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
-    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
-<a id="more"></a>
-
-
-
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Gradle</category>
-      </categories>
-      <tags>
         <tag>English</tag>
-        <tag>Gradle</tag>
-        <tag>Java</tag>
-        <tag>Kotlin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0/1 Knapsack problem solver code</title>
-    <url>/en/Algorithm/2019/10/05-0-1-Knapsack-problem-solver-code/</url>
-    <content><![CDATA[<p>This post only shows the correct source code which solving 0/1 knapsack prolem.</p>
-<p>I hope the source code could be helpful to you.</p>
-<a id="more"></a>
-
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>In this post, one example is listed:</p>
-<table>
-<thead>
-<tr>
-<th align="center">Maximum capacity</th>
-<th align="center">The number of items</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">10</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center"><strong>Weight</strong></td>
-<td align="center"><strong>Value</strong></td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">5</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">6</td>
-</tr>
-</tbody></table>
-<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><p>The source code is as follows:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;              <span class="comment">// the number of items</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> Capacity = <span class="number">10</span>;      <span class="comment">// the volumn of knapsack</span></span><br><span class="line">  <span class="keyword">int</span> weight[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;; <span class="comment">// the volumn of i-th item (index starting from 1)</span></span><br><span class="line">  <span class="keyword">int</span> value[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;  <span class="comment">// the value of i-th item</span></span><br><span class="line">  <span class="keyword">int</span> F[N + <span class="number">1</span>][Capacity + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;  <span class="comment">// status</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123; <span class="comment">// as for i-th item</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">      F[i][j] = F[i - <span class="number">1</span>][j]; <span class="comment">// do not choose i-th item (default)</span></span><br><span class="line">      <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">          F[i][j] &lt; F[i - <span class="number">1</span>][j - weight[i]] + value[i]) &#123; <span class="comment">// if value is higher, then choose i-th item</span></span><br><span class="line">        F[i][j] = F[i - <span class="number">1</span>][j - weight[i]] + value[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max value: "</span> &lt;&lt; F[N][Capacity] &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// in this case: 11</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Status: "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%2d "</span>, F[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Max value: 11</span><br><span class="line">Status:</span><br><span class="line"> 0  0  0  0  0  0  0  0  0  0  0</span><br><span class="line"> 0  0  0  4  4  4  4  4  4  4  4</span><br><span class="line"> 0  0  0  4  5  5  5  9  9  9  9</span><br><span class="line"> 0  0  0  4  5  6  6  9 10 11 11</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Knapsack</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Atbash Cipher Code Refactoring Record</title>
-    <url>/en/Note/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the main exercise of exercism in rust.</p>
-<p>I asked some friends from a small Rust community and I got these elegant codes. These codes are so beautiful and tricky. So I decide to write it down and hope it may be useful for you as well.</p>
-<p>You may learn how to “chunk” vector in rust as a string without using a loop while joining characters.</p>
-<a id="more"></a>
-
-<div class="note info"><p>Exercise Introduction:</p>
-</div>
-
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>Create an implementation of the atbash cipher, an ancient encryption system created in the Middle East.</p>
-<p>The Atbash cipher is a simple substitution cipher that relies on transposing all the letters in the alphabet such that the resulting alphabet is backwards. The first letter is replaced with the last letter, the second with the second-last, and so on.</p>
-<p>An Atbash cipher for the Latin alphabet would be as follows:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plain:  abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Cipher: zyxwvutsrqponmlkjihgfedcba</span><br></pre></td></tr></table></figure>
-<p>It is a very weak cipher because it only has one possible key, and it is a simple monoalphabetic substitution cipher. However, this may not have been an issue in the cipher’s time.</p>
-<p>Ciphertext is written out in groups of fixed length, the traditional group size being 5 letters, and punctuation is excluded. This is to make it harder to guess things based on word boundaries.</p>
-<p>Examples</p>
-<ul>
-<li>Encoding <code>test</code> gives <code>gvhg</code></li>
-<li>Decoding <code>gvhg</code> gives <code>test</code></li>
-<li>Decoding <code>gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt</code> gives <code>thequickbrownfoxjumpsoverthelazydog</code></li>
-</ul>
-<h2 id="Test-suite"><a href="#Test-suite" class="headerlink" title="Test suite"></a>Test suite</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> atbash_cipher <span class="keyword">as</span> cipher;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_yes</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"yes"</span>), <span class="string">"bvh"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_no</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"no"</span>), <span class="string">"ml"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_omg</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"OMG"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"O M G"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_mindblowingly</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"mindblowingly"</span>), <span class="string">"nrmwy oldrm tob"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"Testing,1 2 3, testing."</span>),</span><br><span class="line">        <span class="string">"gvhgr mt123 gvhgr mt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_deep_thought</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"Truth is fiction."</span>), <span class="string">"gifgs rhurx grlm"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"The quick brown fox jumps over the lazy dog."</span>),</span><br><span class="line">        <span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_exercism</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vcvix rhn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_a_sentence</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyh gzxov rhlug vmzhg vkkrm thglm v"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"gvhgr mt123 gvhgr mt"</span>), <span class="string">"testing123testing"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span>),</span><br><span class="line">        <span class="string">"thequickbrownfoxjumpsoverthelazydog"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_too_many_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vc vix    r hn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_no_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyhgzxovrhlugvmzhgvkkrmthglmv"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text.</span><br><span class="line">        to_lowercase().</span><br><span class="line">        chars().</span><br><span class="line">        filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit()).</span><br><span class="line">        map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> result = <span class="built_in">String</span>::new();</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..tmp.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">            result.push(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        result.push(tmp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>L11</code> uses <code>.rev()</code> feature to pin-point the index of <code>CIPHER</code> text. This is a little bit tricky.</p>
-<p>In this version, I didn’t find any solutions to wrap pushing string into a <code>.map()</code>, which makes it look like C/C++-style and ugly since we need a loop to append <code>space</code> for me. This can be changed!</p>
-<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .chunks(<span class="number">5</span>)</span><br><span class="line">        .map(|x| x.iter().collect::&lt;<span class="built_in">String</span>&gt;())</span><br><span class="line">        .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">        .join(<span class="string">" "</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 2, I’ve made changes about wrapping encoded string. It happens at <code>L19~24</code>.</p>
-<p>Explanation:</p>
-<ol>
-<li><code>L21</code> takes value for chunking vector as several slices(vector)</li>
-<li><code>L22</code> maps the chunked vector into <code>String</code></li>
-<li><code>L23</code> collects all data generated in step 2 together and outputs as <code>Vec&lt;String&gt;</code></li>
-<li><code>L24</code> use <code>.join()</code> method for joining item in <code>Vec&lt;String&gt;</code> with space and outputs the final result.</li>
-</ol>
-<p>So, basically, you don’t need a loop any more to add space after 5 characters. Removing loops in Rust is a kind of beautiful way of processing data.</p>
-<h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version 3"></a>Version 3</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .iter()</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(*c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 3, in order to challenge memory usage, I’ve mainly removed one layer of <code>.collect()</code> since <code>.collect()</code> will consume heap memory usage which affects performance. So, I avoid using <code>.chunk()</code> and allocating memory on the heap again in <code>.map()</code> and replace it with the <code>iterator</code>. Why I choose <code>iterator</code> is that their lazily-evaluated nature, don’t allocate on the heap until explicitly told so (with <code>.collect()</code> for instance).</p>
-<p>Also, <code>.enumerate()</code> yields pairs so we could use <code>.flat_map()</code> to remove the layer of iterator and collect them as <code>String</code> only once.</p>
-<p>Saving memory allocation on the heap. Goal Achieved.</p>
-<h2 id="Version-4"><a href="#Version-4" class="headerlink" title="Version 4"></a>Version 4</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// return Iterator type: https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>&lt;<span class="symbol">'a</span>&gt;(text: &amp;<span class="symbol">'a</span> <span class="built_in">str</span>) -&gt; <span class="keyword">impl</span> <span class="built_in">Iterator</span>&lt;Item=<span class="built_in">char</span>&gt; + <span class="symbol">'a</span> &#123;</span><br><span class="line">    text</span><br><span class="line">        .chars()</span><br><span class="line">        .flat_map(|x| x.to_lowercase())</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 4, <code>atbash()</code> no longer returns <code>Vec&lt;char&gt;</code>, which avoids the memory allocation on the heap again.  But returning <code>Iterator</code> is a little bit tricky. You can find more examples in <a href="https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b" target="_blank" rel="noopener">here</a>.</p>
-<p>Another change is that I move backward of <code>.to_lowercase()</code> and use <code>.flat_map()</code> instead since filtering all upprcase outside the function <code>atbash()</code> is not graceful and does not conform to the engineering.</p>
-<p>So, basically in this version,  <code>.collect()</code>  operation is only used once. Memory allocation on the heap only happens once as well.</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Rust</category>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Rust</tag>
-        <tag>Exercism</tag>
       </tags>
   </entry>
   <entry>
     <title>Code Refactoring of Bob - Exercism in Rust</title>
-    <url>/en/Notes/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/</url>
+    <url>/en/Rust/2019/10/14-Code-Refactoring-of-Bob-Exercism-in-Rust/</url>
     <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the side exercise of exercism in rust.</p>
 <p>Mentor <code>gaetanww</code> helped me a lot on code refactoring and logical improvements advice with great patience and careful instruction. He even changed my attitude towards work and researching. I have nothing else to say to express my thanks to my mentor.</p>
 <p>So I decide to record the whole process of code improvements and advice from <code>gaetanww</code>.</p>
@@ -584,7 +340,6 @@
 ]]></content>
       <categories>
         <category>Rust</category>
-        <category>Notes</category>
       </categories>
       <tags>
         <tag>English</tag>
@@ -593,246 +348,236 @@
       </tags>
   </entry>
   <entry>
-    <title>How to combine io.TeeReader and io.Pipe</title>
-    <url>/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/</url>
-    <content><![CDATA[<p>This post can explain and show you how to combine <code>io.TeeReader()</code> and <code>io.Pipe</code> together in Golang.</p>
-<p>You can easily use <code>bytes.Buffer</code> with <code>io.TeeReader()</code> easily according to the official documents in <a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">here</a>.</p>
-<p>But you will notice that you may encounter some issues if you choose to use <code>io.Pipe</code> . Here I am.</p>
-<p><strong>Notice: This post is for the beginners, not the well-knowledged Golang programmer.</strong></p>
+    <title>Atbash Cipher Code Refactoring Record</title>
+    <url>/en/Rust/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the main exercise of exercism in rust.</p>
+<p>I asked some friends from a small Rust community and I got these elegant codes. These codes are so beautiful and tricky. So I decide to write it down and hope it may be useful for you as well.</p>
+<p>You may learn how to “chunk” vector in rust as a string without using a loop while joining characters.</p>
 <a id="more"></a>
 
+<div class="note info"><p>Exercise Introduction:</p>
+</div>
 
-
-<h1 id="Initial-modification-based-on-its-example"><a href="#Initial-modification-based-on-its-example" class="headerlink" title="Initial modification based on its example"></a>Initial modification based on its example</h1><p>As a beginner, you may easily come up with these kind of modifications below.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>If you run the code, you can get error message:</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
-
-<p>This comes from that you are <a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">attempting this on the same thread</a>, which will give you a panic hammer on your head.</p>
-<h1 id="Fix-the-bug"><a href="#Fix-the-bug" class="headerlink" title="Fix the bug!"></a>Fix the bug!</h1><p>You can easily fix it via small modifications and add synchronizations.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>Create an implementation of the atbash cipher, an ancient encryption system created in the Middle East.</p>
+<p>The Atbash cipher is a simple substitution cipher that relies on transposing all the letters in the alphabet such that the resulting alphabet is backwards. The first letter is replaced with the last letter, the second with the second-last, and so on.</p>
+<p>An Atbash cipher for the Latin alphabet would be as follows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plain:  abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Cipher: zyxwvutsrqponmlkjihgfedcba</span><br></pre></td></tr></table></figure>
+<p>It is a very weak cipher because it only has one possible key, and it is a simple monoalphabetic substitution cipher. However, this may not have been an issue in the cipher’s time.</p>
+<p>Ciphertext is written out in groups of fixed length, the traditional group size being 5 letters, and punctuation is excluded. This is to make it harder to guess things based on word boundaries.</p>
+<p>Examples</p>
 <ul>
-<li><p><code>done</code> chan is added to make sure synchronizations happens correctly before main thread exits.</p>
-</li>
-<li><p><code>pw.Close()</code> must be performed inside another goroutine with <code>printall(tr)</code>. This is because <code>TeeReader</code> returns a Reader that writes to w what it reads from r.</p>
-</li>
-<li><p>Due to the existence of goroutine, you can change the order of two separate <code>go func(){}</code> unlike the example provided by <code>io.TeeReader()</code></p>
-</li>
+<li>Encoding <code>test</code> gives <code>gvhg</code></li>
+<li>Decoding <code>gvhg</code> gives <code>test</code></li>
+<li>Decoding <code>gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt</code> gives <code>thequickbrownfoxjumpsoverthelazydog</code></li>
 </ul>
-<p>Hope this post does help you in some way.</p>
+<h2 id="Test-suite"><a href="#Test-suite" class="headerlink" title="Test suite"></a>Test suite</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> atbash_cipher <span class="keyword">as</span> cipher;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_yes</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"yes"</span>), <span class="string">"bvh"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_no</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"no"</span>), <span class="string">"ml"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_omg</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"OMG"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"O M G"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_mindblowingly</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"mindblowingly"</span>), <span class="string">"nrmwy oldrm tob"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"Testing,1 2 3, testing."</span>),</span><br><span class="line">        <span class="string">"gvhgr mt123 gvhgr mt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_deep_thought</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"Truth is fiction."</span>), <span class="string">"gifgs rhurx grlm"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"The quick brown fox jumps over the lazy dog."</span>),</span><br><span class="line">        <span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_exercism</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vcvix rhn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_a_sentence</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyh gzxov rhlug vmzhg vkkrm thglm v"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"gvhgr mt123 gvhgr mt"</span>), <span class="string">"testing123testing"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span>),</span><br><span class="line">        <span class="string">"thequickbrownfoxjumpsoverthelazydog"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_too_many_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vc vix    r hn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_no_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyhgzxovrhlugvmzhgvkkrmthglmv"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text.</span><br><span class="line">        to_lowercase().</span><br><span class="line">        chars().</span><br><span class="line">        filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit()).</span><br><span class="line">        map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> result = <span class="built_in">String</span>::new();</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..tmp.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">            result.push(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        result.push(tmp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>L11</code> uses <code>.rev()</code> feature to pin-point the index of <code>CIPHER</code> text. This is a little bit tricky.</p>
+<p>In this version, I didn’t find any solutions to wrap pushing string into a <code>.map()</code>, which makes it look like C/C++-style and ugly since we need a loop to append <code>space</code> for me. This can be changed!</p>
+<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .chunks(<span class="number">5</span>)</span><br><span class="line">        .map(|x| x.iter().collect::&lt;<span class="built_in">String</span>&gt;())</span><br><span class="line">        .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">        .join(<span class="string">" "</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 2, I’ve made changes about wrapping encoded string. It happens at <code>L19~24</code>.</p>
+<p>Explanation:</p>
+<ol>
+<li><code>L21</code> takes value for chunking vector as several slices(vector)</li>
+<li><code>L22</code> maps the chunked vector into <code>String</code></li>
+<li><code>L23</code> collects all data generated in step 2 together and outputs as <code>Vec&lt;String&gt;</code></li>
+<li><code>L24</code> use <code>.join()</code> method for joining item in <code>Vec&lt;String&gt;</code> with space and outputs the final result.</li>
+</ol>
+<p>So, basically, you don’t need a loop any more to add space after 5 characters. Removing loops in Rust is a kind of beautiful way of processing data.</p>
+<h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version 3"></a>Version 3</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .iter()</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(*c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 3, in order to challenge memory usage, I’ve mainly removed one layer of <code>.collect()</code> since <code>.collect()</code> will consume heap memory usage which affects performance. So, I avoid using <code>.chunk()</code> and allocating memory on the heap again in <code>.map()</code> and replace it with the <code>iterator</code>. Why I choose <code>iterator</code> is that their lazily-evaluated nature, don’t allocate on the heap until explicitly told so (with <code>.collect()</code> for instance).</p>
+<p>Also, <code>.enumerate()</code> yields pairs so we could use <code>.flat_map()</code> to remove the layer of iterator and collect them as <code>String</code> only once.</p>
+<p>Saving memory allocation on the heap. Goal Achieved.</p>
+<h2 id="Version-4"><a href="#Version-4" class="headerlink" title="Version 4"></a>Version 4</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// return Iterator type: https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>&lt;<span class="symbol">'a</span>&gt;(text: &amp;<span class="symbol">'a</span> <span class="built_in">str</span>) -&gt; <span class="keyword">impl</span> <span class="built_in">Iterator</span>&lt;Item=<span class="built_in">char</span>&gt; + <span class="symbol">'a</span> &#123;</span><br><span class="line">    text</span><br><span class="line">        .chars()</span><br><span class="line">        .flat_map(|x| x.to_lowercase())</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 4, <code>atbash()</code> no longer returns <code>Vec&lt;char&gt;</code>, which avoids the memory allocation on the heap again.  But returning <code>Iterator</code> is a little bit tricky. You can find more examples in <a href="https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b" target="_blank" rel="noopener">here</a>.</p>
+<p>Another change is that I move backward of <code>.to_lowercase()</code> and use <code>.flat_map()</code> instead since filtering all upprcase outside the function <code>atbash()</code> is not graceful and does not conform to the engineering.</p>
+<p>So, basically in this version,  <code>.collect()</code>  operation is only used once. Memory allocation on the heap only happens once as well.</p>
 <blockquote class="blockquote-center">
 <p>End </p>
 
-</blockquote>]]></content>
+</blockquote>
+]]></content>
       <categories>
-        <category>Golang</category>
+        <category>Rust</category>
       </categories>
       <tags>
         <tag>English</tag>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Pipe</tag>
+        <tag>Rust</tag>
+        <tag>Exercism</tag>
       </tags>
   </entry>
   <entry>
-    <title>Golang中TeeReader的Writer输出为空的问题小记</title>
-    <url>/zh-CN/Note/2020/08/01-Golang%E4%B8%ADTeeReader%E7%9A%84Writer%E8%BE%93%E5%87%BA%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</url>
-    <content><![CDATA[<p>这是一个在工作的时候遇到的<code>TeeReader</code>的<code>Writer</code>为空的问题。花了一点时间解决。</p>
-<p>并且根据官方示例代码做出一定的调整，发现了一个比较有意思的现象。但是没有什么人说到这个问题。</p>
-<p>并且，由于对Golang的流式处理不熟悉，途中遇到了很多的问题。</p>
-<p>因此，来对记录一下<code>TeeReader</code>的解读。</p>
+    <title>0/1 Knapsack problem solver code</title>
+    <url>/en/Algorithm/2019/10/05-0-1-Knapsack-problem-solver-code/</url>
+    <content><![CDATA[<p>This post only shows the correct source code which solving 0/1 knapsack prolem.</p>
+<p>I hope the source code could be helpful to you.</p>
 <a id="more"></a>
 
-<h1 id="TeeReader"><a href="#TeeReader" class="headerlink" title="TeeReader"></a>TeeReader</h1><h2 id="TeeReader的描述"><a href="#TeeReader的描述" class="headerlink" title="TeeReader的描述"></a>TeeReader的描述</h2><p>首先放出<code>TeeReader</code>的源代码。代码比较简单，如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TeeReader</span><span class="params">(r Reader, w Writer)</span> <span class="title">Reader</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;teeReader&#123;r, w&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> teeReader <span class="keyword">struct</span> &#123;</span><br><span class="line">	r Reader</span><br><span class="line">	w Writer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *teeReader)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	n, err = t.r.Read(p)</span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> n, err := t.w.Write(p[:n]); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, err</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>In this post, one example is listed:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Maximum capacity</th>
+<th align="center">The number of items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center"><strong>Weight</strong></td>
+<td align="center"><strong>Value</strong></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><p>The source code is as follows:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;              <span class="comment">// the number of items</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">int</span> Capacity = <span class="number">10</span>;      <span class="comment">// the volumn of knapsack</span></span><br><span class="line">  <span class="keyword">int</span> weight[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;; <span class="comment">// the volumn of i-th item (index starting from 1)</span></span><br><span class="line">  <span class="keyword">int</span> value[N + <span class="number">1</span>] = &#123;<span class="number">-1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;  <span class="comment">// the value of i-th item</span></span><br><span class="line">  <span class="keyword">int</span> F[N + <span class="number">1</span>][Capacity + <span class="number">1</span>] = &#123;<span class="number">0</span>&#125;;  <span class="comment">// status</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123; <span class="comment">// as for i-th item</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">      F[i][j] = F[i - <span class="number">1</span>][j]; <span class="comment">// do not choose i-th item (default)</span></span><br><span class="line">      <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">          F[i][j] &lt; F[i - <span class="number">1</span>][j - weight[i]] + value[i]) &#123; <span class="comment">// if value is higher, then choose i-th item</span></span><br><span class="line">        F[i][j] = F[i - <span class="number">1</span>][j - weight[i]] + value[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max value: "</span> &lt;&lt; F[N][Capacity] &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// in this case: 11</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"Status: "</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= Capacity; j++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%2d "</span>, F[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>官方的英文解释如下：</p>
-<blockquote>
-<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
-<p>All reads from r performed through it are matched with corresponding writes to w. There is no internal buffering - the write must complete before the read completes. </p>
-<p>Any error encountered while writing is reported as a read error.</p>
-</blockquote>
-<p>第一句话对于中文语言者可能没有那么好理解，它的意思其实非常简单：</p>
+
+
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Max value: 11</span><br><span class="line">Status:</span><br><span class="line"> 0  0  0  0  0  0  0  0  0  0  0</span><br><span class="line"> 0  0  0  4  4  4  4  4  4  4  4</span><br><span class="line"> 0  0  0  4  5  5  5  9  9  9  9</span><br><span class="line"> 0  0  0  4  5  6  6  9 10 11 11</span><br></pre></td></tr></table></figure>
+
 <blockquote class="blockquote-center">
-<p>就是将 r 中的数据读出后同时写入 w 中，然后 <code>teeReader</code> 本身也是可以读取数据的，这样，就相当于复制出了一条数据流。 </p>
+<p>End </p>
 
 </blockquote>
-
-<h2 id="TeeReader的用法"><a href="#TeeReader的用法" class="headerlink" title="TeeReader的用法"></a>TeeReader的用法</h2><p>官方的源代码示例如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">tee := io.TeeReader(r, &amp;buf)</span><br><span class="line"></span><br><span class="line">printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">	b, err := ioutil.ReadAll(r)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>其输出结果可得：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read # &lt;= 这个是*io.teeReader</span><br><span class="line">some io.Reader stream to be read # &lt;= 这个是*bytes.Buffer</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="TeeReader为什么Writer为空？"><a href="#TeeReader为什么Writer为空？" class="headerlink" title="TeeReader为什么Writer为空？"></a>TeeReader为什么Writer为空？</h2><p><code>TeeReader</code>的参数是一个reader和一个writer。但是为什么有时候writer会是空的？</p>
-<p>这也是我在实际工作中遇到的一个问题。</p>
-<p>这里，我们来把源代码示例的<code>printall</code>的输出顺序调整一下，如下：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//修改前的</span></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改过后的</span></span><br><span class="line">printall(&amp;buf)</span><br><span class="line">printall(tee)</span><br></pre></td></tr></table></figure>
-
-<p>这个时候输出即可看到，一个输出结果，也就是：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Knapsack</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The template of gradle(kotlin and java)</title>
+    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
+    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
+<a id="more"></a>
 
 
 
-<p>这个时候如果使用<code>reflect.typeOf()</code>去看他们的输出类型，输出结果为：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">*bytes.Buffer: *io.teeReader: some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<p>因此，可以看得到这里的<code>bytes.Buffer</code>输出内容为空，但是<code>teeReader</code>是不空的。</p>
-<p><strong>那么为什么会这样呢？</strong></p>
-<p><strong><em>A：</em></strong>其实，这是由于<code>teeReader</code>必须要完成了过后，才会写入到<code>buf</code>当中。因此，提前写诗没有任何数据的。</p>
-<p>这个也符合官方原文的英文解释：</p>
-<blockquote>
-<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
-</blockquote>
-<p>希望对你有用。</p>
 <blockquote class="blockquote-center">
 <p>End </p>
 
 </blockquote>]]></content>
       <categories>
-        <category>Golang</category>
-        <category>Note</category>
+        <category>Gradle</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Writer</tag>
-        <tag>中文</tag>
+        <tag>English</tag>
+        <tag>Gradle</tag>
+        <tag>Java</tag>
+        <tag>Kotlin</tag>
       </tags>
   </entry>
   <entry>
-    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
-    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
-<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
-<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
-<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
+    <title>随筆 - 日本語</title>
+    <url>/ja/Gossip/2017/06/21-%E9%9A%8F%E7%AD%86/</url>
+    <content><![CDATA[<h1 id="本文"><a href="#本文" class="headerlink" title="本文"></a>本文</h1><div class="note info"><p>ブログのテーマ<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>はほとんど終わりました。</p>
+</div>
+
+<p>この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～</p>
+<p>しかし、そんなに高く付きちゃたとは思いも寄らない。</p>
 <a id="more"></a>
 
-<hr>
-<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ブログの意図"><a href="#ブログの意図" class="headerlink" title="ブログの意図"></a>ブログの意図</h1><p>1.最初のテーマはゆっくりと改善しました。時代とともに前進しているためにん、テーマは常に変化し、或いは面白いものを追加する。</p>
+<p>2.ブログの名前は　** go deep **　なので、ブログの文章には僕は品質を保証しなければなりません。おそらく、僕の自分自身の能力不足の原因ですが、ある文章の内容はすっごく簡単です、これを許してほしい。僕だって、何でも出きるでしょう？</p>
+<p>しかし、</p>
+<p>僕は、特定の分野における僕は現在の最高レベルを書くことでなければならない信念で、技術的な記事を書くことを保証します！</p>
+<p>彼らの文章はしばしば読んだことたくさんあった。でも、多くの時間をかかって、なんの収穫にもありません！</p>
+<p>ですかる、</p>
+<div class="note info"><p>**　文章の品質絶対だ！絶対！ **　</p>
+</div>
 
-<p>如果你运行这段代码，你会得到如下的错误信息：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
 
-<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
-<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="様々の「ツッコミ」"><a href="#様々の「ツッコミ」" class="headerlink" title="様々の「ツッコミ」"></a>様々の「ツッコミ」</h1><p>何故高く付きちゃたのを言うでしょうか？ <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>は２０１７年１月に始まりまして、でも様々のものなので、これを解決する暇がなかった。</p>
+<p>その後、<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>でこのテーマの統計情報見るとき吃驚しました。ああ！100以上の日の問題はまだ残っていった。次の日に僕はすぐに全部の問題を解決しました。</p>
+<p>最近の２週間まで、このブログのテーマしてます。ああああ、最終的には何とかできるそうみたい。</p>
+<p>しかし、まだたくさんの問題残りしましたが、後でゆっくりとそれを修復する。現在は山ほどの煩雑なことありますから。</p>
+<p>それで、僕は3年間のドメイン名を購入しました（くそ！３１２２円を取った）すでに金を持ってない僕には。。。。</p>
+<p>このドメイン名を購入した価値を発揮できる欲しい。</p>
+<h1 id="今後の計画"><a href="#今後の計画" class="headerlink" title="今後の計画"></a>今後の計画</h1><div class="note info"><p>1.先ずは院生になりたい</p>
+</div>
 
-<ul>
-<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
-<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
-<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
-</ul>
-<p>希望这篇文章对你有用。</p>
+<p>ある人は「なぜあなたは直接に仕事に行っていない？あなたには仕事を絶対に見つけることができるし。」って聞いていた。</p>
+<p>はい、そう化もしれない。でもね、院生の卒業後は学歴はちょっと高いんです。それだけ。</p>
+<p>何故高い学歴が欲しいですか？何が理由あるのかなあ？</p>
+<p>:)　いいえ、とくにないです。高等学校卒業する前に決定した。</p>
+<div class="note info"><p>2.専門関する能力を強化する</p>
+</div>
+
+<p>まあ、結局、誰にも仕事を探しなきゃならない。それは確かに専門的なスキルを持っていなきゃならない。そうしないと、何にもできないでしょう？</p>
+<div class="note primary"><p>3.フロントエンド開発関するの知識を勉強する</p>
+</div>
+
+<p>ハハハハ、、ブログのテーマのために、それとも** 格好つけるために **、こんな知識は絶対に必要ですから。</p>
+<p>ブログの「格好」あるなら、自分自身が気持ちがよいできる。</p>
+<div class="note primary"><p>4.コンピューター言語の選択</p>
+</div>
+
+<p>残念ながら、僕はC++とJavaできる。</p>
+<p>これは面倒になりました。私は言語を選択する必要があります。でも、僕は両方を好きですが、唯一の言語を選択する後でこの言語でプロになって欲しい。</p>
+<p>今若すぎるなので、非常に頑固って、両方が専門をしたかった〜〜</p>
+<p>C++を主とすると、Kotlinは補助的な存在になりたい時、Javaは最後の選択しになりますと思います。</p>
+<div class="note primary"><p>5.できるだけ複数の言語で文章を書きたい</p>
+</div>
+
+<p>僕は英語、中国語と日本語できます。できるだけたくさんの人に満足するために、私は複数の言語でかきます。同時に、このやり方は僕にやくたつかります。</p>
+<p>おそらく将来はハ韓国語のバージョンの文章を追加されます化もしれない。お期待してください :)</p>
+<blockquote>
+<p>ご注意：この文章は私は初めで書いた。それぞれの間違いあります。間違いところで教えて欲しい。<br>(●ゝω)ノ</p>
+</blockquote>
 <blockquote class="blockquote-center">
-<p>End </p>
+<p>終了 </p>
 
 </blockquote>
 
 ]]></content>
       <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Pipe</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>扎记 - 中文</title>
-    <url>/zh-CN/%E9%9A%8F%E7%AC%94/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
-</div>
-
-<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
-<p>但是没想到代价是这么大的。</p>
-<a id="more"></a>
-
-<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
-<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
-</li>
-<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
-</li>
-</ol>
-<p>但是，</p>
-<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
-<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
-<p>所以，</p>
-<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
-</div>
-
-<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
-<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
-<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
-<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
-<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
-<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
-</div>
-
-<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
-<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
-<p>那为什么要高学历呢？有什么理由么？</p>
-<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
-<div class="note primary"><p>2.专业技能给弄一弄</p>
-</div>
-
-<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
-<p>再说了，</p>
-<blockquote class="blockquote-center">
-<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
-
-</blockquote>
-
-<center>
-<img src="/zh-CN/%E9%9A%8F%E7%AC%94/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
-</center>
-
-<div class="note primary"><p>3.前端知识折腾一下</p>
-</div>
-
-<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
-<p>博客写得逼格高，自己才看得爽</p>
-<div class="note primary"><p>4.语言选择</p>
-</div>
-
-<p>很不幸，我既** 会 ** C++又会Java。</p>
-<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
-<p>现在太年轻，很任性，两个都想专精～～</p>
-<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
-<div class="note primary"><p>5.尽量保证文章多语言版本</p>
-</div>
-
-<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
-<p>或许以后会加韩文～尽情期待吧 :)</p>
-<blockquote class="blockquote-center">
-<p>完 </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>随笔</category>
+        <category>Gossip</category>
       </categories>
       <tags>
         <tag>Life</tag>
-        <tag>中文</tag>
+        <tag>日本語</tag>
       </tags>
   </entry>
   <entry>
     <title>韩文发音笔记</title>
-    <url>/zh-CN/Notes/2017/09/05-%E9%9F%A9%E6%96%87%E5%8F%91%E9%9F%B3%E7%AC%94%E8%AE%B0/</url>
+    <url>/zh-CN/Language/2017/09/05-%E9%9F%A9%E6%96%87%E5%8F%91%E9%9F%B3%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="发音01-元音1-아-어-오-우-으-이"><a href="#发音01-元音1-아-어-오-우-으-이" class="headerlink" title="发音01 - 元音1 아 어 오 우 으 이"></a>发音01 - 元音1 아 어 오 우 으 이</h1><div class="note info"><p>info: 元音1 아 어 오 우 으 이（韩文共21个元音，19个辅音）</p>
 </div>
 
@@ -2041,17 +1786,227 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>Notes</category>
+        <category>Language</category>
       </categories>
       <tags>
-        <tag>中文</tag>
         <tag>Korean</tag>
         <tag>Notes</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>扎记 - 中文</title>
+    <url>/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
+</div>
+
+<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
+<p>但是没想到代价是这么大的。</p>
+<a id="more"></a>
+
+<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
+<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
+</li>
+<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
+</li>
+</ol>
+<p>但是，</p>
+<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
+<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
+<p>所以，</p>
+<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
+</div>
+
+<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
+<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
+<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
+<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
+<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
+<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
+</div>
+
+<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
+<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
+<p>那为什么要高学历呢？有什么理由么？</p>
+<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
+<div class="note primary"><p>2.专业技能给弄一弄</p>
+</div>
+
+<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
+<p>再说了，</p>
+<blockquote class="blockquote-center">
+<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
+
+</blockquote>
+
+<center>
+<img src="/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
+</center>
+
+<div class="note primary"><p>3.前端知识折腾一下</p>
+</div>
+
+<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
+<p>博客写得逼格高，自己才看得爽</p>
+<div class="note primary"><p>4.语言选择</p>
+</div>
+
+<p>很不幸，我既** 会 ** C++又会Java。</p>
+<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
+<p>现在太年轻，很任性，两个都想专精～～</p>
+<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
+<div class="note primary"><p>5.尽量保证文章多语言版本</p>
+</div>
+
+<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
+<p>或许以后会加韩文～尽情期待吧 :)</p>
+<blockquote class="blockquote-center">
+<p>完 </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to combine io.TeeReader and io.Pipe</title>
+    <url>/en/Golang/2020/08/04-How-to-combine-io-TeeReader-and-io-Pipe/</url>
+    <content><![CDATA[<p>This post can explain and show you how to combine <code>io.TeeReader()</code> and <code>io.Pipe</code> together in Golang.</p>
+<p>You can easily use <code>bytes.Buffer</code> with <code>io.TeeReader()</code> easily according to the official documents in <a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">here</a>.</p>
+<p>But you will notice that you may encounter some issues if you choose to use <code>io.Pipe</code> . Here I am.</p>
+<p><strong>Notice: This post is for the beginners, not the well-knowledged Golang programmer.</strong></p>
+<a id="more"></a>
+
+
+
+<h1 id="Initial-modification-based-on-its-example"><a href="#Initial-modification-based-on-its-example" class="headerlink" title="Initial modification based on its example"></a>Initial modification based on its example</h1><p>As a beginner, you may easily come up with these kind of modifications below.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>If you run the code, you can get error message:</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>This comes from that you are <a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">attempting this on the same thread</a>, which will give you a panic hammer on your head.</p>
+<h1 id="Fix-the-bug"><a href="#Fix-the-bug" class="headerlink" title="Fix the bug!"></a>Fix the bug!</h1><p>You can easily fix it via small modifications and add synchronizations.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>done</code> chan is added to make sure synchronizations happens correctly before main thread exits.</p>
+</li>
+<li><p><code>pw.Close()</code> must be performed inside another goroutine with <code>printall(tr)</code>. This is because <code>TeeReader</code> returns a Reader that writes to w what it reads from r.</p>
+</li>
+<li><p>Due to the existence of goroutine, you can change the order of two separate <code>go func(){}</code> unlike the example provided by <code>io.TeeReader()</code></p>
+</li>
+</ul>
+<p>Hope this post does help you in some way.</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Pipe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Notes - English</title>
+    <url>/en/Gossip/2017/05/30-Notes/</url>
+    <content><![CDATA[<h1 id="Main-body"><a href="#Main-body" class="headerlink" title="Main body"></a>Main body</h1><div class="note info"><p>The theme of blog, which is <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>, almost has been done.</p>
+</div>
+
+<p>My only one purpose of doing this is to show off.</p>
+<p>“Hey, buddy, look at my blog. Awesome. Right? “</p>
+<p>Hahahahahaha……</p>
+<p>But I didn’t know this costs me so much.</p>
+<a id="more"></a>
+
+<h1 id="What-am-I-going-to-do-with-this-blog"><a href="#What-am-I-going-to-do-with-this-blog" class="headerlink" title="What am I going to do with this blog?"></a>What am I going to do with this blog?</h1><ol>
+<li><p>The theme of the blog should keep updated with the current technology. So, this theme maybe changes a lot or add some useless stuff(I hope it could be useful:D )</p>
+</li>
+<li><p>My blog’s name is ** go deep **. So I definitely pay attention to the quality of my articles in my blog. Perhaps some articles looks too easy for you since I am not good at everything what you guys excel at. So, be lenient. Thanks.</p>
+</li>
+</ol>
+<p>But,</p>
+<p>I make sure that I will do my best to write all posts.</p>
+<p>Sometimes, it happens to me that some posts are ** totally useless ** especially in China while I have already spent a lot of time in that. Damn!!!</p>
+<p>So, the summary is:</p>
+<div class="note danger"><p>** QUALITIES OF POSTS FIRSTS! DEFINITELY! **</p>
+</div>
+
+<h1 id="Gossips"><a href="#Gossips" class="headerlink" title="Gossips"></a>Gossips</h1><p>Why did I say this theme costs me a lot?</p>
+<p>Because <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is created in January, 2017. Mountains of stuff is killing me, which is main reason I didn’t do it so quickly.</p>
+<p>When I went to <a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a> to check my repository, I was surprised by the statistical data. DAMN. 103d for only 1 issue.</p>
+<p>I have been fixing this theme for this recent two weeks.<br>Okay, it is encourageing that <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a> is getting better. (So I can show off, Hahaha)</p>
+<p>The issues of my blog should get fixed later since a lot of troublesome trivial matters are killing me again. I can’t get affected by these.</p>
+<p>And also, I bought three-year domain.(Damn, it costs me 191￥ = 27$) Come on. I am still a poor student. That’s expensive to me.</p>
+<p>Fine, I hope blog derserve this.</p>
+<h1 id="Future-Plan"><a href="#Future-Plan" class="headerlink" title="Future Plan"></a>Future Plan</h1><div class="note primary"><p>1.Master Degreen First</p>
+</div>
+
+<p>Some people may ask: Why don’t you just go to work?</p>
+<p>Yeah, probably. But my educational background could look better.</p>
+<p>Why need higher degree? Any reasons?</p>
+<p>:) Nuh. I have decided to have one master degree. THere’s no special reasons for this. That’s all.</p>
+<div class="note primary"><p>2.Professional Skills Second</p>
+</div>
+
+<p>I have to earn to live, right? So, I need my professional skill prepared in the future. Or what difference between me and <code>salty fish</code>(Okay, this is a joke in China. Salty fish means man who doesn’t have any dreams.)</p>
+<p>Also,</p>
+<blockquote class="blockquote-center">
+<p>Men must have dreams. Even you have already become one of salty fish, then be the most salty one.</p>
+
+</blockquote>
+
+<center>
+<img src="/en/Gossip/2017/05/30-Notes/salty-fish-has-a-dream.jpg" class="">
+</center>
+
+<div class="note primary"><p>3.Front-end Knowledge, such CSS, HTML, Javascript</p>
+</div>
+
+<p>This is for showing off my blog. :D</p>
+<div class="note primary"><p>4.C++ or Java?</p>
+</div>
+
+<p>Unfortunately, I can do C++ and Java both.</p>
+<p>This is a little troublesome bacause I only have to choose one to expel at.</p>
+<p>However, I am young now that I wanna be the best in Java and C++.</p>
+<p>C++ is main coding language, with assistant by Kotlin( Java just backs up )</p>
+<div class="note primary"><p>5.Keep multi-language version of posts</p>
+</div>
+
+<p>I can only speak in Chinese(native), English and Japanese. I will try to write muti-language version of posts to you.</p>
+<p>Why I do this? Anyway, noone visits your blog.</p>
+<p>:D I don’t care. I am just for myself and for practicing.</p>
+<p>Maybe I will add Korean later~</p>
+<p>Just Looking Forword.</p>
+<blockquote class="blockquote-center">
+<p>The End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
     <title>Rust版Basic Calculator II以及改进</title>
-    <url>/zh-CN/Rust/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
+    <url>/zh-CN/Algorithm/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
     <content><![CDATA[<p>此文源自于<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">Leetcode的基本计算机II</a>。</p>
 <p>使用Rust语言完成，共计有两个版本。</p>
 <p>一个是基础版本（可以完成题目的要求），另一个是在此基础之上的改进（可以完成所有的运算符的要求）。</p>
@@ -2112,13 +2067,126 @@
 
 ]]></content>
       <categories>
-        <category>Algorithm</category>
         <category>Rust</category>
+        <category>Algorithm</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Rust</tag>
+        <tag>Algorithm</tag>
         <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
+    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
+<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
+<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
+<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
+<a id="more"></a>
+
+<hr>
+<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你运行这段代码，你会得到如下的错误信息：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
+<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
+<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
+<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
+</ul>
+<p>希望这篇文章对你有用。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>中文</tag>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Pipe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang中TeeReader的Writer输出为空的问题小记</title>
+    <url>/zh-CN/Golang/2020/08/01-Golang%E4%B8%ADTeeReader%E7%9A%84Writer%E8%BE%93%E5%87%BA%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>这是一个在工作的时候遇到的<code>TeeReader</code>的<code>Writer</code>为空的问题。花了一点时间解决。</p>
+<p>并且根据官方示例代码做出一定的调整，发现了一个比较有意思的现象。但是没有什么人说到这个问题。</p>
+<p>并且，由于对Golang的流式处理不熟悉，途中遇到了很多的问题。</p>
+<p>因此，来对记录一下<code>TeeReader</code>的解读。</p>
+<a id="more"></a>
+
+<h1 id="TeeReader"><a href="#TeeReader" class="headerlink" title="TeeReader"></a>TeeReader</h1><h2 id="TeeReader的描述"><a href="#TeeReader的描述" class="headerlink" title="TeeReader的描述"></a>TeeReader的描述</h2><p>首先放出<code>TeeReader</code>的源代码。代码比较简单，如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TeeReader</span><span class="params">(r Reader, w Writer)</span> <span class="title">Reader</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;teeReader&#123;r, w&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> teeReader <span class="keyword">struct</span> &#123;</span><br><span class="line">	r Reader</span><br><span class="line">	w Writer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *teeReader)</span> <span class="title">Read</span><span class="params">(p []<span class="keyword">byte</span>)</span> <span class="params">(n <span class="keyword">int</span>, err error)</span></span> &#123;</span><br><span class="line">	n, err = t.r.Read(p)</span><br><span class="line">	<span class="keyword">if</span> n &gt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> n, err := t.w.Write(p[:n]); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> n, err</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>官方的英文解释如下：</p>
+<blockquote>
+<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
+<p>All reads from r performed through it are matched with corresponding writes to w. There is no internal buffering - the write must complete before the read completes. </p>
+<p>Any error encountered while writing is reported as a read error.</p>
+</blockquote>
+<p>第一句话对于中文语言者可能没有那么好理解，它的意思其实非常简单：</p>
+<blockquote class="blockquote-center">
+<p>就是将 r 中的数据读出后同时写入 w 中，然后 <code>teeReader</code> 本身也是可以读取数据的，这样，就相当于复制出了一条数据流。 </p>
+
+</blockquote>
+
+<h2 id="TeeReader的用法"><a href="#TeeReader的用法" class="headerlink" title="TeeReader的用法"></a>TeeReader的用法</h2><p>官方的源代码示例如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">tee := io.TeeReader(r, &amp;buf)</span><br><span class="line"></span><br><span class="line">printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">	b, err := ioutil.ReadAll(r)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其输出结果可得：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read # &lt;= 这个是*io.teeReader</span><br><span class="line">some io.Reader stream to be read # &lt;= 这个是*bytes.Buffer</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="TeeReader为什么Writer为空？"><a href="#TeeReader为什么Writer为空？" class="headerlink" title="TeeReader为什么Writer为空？"></a>TeeReader为什么Writer为空？</h2><p><code>TeeReader</code>的参数是一个reader和一个writer。但是为什么有时候writer会是空的？</p>
+<p>这也是我在实际工作中遇到的一个问题。</p>
+<p>这里，我们来把源代码示例的<code>printall</code>的输出顺序调整一下，如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//修改前的</span></span><br><span class="line">printall(tee)</span><br><span class="line">printall(&amp;buf)</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改过后的</span></span><br><span class="line">printall(&amp;buf)</span><br><span class="line">printall(tee)</span><br></pre></td></tr></table></figure>
+
+<p>这个时候输出即可看到，一个输出结果，也就是：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个时候如果使用<code>reflect.typeOf()</code>去看他们的输出类型，输出结果为：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">*bytes.Buffer: *io.teeReader: some io.Reader stream to be read</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因此，可以看得到这里的<code>bytes.Buffer</code>输出内容为空，但是<code>teeReader</code>是不空的。</p>
+<p><strong>那么为什么会这样呢？</strong></p>
+<p><strong><em>A：</em></strong>其实，这是由于<code>teeReader</code>必须要完成了过后，才会写入到<code>buf</code>当中。因此，提前写诗没有任何数据的。</p>
+<p>这个也符合官方原文的英文解释：</p>
+<blockquote>
+<p>TeeReader returns a Reader that writes to w what it reads from r. </p>
+</blockquote>
+<p>希望对你有用。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>中文</tag>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Writer</tag>
       </tags>
   </entry>
   <entry>
@@ -2155,80 +2223,9 @@
         <category>Rust</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Rust</tag>
+        <tag>Algorithm</tag>
         <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随筆 - 日本語</title>
-    <url>/ja/%E9%9A%8F%E7%AD%86/2017/06/21-%E9%9A%8F%E7%AD%86/</url>
-    <content><![CDATA[<h1 id="本文"><a href="#本文" class="headerlink" title="本文"></a>本文</h1><div class="note info"><p>ブログのテーマ<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>はほとんど終わりました。</p>
-</div>
-
-<p>この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～</p>
-<p>しかし、そんなに高く付きちゃたとは思いも寄らない。</p>
-<a id="more"></a>
-
-<h1 id="ブログの意図"><a href="#ブログの意図" class="headerlink" title="ブログの意図"></a>ブログの意図</h1><p>1.最初のテーマはゆっくりと改善しました。時代とともに前進しているためにん、テーマは常に変化し、或いは面白いものを追加する。</p>
-<p>2.ブログの名前は　** go deep **　なので、ブログの文章には僕は品質を保証しなければなりません。おそらく、僕の自分自身の能力不足の原因ですが、ある文章の内容はすっごく簡単です、これを許してほしい。僕だって、何でも出きるでしょう？</p>
-<p>しかし、</p>
-<p>僕は、特定の分野における僕は現在の最高レベルを書くことでなければならない信念で、技術的な記事を書くことを保証します！</p>
-<p>彼らの文章はしばしば読んだことたくさんあった。でも、多くの時間をかかって、なんの収穫にもありません！</p>
-<p>ですかる、</p>
-<div class="note info"><p>**　文章の品質絶対だ！絶対！ **　</p>
-</div>
-
-
-<h1 id="様々の「ツッコミ」"><a href="#様々の「ツッコミ」" class="headerlink" title="様々の「ツッコミ」"></a>様々の「ツッコミ」</h1><p>何故高く付きちゃたのを言うでしょうか？ <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>は２０１７年１月に始まりまして、でも様々のものなので、これを解決する暇がなかった。</p>
-<p>その後、<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>でこのテーマの統計情報見るとき吃驚しました。ああ！100以上の日の問題はまだ残っていった。次の日に僕はすぐに全部の問題を解決しました。</p>
-<p>最近の２週間まで、このブログのテーマしてます。ああああ、最終的には何とかできるそうみたい。</p>
-<p>しかし、まだたくさんの問題残りしましたが、後でゆっくりとそれを修復する。現在は山ほどの煩雑なことありますから。</p>
-<p>それで、僕は3年間のドメイン名を購入しました（くそ！３１２２円を取った）すでに金を持ってない僕には。。。。</p>
-<p>このドメイン名を購入した価値を発揮できる欲しい。</p>
-<h1 id="今後の計画"><a href="#今後の計画" class="headerlink" title="今後の計画"></a>今後の計画</h1><div class="note info"><p>1.先ずは院生になりたい</p>
-</div>
-
-<p>ある人は「なぜあなたは直接に仕事に行っていない？あなたには仕事を絶対に見つけることができるし。」って聞いていた。</p>
-<p>はい、そう化もしれない。でもね、院生の卒業後は学歴はちょっと高いんです。それだけ。</p>
-<p>何故高い学歴が欲しいですか？何が理由あるのかなあ？</p>
-<p>:)　いいえ、とくにないです。高等学校卒業する前に決定した。</p>
-<div class="note info"><p>2.専門関する能力を強化する</p>
-</div>
-
-<p>まあ、結局、誰にも仕事を探しなきゃならない。それは確かに専門的なスキルを持っていなきゃならない。そうしないと、何にもできないでしょう？</p>
-<div class="note primary"><p>3.フロントエンド開発関するの知識を勉強する</p>
-</div>
-
-<p>ハハハハ、、ブログのテーマのために、それとも** 格好つけるために **、こんな知識は絶対に必要ですから。</p>
-<p>ブログの「格好」あるなら、自分自身が気持ちがよいできる。</p>
-<div class="note primary"><p>4.コンピューター言語の選択</p>
-</div>
-
-<p>残念ながら、僕はC++とJavaできる。</p>
-<p>これは面倒になりました。私は言語を選択する必要があります。でも、僕は両方を好きですが、唯一の言語を選択する後でこの言語でプロになって欲しい。</p>
-<p>今若すぎるなので、非常に頑固って、両方が専門をしたかった〜〜</p>
-<p>C++を主とすると、Kotlinは補助的な存在になりたい時、Javaは最後の選択しになりますと思います。</p>
-<div class="note primary"><p>5.できるだけ複数の言語で文章を書きたい</p>
-</div>
-
-<p>僕は英語、中国語と日本語できます。できるだけたくさんの人に満足するために、私は複数の言語でかきます。同時に、このやり方は僕にやくたつかります。</p>
-<p>おそらく将来はハ韓国語のバージョンの文章を追加されます化もしれない。お期待してください :)</p>
-<blockquote>
-<p>ご注意：この文章は私は初めで書いた。それぞれの間違いあります。間違いところで教えて欲しい。<br>(●ゝω)ノ</p>
-</blockquote>
-<blockquote class="blockquote-center">
-<p>終了 </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>随筆</category>
-      </categories>
-      <tags>
-        <tag>Life</tag>
-        <tag>日本語</tag>
       </tags>
   </entry>
 </search>
