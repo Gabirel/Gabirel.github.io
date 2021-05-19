@@ -2975,6 +2975,7 @@ tbody tr:hover {
 .pagination .prev:hover,
 .pagination .next:hover {
   border-top-color: #f1a004;
+  color: #f1a004;
 }
 .pagination .page-number.current {
   background: #f1a004;
@@ -3049,7 +3050,7 @@ tbody tr:hover {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a204ff;
+  background: #49bf4a;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
