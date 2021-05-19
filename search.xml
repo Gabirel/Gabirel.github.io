@@ -2268,4 +2268,69 @@
         <tag>中文</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rust-DFS给表达式添加运算符</title>
+    <url>/zh-CN/Algorithm/Rust/2021/05/19-Rust-DFS%E7%BB%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B7%BB%E5%8A%A0%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>在某一个信息流网站上，看到一个challenge，里面有部分是编程题。</p>
+<p>在Leetcode上有类似的题目，比如<a href="https://leetcode-cn.com/problems/expression-add-operators/" target="_blank" rel="noopener">Leetcode-282</a>，<br>其要求也同样是给数字填补运算符。</p>
+<p>但是它的运算符只有<code>+ - *</code>以及邻接符号（表示两个数字之间不添加任何运算符，自组成一个完整的数字，比如10是1和0组成的数字）。</p>
+<p>但是这个challenge则不同，它一共拥有<code>+ - * / % ^</code>6个符号，且无邻接字符。那么它其实又简单了又复杂了。</p>
+<p>简单在不需要考虑邻接字符，复杂在运算符变成了6个，且有3中不同的优先级（<code>^</code>优先级最高，表示取次方）。</p>
+<p>未见他人有写过这样类似的题目和解答方案，故在此记录一下，便于他人学习。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>由于该信息流网站的这个challenge是每隔一段时间变化的，可能读者看到这里的时候该challenge又会发生变化。<br>所以就不贴具体的地址了。看过该challenge的都懂是哪里的信息流。</p>
+<p>切入正题：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>_2_3_4_5_6_7_8_9=<span class="number">95551487</span>,</span><br><span class="line">每处_填入<span class="number">1</span>个运算符+-*/%^(注意^符号是次方运算，运算规则是先次方运算再乘除再加减),</span><br><span class="line">每个运算符都要用到并且使得等式成立(答案保证唯一),表达式为?</span><br><span class="line">请输入表达式:</span><br></pre></td></tr></table></figure>
+
+<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h3><p>大体的思路可以分为两个流派，一个是使用DFS（深度递归搜索），一个是使用动态规划。</p>
+<ul>
+<li>DFS方式很常规，只需要到达所需要的层数时，即可满足运算；</li>
+<li>动态规划理论上应该是可行的，之前看过其他大佬有提到过。</li>
+</ul>
+<p>但是本人实力有限，尚未看到有人这么写过，或许也有leetcode有这样的题目。也许后续自己对动态规划运筹帷幄过后我再来补这个坑。</p>
+<p>当下，我主要使用DFS来完成。</p>
+<h3 id="困难点"><a href="#困难点" class="headerlink" title="困难点"></a>困难点</h3><p>思路大家都知道是使用DFS，但是具体实施起来是比较困难的，在于不同的优先级。</p>
+<p>原<a href="https://leetcode-cn.com/problems/expression-add-operators/" target="_blank" rel="noopener">Leetcode-282</a>的实现大概是：每次不管优先级直接计算，<br>如果遇到更高的优先级即减去被多计算的值即可。</p>
+<p>举个例子：对于表达式：<code>1 + 2 * 3</code>而言，先计算<code>1 + 2</code>，计算结果记为<code>sum = 3</code>，<code>prev = 2</code>，当扫描到<code>*</code>时发现<code>2</code>其实不应该被加，<br>那么运算表达式即变为：<code>sum = 3 - prev + prev * 3</code>，那么结果即变为：<code>sum = 3 - 2 + 2 * 3 = 7</code>。</p>
+<p>但是，<strong>对于这个challenge而言，优先级有<code>+ - * / % ^</code>，光是优先级级别就有三个不同的级别</strong>，如果放入DFS当中，DFS需要“记忆”的东西就比较复杂了。</p>
+<p>那么这种方式可能就不太合适了。这个就是比较困难的点了。</p>
+<h3 id="如何解决这个困难点"><a href="#如何解决这个困难点" class="headerlink" title="如何解决这个困难点"></a>如何解决这个困难点</h3><p>某天我日常看Rust社区的推送的时候，看到了一个库叫：<a href="https://crates.io/crates/fasteval" target="_blank" rel="noopener">fasteval</a>。</p>
+<p>这个库的作用：根据你输入的表达式字符串去运算（eval），即可算出结果。</p>
+<p>比如举个使用的例子：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="comment">// This example doesn't use any variables, so just use an EmptyNamespace:</span></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ns = fasteval::EmptyNamespace;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Ok</span>(val) = fasteval::ez_eval(<span class="string">"1+2*3+4^5%6"</span>, &amp;<span class="keyword">mut</span> ns) &#123;</span><br><span class="line">        <span class="built_in">assert_eq!</span>(val, <span class="number">11.0</span>); <span class="comment">// 结果的确是11</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Lua的控制台里验证一下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Lua 5.3.5  Copyright (C) 1994-2018 Lua.org, PUC-Rio</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 1+2*3+4^5%6</span></span><br><span class="line">11.0</span><br></pre></td></tr></table></figure>
+
+<p>验证通过。</p>
+<p><strong>PS1: 如果用python的控制台去验证的话，需要改一下运算符才行。或者使用计算器计算也可以</strong></p>
+<p>我为什么会想到这个表达式eval的库？<br>因为阿里巴巴面试的时候，做过类似的题目，当时的想法即是变成字符串，但是计算的部分是我自己去处理的，处理起来比较复杂。<br>后来发现这个fasteval的库后，大喜！</p>
+<p><strong>PS2: 其他语言的库应该也是有类似的库的。Rust都有，其他语言还能没有？不至于不至于</strong></p>
+<p>所以现在heavy-lifting的东西都交给库去做了，我们只需要去负责拼接和递归运算符即可。那么这个问题的复杂度就一下就降了下来。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>废话不多说，直接上代码：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::iter::FromIterator;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    add_operators(<span class="string">"12"</span>, <span class="number">3</span>);</span><br><span class="line">    add_operators(<span class="string">"123"</span>, <span class="number">6</span>);</span><br><span class="line">    add_operators(<span class="string">"1234"</span>, <span class="number">2</span>);</span><br><span class="line">    add_operators(<span class="string">"352"</span>, <span class="number">5</span>);</span><br><span class="line">    add_operators(<span class="string">"123456789"</span>, <span class="number">95551487</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 算法思想：</span></span><br><span class="line"><span class="comment">///     1. 运算符分为四种：+, -, *, /, %, ^</span></span><br><span class="line"><span class="comment">///     2. 利用dfs递归去尝试不同种运算符的拼接方式，当运算符达到数目后，即去计算判断是否与sum要求相同</span></span><br><span class="line"><span class="comment">///     3. 若结果为所要的期望值，则保存结果字符串</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">add_operators</span></span>(s: &amp;<span class="built_in">str</span>, sum: <span class="built_in">i32</span>) &#123;</span><br><span class="line">    <span class="comment">// 字符串长度是x，那么slot就是最多x-1个</span></span><br><span class="line">    <span class="keyword">let</span> total_slot = s.len() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 运算符集合, 以char形式存储为vector</span></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> result = <span class="built_in">vec!</span>[<span class="string">'.'</span>; total_slot];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用递归思想去遍历不同种运算符的匹配</span></span><br><span class="line">    dfs(<span class="number">0</span>, total_slot, &amp;<span class="keyword">mut</span> result, s, sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">dfs</span></span>(layer: <span class="built_in">usize</span>, total_layer: <span class="built_in">usize</span>, result: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;, num: &amp;<span class="built_in">str</span>, sum: <span class="built_in">i32</span>) &#123;</span><br><span class="line">    <span class="comment">// 如果到顶了，说明可以判断了</span></span><br><span class="line">    <span class="keyword">if</span> layer &gt;= total_layer &#123;</span><br><span class="line">        <span class="keyword">let</span> eval_string= merge_alternately(num.to_string(), <span class="built_in">String</span>::from_iter(result.clone()));</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> ns = fasteval::EmptyNamespace;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Ok</span>(var) = fasteval::ez_eval(&amp;eval_string, &amp;<span class="keyword">mut</span> ns) &#123;</span><br><span class="line">            <span class="keyword">if</span> (var - sum <span class="keyword">as</span> <span class="built_in">f64</span>).abs() &lt; <span class="built_in">f64</span>::EPSILON &#123;</span><br><span class="line">                <span class="built_in">println!</span>(<span class="string">"&gt;&gt; &#123;&#125;"</span>, eval_string);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 一共有6个运算符</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..<span class="number">6</span> &#123;</span><br><span class="line">        result[layer] = <span class="keyword">match</span> i + <span class="number">1</span> &#123;</span><br><span class="line">            <span class="number">1</span> =&gt; <span class="string">'+'</span>,</span><br><span class="line">            <span class="number">2</span> =&gt; <span class="string">'-'</span>,</span><br><span class="line">            <span class="number">3</span> =&gt; <span class="string">'*'</span>,</span><br><span class="line">            <span class="number">4</span> =&gt; <span class="string">'/'</span>,</span><br><span class="line">            <span class="number">5</span> =&gt; <span class="string">'%'</span>,</span><br><span class="line">            <span class="number">6</span> =&gt; <span class="string">'^'</span>,</span><br><span class="line">            _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">        &#125;;</span><br><span class="line">        dfs(layer + <span class="number">1</span>, total_layer, result, num, sum);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// restore the origin</span></span><br><span class="line">        result[layer] = <span class="string">'.'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 两个字符串交替合并</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">merge_alternately</span></span>(word1: <span class="built_in">String</span>, word2: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">String</span>::new();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> i &lt; word1.len() || j &lt; word2.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word1.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="literal">Some</span>(c) = word2.chars().nth(i) &#123;</span><br><span class="line">            ans.push(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">        j += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运算结果如下：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">&gt;&gt; <span class="number">1</span>^<span class="number">2</span>/<span class="number">3</span>*<span class="number">4</span>^<span class="number">5</span>*<span class="number">6</span>^<span class="number">7</span>+<span class="number">8</span>-<span class="number">9</span></span><br><span class="line">&gt;&gt; <span class="number">1</span>%<span class="number">2</span>/<span class="number">3</span>*<span class="number">4</span>^<span class="number">5</span>*<span class="number">6</span>^<span class="number">7</span>+<span class="number">8</span>-<span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p>由于题目要求，每个运算符必须被用到一次，那么填上对应的答案即可。</p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>出题人也是花了心血的，如果哪个大侠能在网络的角落里发现我这篇post，希望还是可以自己好好学习一遍😂。不只是通过闯关而已。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Rust</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
 </search>
