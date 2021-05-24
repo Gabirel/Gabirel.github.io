@@ -2285,7 +2285,7 @@
   </entry>
   <entry>
     <title>Rust-DFS给表达式添加运算符</title>
-    <url>/zh-CN/Algorithm/Rust/2021/05/19-Rust-DFS%E7%BB%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B7%BB%E5%8A%A0%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <url>/zh-CN/Rust/2021/05/19-Rust-DFS%E7%BB%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B7%BB%E5%8A%A0%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<p>在某一个信息流网站上，看到一个challenge，里面有部分是编程题。</p>
 <p>在Leetcode上有类似的题目，比如<a href="https://leetcode-cn.com/problems/expression-add-operators/" target="_blank" rel="noopener">Leetcode-282</a>，<br>其要求也同样是给数字填补运算符。</p>
 <p>但是它的运算符只有<code>+ - *</code>以及邻接符号（表示两个数字之间不添加任何运算符，自组成一个完整的数字，比如10是1和0组成的数字）。</p>
