@@ -3050,7 +3050,7 @@ tbody tr:hover {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #944e08;
+  background: #ff03da;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3126,4 +3126,17 @@ tbody tr:hover {
 .gt-container .gt-header-controls .gt-btn-preview:hover {
   background-color: #bccaca;
   border-color: rgba(8,210,205,0.69);
+}
+.gt-container .gt-comment-admin .gt-comment-content {
+  background-color: rgba(0,0,0,0) !important;
+  border-radius: 5px;
+}
+.gt-container .gt-comment-admin .gt-comment-content:hover {
+  box-shadow: 0 0.625em 3.75em 0 rgba(8,210,205,0.69);
+}
+.gt-comment-content .markdown-body p {
+  color: var(--text-color) !important;
+}
+.gt-comment-content .markdown-body a:hover {
+  color: #f1a004;
 }

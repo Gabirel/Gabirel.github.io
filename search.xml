@@ -153,58 +153,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>How to solve nothing showed in grey box of Discord</title>
-    <url>/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We all know that what discord is and what it does. Okay, if you don’t know what it is, just skip this post.</p>
-<p>This post is only for those who have showing issue in their grey box.</p>
-<div class="note info"><p>Platform: Linux Arch-like</p>
-</div>
-
-<p>If other distros have the same issue, you may try this. Don’t know whether it works for you.</p>
-<a id="more"></a>
-
-<h1 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h1><p>If you update your discord to <code>Linux-v0.0.2</code>, you should encounter this issue that nothing shows in the grey box of Discord below.</p>
-<center>
-<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank.png" class="" title="Nothing shows in grey box">
-</center>
-
-<p>Okay, this is easy.</p>
-<p>Install <code>libc++</code>.</p>
-<p>In Arch/Manjaro, use this:</p>
-<blockquote>
-<p>yaourt -S libc++</p>
-</blockquote>
-<h1 id="Another-problem-when-trying-to-install-libc"><a href="#Another-problem-when-trying-to-install-libc" class="headerlink" title="Another problem when trying to install libc++"></a>Another problem when trying to install libc++</h1><h2 id="Issue-1"><a href="#Issue-1" class="headerlink" title="Issue"></a>Issue</h2><p>As you can see the pic below:</p>
-<center>
-<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank-error.png" class="" title="PGP signatures could not be verifed!">
-</center>
-
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Execute the following to import keys using gpg:</p>
-<blockquote>
-<p>gpg –recv-keys &lt;KEYID - See ‘validpgpkeys’ array in PKGBUILD&gt;</p>
-</blockquote>
-<h1 id="Why-need-libc"><a href="#Why-need-libc" class="headerlink" title="Why need libc++"></a>Why need libc++</h1><p>As you can see in libc++ in <a href="https://aur.archlinux.org/packages/libc%2B%2B/" target="_blank" rel="noopener">AUR</a>, libc++ is required by discord.</p>
-<center>
-<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/why-discord-need-this.png" class="" title="libc++ is requried by discord">
-</center>
-
-<p>Actually, it’s really weird that Discord needs libc++ at <code>v0.0.2</code>. It doesn’t need libc++ before.</p>
-<p>Anyway, it should do the tricks.</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Software</category>
-      </categories>
-      <tags>
-        <tag>Discord</tag>
-        <tag>Tips</tag>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Notes - English</title>
     <url>/en/Gossip/2017/05/30-Notes/</url>
     <content><![CDATA[<h1 id="Main-body"><a href="#Main-body" class="headerlink" title="Main body"></a>Main body</h1><div class="note info"><p>The theme of blog, which is <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>, almost has been done.</p>
@@ -286,8 +234,157 @@
         <category>Gossip</category>
       </categories>
       <tags>
-        <tag>English</tag>
         <tag>Life</tag>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to solve nothing showed in grey box of Discord</title>
+    <url>/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>We all know that what discord is and what it does. Okay, if you don’t know what it is, just skip this post.</p>
+<p>This post is only for those who have showing issue in their grey box.</p>
+<div class="note info"><p>Platform: Linux Arch-like</p>
+</div>
+
+<p>If other distros have the same issue, you may try this. Don’t know whether it works for you.</p>
+<a id="more"></a>
+
+<h1 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h1><p>If you update your discord to <code>Linux-v0.0.2</code>, you should encounter this issue that nothing shows in the grey box of Discord below.</p>
+<center>
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank.png" class="" title="Nothing shows in grey box">
+</center>
+
+<p>Okay, this is easy.</p>
+<p>Install <code>libc++</code>.</p>
+<p>In Arch/Manjaro, use this:</p>
+<blockquote>
+<p>yaourt -S libc++</p>
+</blockquote>
+<h1 id="Another-problem-when-trying-to-install-libc"><a href="#Another-problem-when-trying-to-install-libc" class="headerlink" title="Another problem when trying to install libc++"></a>Another problem when trying to install libc++</h1><h2 id="Issue-1"><a href="#Issue-1" class="headerlink" title="Issue"></a>Issue</h2><p>As you can see the pic below:</p>
+<center>
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/discord-blank-error.png" class="" title="PGP signatures could not be verifed!">
+</center>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Execute the following to import keys using gpg:</p>
+<blockquote>
+<p>gpg –recv-keys &lt;KEYID - See ‘validpgpkeys’ array in PKGBUILD&gt;</p>
+</blockquote>
+<h1 id="Why-need-libc"><a href="#Why-need-libc" class="headerlink" title="Why need libc++"></a>Why need libc++</h1><p>As you can see in libc++ in <a href="https://aur.archlinux.org/packages/libc%2B%2B/" target="_blank" rel="noopener">AUR</a>, libc++ is required by discord.</p>
+<center>
+<img src="/en/Software/2017/08/14-How-to-solve-nothing-showed-in-grey-box-of-Discord/why-discord-need-this.png" class="" title="libc++ is requried by discord">
+</center>
+
+<p>Actually, it’s really weird that Discord needs libc++ at <code>v0.0.2</code>. It doesn’t need libc++ before.</p>
+<p>Anyway, it should do the tricks.</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+]]></content>
+      <categories>
+        <category>Software</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Discord</tag>
+        <tag>Tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>The template of gradle(kotlin and java)</title>
+    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
+    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
+<a id="more"></a>
+
+
+
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Gradle</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Gradle</tag>
+        <tag>Java</tag>
+        <tag>Kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随筆 - 日本語</title>
+    <url>/ja/Gossip/2017/06/21-%E9%9A%8F%E7%AD%86/</url>
+    <content><![CDATA[<h1 id="本文"><a href="#本文" class="headerlink" title="本文"></a>本文</h1><div class="note info"><p>ブログのテーマ<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>はほとんど終わりました。</p>
+</div>
+
+<p>この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～</p>
+<p>しかし、そんなに高く付きちゃたとは思いも寄らない。</p>
+<a id="more"></a>
+
+<h1 id="ブログの意図"><a href="#ブログの意図" class="headerlink" title="ブログの意図"></a>ブログの意図</h1><p>1.最初のテーマはゆっくりと改善しました。時代とともに前進しているためにん、テーマは常に変化し、或いは面白いものを追加する。</p>
+<p>2.ブログの名前は　** go deep **　なので、ブログの文章には僕は品質を保証しなければなりません。おそらく、僕の自分自身の能力不足の原因ですが、ある文章の内容はすっごく簡単です、これを許してほしい。僕だって、何でも出きるでしょう？</p>
+<p>しかし、</p>
+<p>僕は、特定の分野における僕は現在の最高レベルを書くことでなければならない信念で、技術的な記事を書くことを保証します！</p>
+<p>彼らの文章はしばしば読んだことたくさんあった。でも、多くの時間をかかって、なんの収穫にもありません！</p>
+<p>ですかる、</p>
+<div class="note info"><p>**　文章の品質絶対だ！絶対！ **　</p>
+</div>
+
+
+<h1 id="様々の「ツッコミ」"><a href="#様々の「ツッコミ」" class="headerlink" title="様々の「ツッコミ」"></a>様々の「ツッコミ」</h1><p>何故高く付きちゃたのを言うでしょうか？ <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>は２０１７年１月に始まりまして、でも様々のものなので、これを解決する暇がなかった。</p>
+<p>その後、<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>でこのテーマの統計情報見るとき吃驚しました。ああ！100以上の日の問題はまだ残っていった。次の日に僕はすぐに全部の問題を解決しました。</p>
+<p>最近の２週間まで、このブログのテーマしてます。ああああ、最終的には何とかできるそうみたい。</p>
+<p>しかし、まだたくさんの問題残りしましたが、後でゆっくりとそれを修復する。現在は山ほどの煩雑なことありますから。</p>
+<p>それで、僕は3年間のドメイン名を購入しました（くそ！３１２２円を取った）すでに金を持ってない僕には。。。。</p>
+<p>このドメイン名を購入した価値を発揮できる欲しい。</p>
+<h1 id="今後の計画"><a href="#今後の計画" class="headerlink" title="今後の計画"></a>今後の計画</h1><div class="note info"><p>1.先ずは院生になりたい</p>
+</div>
+
+<p>ある人は「なぜあなたは直接に仕事に行っていない？あなたには仕事を絶対に見つけることができるし。」って聞いていた。</p>
+<p>はい、そう化もしれない。でもね、院生の卒業後は学歴はちょっと高いんです。それだけ。</p>
+<p>何故高い学歴が欲しいですか？何が理由あるのかなあ？</p>
+<p>:)　いいえ、とくにないです。高等学校卒業する前に決定した。</p>
+<div class="note info"><p>2.専門関する能力を強化する</p>
+</div>
+
+<p>まあ、結局、誰にも仕事を探しなきゃならない。それは確かに専門的なスキルを持っていなきゃならない。そうしないと、何にもできないでしょう？</p>
+<div class="note primary"><p>3.フロントエンド開発関するの知識を勉強する</p>
+</div>
+
+<p>ハハハハ、、ブログのテーマのために、それとも** 格好つけるために **、こんな知識は絶対に必要ですから。</p>
+<p>ブログの「格好」あるなら、自分自身が気持ちがよいできる。</p>
+<div class="note primary"><p>4.コンピューター言語の選択</p>
+</div>
+
+<p>残念ながら、僕はC++とJavaできる。</p>
+<p>これは面倒になりました。私は言語を選択する必要があります。でも、僕は両方を好きですが、唯一の言語を選択する後でこの言語でプロになって欲しい。</p>
+<p>今若すぎるなので、非常に頑固って、両方が専門をしたかった〜〜</p>
+<p>C++を主とすると、Kotlinは補助的な存在になりたい時、Javaは最後の選択しになりますと思います。</p>
+<div class="note primary"><p>5.できるだけ複数の言語で文章を書きたい</p>
+</div>
+
+<p>僕は英語、中国語と日本語できます。できるだけたくさんの人に満足するために、私は複数の言語でかきます。同時に、このやり方は僕にやくたつかります。</p>
+<p>おそらく将来はハ韓国語のバージョンの文章を追加されます化もしれない。お期待してください :)</p>
+<blockquote>
+<p>ご注意：この文章は私は初めで書いた。それぞれの間違いあります。間違いところで教えて欲しい。<br>(●ゝω)ノ</p>
+</blockquote>
+<blockquote class="blockquote-center">
+<p>終了 </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>日本語</tag>
       </tags>
   </entry>
   <entry>
@@ -345,106 +442,6 @@
         <tag>English</tag>
         <tag>Knapsack</tag>
         <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The template of gradle(kotlin and java)</title>
-    <url>/en/Gradle/2018/04/18-The-template-of-gradle-kotlin-and-java/</url>
-    <content><![CDATA[<p>This is the template showing how to combine Java and Kotlin into gradle file.</p>
-<a id="more"></a>
-
-
-
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">buildscript</span> &#123;</span><br><span class="line">    ext.kotlin_version = <span class="string">'1.2.30'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        mavenCentral()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">dependencies</span> &#123;</span><br><span class="line">        <span class="keyword">classpath</span> <span class="string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.godeep'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'kotlin'</span></span><br><span class="line">apply plugin: <span class="string">'application'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="number">1.9</span></span><br><span class="line"></span><br><span class="line">mainClassName = <span class="string">'Main'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main.java.srcDirs += <span class="string">"src/main"</span></span><br><span class="line">    test.java.srcDirs += <span class="string">"src/test"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.jfoenix:jfoenix:9.0.3"</span></span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, name: <span class="string">'junit'</span>, version: <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">compileKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br><span class="line">compileTestKotlin &#123;</span><br><span class="line">    kotlinOptions.jvmTarget = <span class="string">"1.8"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Gradle</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Gradle</tag>
-        <tag>Java</tag>
-        <tag>Kotlin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Atbash Cipher Code Refactoring Record</title>
-    <url>/en/Rust/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the main exercise of exercism in rust.</p>
-<p>I asked some friends from a small Rust community and I got these elegant codes. These codes are so beautiful and tricky. So I decide to write it down and hope it may be useful for you as well.</p>
-<p>You may learn how to “chunk” vector in rust as a string without using a loop while joining characters.</p>
-<a id="more"></a>
-
-<div class="note info"><p>Exercise Introduction:</p>
-</div>
-
-<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>Create an implementation of the atbash cipher, an ancient encryption system created in the Middle East.</p>
-<p>The Atbash cipher is a simple substitution cipher that relies on transposing all the letters in the alphabet such that the resulting alphabet is backwards. The first letter is replaced with the last letter, the second with the second-last, and so on.</p>
-<p>An Atbash cipher for the Latin alphabet would be as follows:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plain:  abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Cipher: zyxwvutsrqponmlkjihgfedcba</span><br></pre></td></tr></table></figure>
-<p>It is a very weak cipher because it only has one possible key, and it is a simple monoalphabetic substitution cipher. However, this may not have been an issue in the cipher’s time.</p>
-<p>Ciphertext is written out in groups of fixed length, the traditional group size being 5 letters, and punctuation is excluded. This is to make it harder to guess things based on word boundaries.</p>
-<p>Examples</p>
-<ul>
-<li>Encoding <code>test</code> gives <code>gvhg</code></li>
-<li>Decoding <code>gvhg</code> gives <code>test</code></li>
-<li>Decoding <code>gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt</code> gives <code>thequickbrownfoxjumpsoverthelazydog</code></li>
-</ul>
-<h2 id="Test-suite"><a href="#Test-suite" class="headerlink" title="Test suite"></a>Test suite</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> atbash_cipher <span class="keyword">as</span> cipher;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_yes</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"yes"</span>), <span class="string">"bvh"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_no</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"no"</span>), <span class="string">"ml"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_omg</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"OMG"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"O M G"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_mindblowingly</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"mindblowingly"</span>), <span class="string">"nrmwy oldrm tob"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"Testing,1 2 3, testing."</span>),</span><br><span class="line">        <span class="string">"gvhgr mt123 gvhgr mt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_deep_thought</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"Truth is fiction."</span>), <span class="string">"gifgs rhurx grlm"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"The quick brown fox jumps over the lazy dog."</span>),</span><br><span class="line">        <span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_exercism</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vcvix rhn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_a_sentence</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyh gzxov rhlug vmzhg vkkrm thglm v"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"gvhgr mt123 gvhgr mt"</span>), <span class="string">"testing123testing"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span>),</span><br><span class="line">        <span class="string">"thequickbrownfoxjumpsoverthelazydog"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_too_many_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vc vix    r hn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_no_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyhgzxovrhlugvmzhgvkkrmthglmv"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text.</span><br><span class="line">        to_lowercase().</span><br><span class="line">        chars().</span><br><span class="line">        filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit()).</span><br><span class="line">        map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> result = <span class="built_in">String</span>::new();</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..tmp.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">            result.push(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        result.push(tmp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><code>L11</code> uses <code>.rev()</code> feature to pin-point the index of <code>CIPHER</code> text. This is a little bit tricky.</p>
-<p>In this version, I didn’t find any solutions to wrap pushing string into a <code>.map()</code>, which makes it look like C/C++-style and ugly since we need a loop to append <code>space</code> for me. This can be changed!</p>
-<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .chunks(<span class="number">5</span>)</span><br><span class="line">        .map(|x| x.iter().collect::&lt;<span class="built_in">String</span>&gt;())</span><br><span class="line">        .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">        .join(<span class="string">" "</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 2, I’ve made changes about wrapping encoded string. It happens at <code>L19~24</code>.</p>
-<p>Explanation:</p>
-<ol>
-<li><code>L21</code> takes value for chunking vector as several slices(vector)</li>
-<li><code>L22</code> maps the chunked vector into <code>String</code></li>
-<li><code>L23</code> collects all data generated in step 2 together and outputs as <code>Vec&lt;String&gt;</code></li>
-<li><code>L24</code> use <code>.join()</code> method for joining item in <code>Vec&lt;String&gt;</code> with space and outputs the final result.</li>
-</ol>
-<p>So, basically, you don’t need a loop any more to add space after 5 characters. Removing loops in Rust is a kind of beautiful way of processing data.</p>
-<h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version 3"></a>Version 3</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .iter()</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(*c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 3, in order to challenge memory usage, I’ve mainly removed one layer of <code>.collect()</code> since <code>.collect()</code> will consume heap memory usage which affects performance. So, I avoid using <code>.chunk()</code> and allocating memory on the heap again in <code>.map()</code> and replace it with the <code>iterator</code>. Why I choose <code>iterator</code> is that their lazily-evaluated nature, don’t allocate on the heap until explicitly told so (with <code>.collect()</code> for instance).</p>
-<p>Also, <code>.enumerate()</code> yields pairs so we could use <code>.flat_map()</code> to remove the layer of iterator and collect them as <code>String</code> only once.</p>
-<p>Saving memory allocation on the heap. Goal Achieved.</p>
-<h2 id="Version-4"><a href="#Version-4" class="headerlink" title="Version 4"></a>Version 4</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// return Iterator type: https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>&lt;<span class="symbol">'a</span>&gt;(text: &amp;<span class="symbol">'a</span> <span class="built_in">str</span>) -&gt; <span class="keyword">impl</span> <span class="built_in">Iterator</span>&lt;Item=<span class="built_in">char</span>&gt; + <span class="symbol">'a</span> &#123;</span><br><span class="line">    text</span><br><span class="line">        .chars()</span><br><span class="line">        .flat_map(|x| x.to_lowercase())</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>In version 4, <code>atbash()</code> no longer returns <code>Vec&lt;char&gt;</code>, which avoids the memory allocation on the heap again.  But returning <code>Iterator</code> is a little bit tricky. You can find more examples in <a href="https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b" target="_blank" rel="noopener">here</a>.</p>
-<p>Another change is that I move backward of <code>.to_lowercase()</code> and use <code>.flat_map()</code> instead since filtering all upprcase outside the function <code>atbash()</code> is not graceful and does not conform to the engineering.</p>
-<p>So, basically in this version,  <code>.collect()</code>  operation is only used once. Memory allocation on the heap only happens once as well.</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-]]></content>
-      <categories>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Rust</tag>
-        <tag>Exercism</tag>
       </tags>
   </entry>
   <entry>
@@ -635,6 +632,80 @@
       </tags>
   </entry>
   <entry>
+    <title>Atbash Cipher Code Refactoring Record</title>
+    <url>/en/Rust/2019/12/28-Atbash-Cipher-Code-Refactoring-Record/</url>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This comes from the main exercise of exercism in rust.</p>
+<p>I asked some friends from a small Rust community and I got these elegant codes. These codes are so beautiful and tricky. So I decide to write it down and hope it may be useful for you as well.</p>
+<p>You may learn how to “chunk” vector in rust as a string without using a loop while joining characters.</p>
+<a id="more"></a>
+
+<div class="note info"><p>Exercise Introduction:</p>
+</div>
+
+<h2 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h2><p>Create an implementation of the atbash cipher, an ancient encryption system created in the Middle East.</p>
+<p>The Atbash cipher is a simple substitution cipher that relies on transposing all the letters in the alphabet such that the resulting alphabet is backwards. The first letter is replaced with the last letter, the second with the second-last, and so on.</p>
+<p>An Atbash cipher for the Latin alphabet would be as follows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plain:  abcdefghijklmnopqrstuvwxyz</span><br><span class="line">Cipher: zyxwvutsrqponmlkjihgfedcba</span><br></pre></td></tr></table></figure>
+<p>It is a very weak cipher because it only has one possible key, and it is a simple monoalphabetic substitution cipher. However, this may not have been an issue in the cipher’s time.</p>
+<p>Ciphertext is written out in groups of fixed length, the traditional group size being 5 letters, and punctuation is excluded. This is to make it harder to guess things based on word boundaries.</p>
+<p>Examples</p>
+<ul>
+<li>Encoding <code>test</code> gives <code>gvhg</code></li>
+<li>Decoding <code>gvhg</code> gives <code>test</code></li>
+<li>Decoding <code>gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt</code> gives <code>thequickbrownfoxjumpsoverthelazydog</code></li>
+</ul>
+<h2 id="Test-suite"><a href="#Test-suite" class="headerlink" title="Test suite"></a>Test suite</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> atbash_cipher <span class="keyword">as</span> cipher;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_yes</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"yes"</span>), <span class="string">"bvh"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_no</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"no"</span>), <span class="string">"ml"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_omg</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"OMG"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"O M G"</span>), <span class="string">"lnt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_mindblowingly</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"mindblowingly"</span>), <span class="string">"nrmwy oldrm tob"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"Testing,1 2 3, testing."</span>),</span><br><span class="line">        <span class="string">"gvhgr mt123 gvhgr mt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_deep_thought</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::encode(<span class="string">"Truth is fiction."</span>), <span class="string">"gifgs rhurx grlm"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_encode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::encode(<span class="string">"The quick brown fox jumps over the lazy dog."</span>),</span><br><span class="line">        <span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_exercism</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vcvix rhn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_a_sentence</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyh gzxov rhlug vmzhg vkkrm thglm v"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"gvhgr mt123 gvhgr mt"</span>), <span class="string">"testing123testing"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_all_the_letters</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"</span>),</span><br><span class="line">        <span class="string">"thequickbrownfoxjumpsoverthelazydog"</span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_too_many_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(cipher::decode(<span class="string">"vc vix    r hn"</span>), <span class="string">"exercism"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[test]</span></span><br><span class="line"><span class="meta">#[ignore]</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">test_decode_with_no_spaces</span></span>() &#123;</span><br><span class="line">    <span class="built_in">assert_eq!</span>(</span><br><span class="line">        cipher::decode(<span class="string">"zmlyhgzxovrhlugvmzhgvkkrmthglmv"</span>),</span><br><span class="line">        <span class="string">"anobstacleisoftenasteppingstone"</span>,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text.</span><br><span class="line">        to_lowercase().</span><br><span class="line">        chars().</span><br><span class="line">        filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit()).</span><br><span class="line">        map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> result = <span class="built_in">String</span>::new();</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..tmp.len() &#123;</span><br><span class="line">        <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">            result.push(<span class="string">' '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        result.push(tmp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>L11</code> uses <code>.rev()</code> feature to pin-point the index of <code>CIPHER</code> text. This is a little bit tricky.</p>
+<p>In this version, I didn’t find any solutions to wrap pushing string into a <code>.map()</code>, which makes it look like C/C++-style and ugly since we need a loop to append <code>space</code> for me. This can be changed!</p>
+<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .chunks(<span class="number">5</span>)</span><br><span class="line">        .map(|x| x.iter().collect::&lt;<span class="built_in">String</span>&gt;())</span><br><span class="line">        .collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">String</span>&gt;&gt;()</span><br><span class="line">        .join(<span class="string">" "</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 2, I’ve made changes about wrapping encoded string. It happens at <code>L19~24</code>.</p>
+<p>Explanation:</p>
+<ol>
+<li><code>L21</code> takes value for chunking vector as several slices(vector)</li>
+<li><code>L22</code> maps the chunked vector into <code>String</code></li>
+<li><code>L23</code> collects all data generated in step 2 together and outputs as <code>Vec&lt;String&gt;</code></li>
+<li><code>L24</code> use <code>.join()</code> method for joining item in <code>Vec&lt;String&gt;</code> with space and outputs the final result.</li>
+</ol>
+<p>So, basically, you don’t need a loop any more to add space after 5 characters. Removing loops in Rust is a kind of beautiful way of processing data.</p>
+<h2 id="Version-3"><a href="#Version-3" class="headerlink" title="Version 3"></a>Version 3</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>(text: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; &#123;</span><br><span class="line">    text</span><br><span class="line">        .to_lowercase()</span><br><span class="line">        .chars()</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;).collect::&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .iter()</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(*c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).into_iter().collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 3, in order to challenge memory usage, I’ve mainly removed one layer of <code>.collect()</code> since <code>.collect()</code> will consume heap memory usage which affects performance. So, I avoid using <code>.chunk()</code> and allocating memory on the heap again in <code>.map()</code> and replace it with the <code>iterator</code>. Why I choose <code>iterator</code> is that their lazily-evaluated nature, don’t allocate on the heap until explicitly told so (with <code>.collect()</code> for instance).</p>
+<p>Also, <code>.enumerate()</code> yields pairs so we could use <code>.flat_map()</code> to remove the layer of iterator and collect them as <code>String</code> only once.</p>
+<p>Saving memory allocation on the heap. Goal Achieved.</p>
+<h2 id="Version-4"><a href="#Version-4" class="headerlink" title="Version 4"></a>Version 4</h2><figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PLAIN: &amp;<span class="built_in">str</span> = <span class="string">"abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line"><span class="keyword">const</span> CIPHER: &amp;<span class="built_in">str</span> = <span class="string">"zyxwvutsrqponmlkjihgfedcba"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// return Iterator type: https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">atbash</span></span>&lt;<span class="symbol">'a</span>&gt;(text: &amp;<span class="symbol">'a</span> <span class="built_in">str</span>) -&gt; <span class="keyword">impl</span> <span class="built_in">Iterator</span>&lt;Item=<span class="built_in">char</span>&gt; + <span class="symbol">'a</span> &#123;</span><br><span class="line">    text</span><br><span class="line">        .chars()</span><br><span class="line">        .flat_map(|x| x.to_lowercase())</span><br><span class="line">        .filter(|&amp;x| x.is_ascii_alphabetic() || x.is_ascii_digit())</span><br><span class="line">        .map(|f| &#123;</span><br><span class="line">            <span class="keyword">match</span> PLAIN.find(f) &#123;</span><br><span class="line">                <span class="literal">Some</span>(c) =&gt; PLAIN.chars().rev().nth(c),</span><br><span class="line">                <span class="literal">None</span> =&gt; <span class="literal">Some</span>(f),</span><br><span class="line">            &#125;.unwrap()</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Encipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">encode</span></span>(plain: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = atbash(plain);</span><br><span class="line">    tmp</span><br><span class="line">        .enumerate()</span><br><span class="line">        .flat_map(|(i, c)| &#123;</span><br><span class="line">            <span class="keyword">if</span> i.rem_euclid(<span class="number">5</span>) == <span class="number">0</span> &amp;&amp; i != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="literal">Some</span>(<span class="string">' '</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="literal">None</span></span><br><span class="line">            &#125;.into_iter().chain(std::iter::once(c))</span><br><span class="line">        &#125;)</span><br><span class="line">        .collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// "Decipher" with the Atbash cipher.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode</span></span>(cipher: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    atbash(cipher).collect()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>In version 4, <code>atbash()</code> no longer returns <code>Vec&lt;char&gt;</code>, which avoids the memory allocation on the heap again.  But returning <code>Iterator</code> is a little bit tricky. You can find more examples in <a href="https://gist.github.com/conundrumer/4e57c14705055bb2deac1b9fde84f83b" target="_blank" rel="noopener">here</a>.</p>
+<p>Another change is that I move backward of <code>.to_lowercase()</code> and use <code>.flat_map()</code> instead since filtering all upprcase outside the function <code>atbash()</code> is not graceful and does not conform to the engineering.</p>
+<p>So, basically in this version,  <code>.collect()</code>  operation is only used once. Memory allocation on the heap only happens once as well.</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Rust</tag>
+        <tag>Exercism</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Rust Merge Strings Alternately</title>
     <url>/en/Rust/2021/05/18-Rust-Merge-Strings-Alternately/</url>
     <content><![CDATA[<p>This posts comes from the real project scenario.</p>
@@ -681,6 +752,142 @@
       <tags>
         <tag>English</tag>
         <tag>Rust</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Measure function exection time elegantly in Rust(Python, Golang)</title>
+    <url>/en/Rust/2021/05/26-Measure-function-exection-time-in-Rust(Python-Golang)/</url>
+    <content><![CDATA[<p>Measuring function time is quite necessary sometimes.</p>
+<p>It is easy to implement this in other languages but not in Rust.</p>
+<p>Therefore, this post will demonstrate some tricks to measure the function execution time.</p>
+<p>From the easiest one to the reusable version. Other implementation will also be included, such as Python and Golang.</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Basic-version"><a href="#Basic-version" class="headerlink" title="Basic version"></a>Basic version</h1><p>In any language, you can complete this task simply by calculating the time differences to measure the exection time.</p>
+<p>For example,</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    expensive_func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This implementation is easy but not elegant. Not reusable as well.</p>
+<h1 id="Reusable-version"><a href="#Reusable-version" class="headerlink" title="Reusable version"></a>Reusable version</h1><h2 id="TL-DR-In-Rust"><a href="#TL-DR-In-Rust" class="headerlink" title="TL;DR: In Rust"></a>TL;DR: In Rust</h2><p>Use this:</p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// does not work with parameters</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// but you can pass it using powerful closure</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>We will take a few examples from Python and Golang to demonstrate what we want exactly.</p>
+<h2 id="In-Python"><a href="#In-Python" class="headerlink" title="In Python"></a>In Python</h2><p>Writing python is easy and comfortable although it sacrifices the most important performance.</p>
+<p>You can achieve this purpose by the following code:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># more detail: https://stackoverflow.com/a/803626/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">measure_time</span><span class="params">(func)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line">    _ = func()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">"Time: &#123;&#125; seconds"</span>.format(end_time - start_time))</span><br><span class="line"></span><br><span class="line"><span class="comment"># function is passwd as a parameter using lambda feature</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: expensive_func())</span><br><span class="line"></span><br><span class="line"><span class="comment"># you can reuse the code again without writing time-related codes</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: second_expensive_func())</span><br></pre></td></tr></table></figure>
+
+<h2 id="In-Golang"><a href="#In-Golang" class="headerlink" title="In Golang"></a>In Golang</h2><p>It is not easy to write similar code like python in Golang. </p>
+<p>But Golang has <code>defer</code> to work with. Great news!</p>
+<p>This version of code is the most simplest and practical I could find. You may want to use this as well.</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Comes from: https://dev.to/rubiin/measure-function-execution-time-in-golang-177l</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">measureTime</span><span class="params">(start time.Time, name <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	elapsed := time.Since(start)</span><br><span class="line">	log.Printf(<span class="string">"Time for %s: %s"</span>, name, elapsed)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">expensive_func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">defer</span> measureTime(time.Now(), <span class="string">"name"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// do your expensive calculation</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="In-Rust"><a href="#In-Rust" class="headerlink" title="In Rust"></a>In Rust</h2><p>It is much harder to write similar code like Python and Golang in Rust since passing function as a argument is really hard.</p>
+<p>At the same time, you can’t easily achieve dynamic dispatch for function argument.</p>
+<p>But then I suddenly find this in <a href="https://stackoverflow.com/a/25182801/8587335" target="_blank" rel="noopener">here</a>, which enlights me greatly.</p>
+<p>You can find codes in playground: </p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::thread::sleep;</span><br><span class="line"><span class="keyword">use</span> std::time::&#123;Duration, Instant&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        i = able_to_pass_with_return();</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// result: 1</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"i = &#123;&#125;"</span>, i);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// does not work</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// but you can pass it using closure</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_return</span></span>() -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function (return)"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsedpsed in is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Tips</tag>
+        <tag>Rust</tag>
+        <tag>Golang</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>扎记 - 中文</title>
+    <url>/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
+</div>
+
+<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
+<p>但是没想到代价是这么大的。</p>
+<a id="more"></a>
+
+<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
+<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
+</li>
+<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
+</li>
+</ol>
+<p>但是，</p>
+<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
+<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
+<p>所以，</p>
+<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
+</div>
+
+<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
+<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
+<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
+<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
+<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
+<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
+</div>
+
+<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
+<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
+<p>那为什么要高学历呢？有什么理由么？</p>
+<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
+<div class="note primary"><p>2.专业技能给弄一弄</p>
+</div>
+
+<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
+<p>再说了，</p>
+<blockquote class="blockquote-center">
+<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
+
+</blockquote>
+
+<center>
+<img src="/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
+</center>
+
+<div class="note primary"><p>3.前端知识折腾一下</p>
+</div>
+
+<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
+<p>博客写得逼格高，自己才看得爽</p>
+<div class="note primary"><p>4.语言选择</p>
+</div>
+
+<p>很不幸，我既** 会 ** C++又会Java。</p>
+<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
+<p>现在太年轻，很任性，两个都想专精～～</p>
+<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
+<div class="note primary"><p>5.尽量保证文章多语言版本</p>
+</div>
+
+<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
+<p>或许以后会加韩文～尽情期待吧 :)</p>
+<blockquote class="blockquote-center">
+<p>完 </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Gossip</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>中文</tag>
       </tags>
   </entry>
   <entry>
@@ -1897,274 +2104,9 @@
         <category>Language</category>
       </categories>
       <tags>
+        <tag>中文</tag>
         <tag>Korean</tag>
         <tag>Notes</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随筆 - 日本語</title>
-    <url>/ja/Gossip/2017/06/21-%E9%9A%8F%E7%AD%86/</url>
-    <content><![CDATA[<h1 id="本文"><a href="#本文" class="headerlink" title="本文"></a>本文</h1><div class="note info"><p>ブログのテーマ<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>はほとんど終わりました。</p>
-</div>
-
-<p>この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～</p>
-<p>しかし、そんなに高く付きちゃたとは思いも寄らない。</p>
-<a id="more"></a>
-
-<h1 id="ブログの意図"><a href="#ブログの意図" class="headerlink" title="ブログの意図"></a>ブログの意図</h1><p>1.最初のテーマはゆっくりと改善しました。時代とともに前進しているためにん、テーマは常に変化し、或いは面白いものを追加する。</p>
-<p>2.ブログの名前は　** go deep **　なので、ブログの文章には僕は品質を保証しなければなりません。おそらく、僕の自分自身の能力不足の原因ですが、ある文章の内容はすっごく簡単です、これを許してほしい。僕だって、何でも出きるでしょう？</p>
-<p>しかし、</p>
-<p>僕は、特定の分野における僕は現在の最高レベルを書くことでなければならない信念で、技術的な記事を書くことを保証します！</p>
-<p>彼らの文章はしばしば読んだことたくさんあった。でも、多くの時間をかかって、なんの収穫にもありません！</p>
-<p>ですかる、</p>
-<div class="note info"><p>**　文章の品質絶対だ！絶対！ **　</p>
-</div>
-
-
-<h1 id="様々の「ツッコミ」"><a href="#様々の「ツッコミ」" class="headerlink" title="様々の「ツッコミ」"></a>様々の「ツッコミ」</h1><p>何故高く付きちゃたのを言うでしょうか？ <a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>は２０１７年１月に始まりまして、でも様々のものなので、これを解決する暇がなかった。</p>
-<p>その後、<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>でこのテーマの統計情報見るとき吃驚しました。ああ！100以上の日の問題はまだ残っていった。次の日に僕はすぐに全部の問題を解決しました。</p>
-<p>最近の２週間まで、このブログのテーマしてます。ああああ、最終的には何とかできるそうみたい。</p>
-<p>しかし、まだたくさんの問題残りしましたが、後でゆっくりとそれを修復する。現在は山ほどの煩雑なことありますから。</p>
-<p>それで、僕は3年間のドメイン名を購入しました（くそ！３１２２円を取った）すでに金を持ってない僕には。。。。</p>
-<p>このドメイン名を購入した価値を発揮できる欲しい。</p>
-<h1 id="今後の計画"><a href="#今後の計画" class="headerlink" title="今後の計画"></a>今後の計画</h1><div class="note info"><p>1.先ずは院生になりたい</p>
-</div>
-
-<p>ある人は「なぜあなたは直接に仕事に行っていない？あなたには仕事を絶対に見つけることができるし。」って聞いていた。</p>
-<p>はい、そう化もしれない。でもね、院生の卒業後は学歴はちょっと高いんです。それだけ。</p>
-<p>何故高い学歴が欲しいですか？何が理由あるのかなあ？</p>
-<p>:)　いいえ、とくにないです。高等学校卒業する前に決定した。</p>
-<div class="note info"><p>2.専門関する能力を強化する</p>
-</div>
-
-<p>まあ、結局、誰にも仕事を探しなきゃならない。それは確かに専門的なスキルを持っていなきゃならない。そうしないと、何にもできないでしょう？</p>
-<div class="note primary"><p>3.フロントエンド開発関するの知識を勉強する</p>
-</div>
-
-<p>ハハハハ、、ブログのテーマのために、それとも** 格好つけるために **、こんな知識は絶対に必要ですから。</p>
-<p>ブログの「格好」あるなら、自分自身が気持ちがよいできる。</p>
-<div class="note primary"><p>4.コンピューター言語の選択</p>
-</div>
-
-<p>残念ながら、僕はC++とJavaできる。</p>
-<p>これは面倒になりました。私は言語を選択する必要があります。でも、僕は両方を好きですが、唯一の言語を選択する後でこの言語でプロになって欲しい。</p>
-<p>今若すぎるなので、非常に頑固って、両方が専門をしたかった〜〜</p>
-<p>C++を主とすると、Kotlinは補助的な存在になりたい時、Javaは最後の選択しになりますと思います。</p>
-<div class="note primary"><p>5.できるだけ複数の言語で文章を書きたい</p>
-</div>
-
-<p>僕は英語、中国語と日本語できます。できるだけたくさんの人に満足するために、私は複数の言語でかきます。同時に、このやり方は僕にやくたつかります。</p>
-<p>おそらく将来はハ韓国語のバージョンの文章を追加されます化もしれない。お期待してください :)</p>
-<blockquote>
-<p>ご注意：この文章は私は初めで書いた。それぞれの間違いあります。間違いところで教えて欲しい。<br>(●ゝω)ノ</p>
-</blockquote>
-<blockquote class="blockquote-center">
-<p>終了 </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Gossip</category>
-      </categories>
-      <tags>
-        <tag>Life</tag>
-        <tag>日本語</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>扎记 - 中文</title>
-    <url>/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><div class="note info"><p>博客主题<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>弄得差不多啦</p>
-</div>
-
-<p>当初移植主题的时候，只是为了“装逼”，哈哈哈～</p>
-<p>但是没想到代价是这么大的。</p>
-<a id="more"></a>
-
-<h1 id="博客打算"><a href="#博客打算" class="headerlink" title="博客打算"></a>博客打算</h1><ol>
-<li><p>主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西</p>
-</li>
-<li><p>因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单</p>
-</li>
-</ol>
-<p>但是，</p>
-<p>我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！</p>
-<p>因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！</p>
-<p>所以，</p>
-<div class="note danger"><p>** 绝对保证文章质量！绝对！ **</p>
-</div>
-
-<h1 id="乱七八糟的吐槽"><a href="#乱七八糟的吐槽" class="headerlink" title="乱七八糟的吐槽"></a>乱七八糟的吐槽</h1><p>为什么会这么说代价很大呢？因为<a href="https://github.com/Gabirel/next-geek" target="_blank" rel="noopener">next-geek</a>是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。</p>
-<p>当时去<a href="http://isitmaintained.com/project/Gabirel/next-geek" target="_blank" rel="noopener">isitmaintained</a>统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。</p>
-<p>最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。</p>
-<p>但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。</p>
-<p>然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧</p>
-<h1 id="未来打算"><a href="#未来打算" class="headerlink" title="未来打算"></a>未来打算</h1><div class="note primary"><p>1.未来呢，先把争取把研究生考上去</p>
-</div>
-
-<p>有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？</p>
-<p>是的吧，但是研究生毕业后就是硕士生，学历要高点。</p>
-<p>那为什么要高学历呢？有什么理由么？</p>
-<p>:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。</p>
-<div class="note primary"><p>2.专业技能给弄一弄</p>
-</div>
-
-<p>毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。</p>
-<p>再说了，</p>
-<blockquote class="blockquote-center">
-<p>人一定要有梦想，即使是咸鱼，也要做最咸的那条！</p>
-
-</blockquote>
-
-<center>
-<img src="/zh-CN/Gossip/2017/05/30-%E6%89%8E%E8%AE%B0/salty-fish-has-a-dream.jpg" class="">
-</center>
-
-<div class="note primary"><p>3.前端知识折腾一下</p>
-</div>
-
-<p>哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～</p>
-<p>博客写得逼格高，自己才看得爽</p>
-<div class="note primary"><p>4.语言选择</p>
-</div>
-
-<p>很不幸，我既** 会 ** C++又会Java。</p>
-<p>麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。</p>
-<p>现在太年轻，很任性，两个都想专精～～</p>
-<p>C++为主，Java系的Kotlin辅助，Java本身作为后援吧</p>
-<div class="note primary"><p>5.尽量保证文章多语言版本</p>
-</div>
-
-<p>我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。</p>
-<p>或许以后会加韩文～尽情期待吧 :)</p>
-<blockquote class="blockquote-center">
-<p>完 </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Gossip</category>
-      </categories>
-      <tags>
-        <tag>Life</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
-    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
-<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
-<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
-<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
-<a id="more"></a>
-
-<hr>
-<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果你运行这段代码，你会得到如下的错误信息：</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
-
-<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
-<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
-<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
-<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
-</ul>
-<p>希望这篇文章对你有用。</p>
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>Golang</tag>
-        <tag>TeeReader</tag>
-        <tag>Pipe</tag>
-        <tag>中文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rust版Basic Calculator II以及改进</title>
-    <url>/zh-CN/Rust/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
-    <content><![CDATA[<p>此文源自于<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">Leetcode的基本计算机II</a>。</p>
-<p>使用Rust语言完成，共计有两个版本。</p>
-<p>一个是基础版本（可以完成题目的要求），另一个是在此基础之上的改进（可以完成所有的运算符的要求）。</p>
-<p>无论是基础版还是改进版，均使用Rust版本。无其他语言版本。</p>
-<a id="more"></a>
-
-<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>原始题源：<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a><br>中文题源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a></p>
-<p>题目描述：</p>
-<p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。</p>
-<ul>
-<li><p>示例 1：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">"3+2*2"</span></span><br><span class="line">输出：<span class="number">7</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例 2：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3/2 "</span></span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>示例 3：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3+5 / 2 "</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><h2 id="解法1：基础计算解法"><a href="#解法1：基础计算解法" class="headerlink" title="解法1：基础计算解法"></a>解法1：基础计算解法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>加法压入栈中</li>
-<li>减法压入负数的数字</li>
-<li>乘法和除法直接运算即可，并把结果压入栈中</li>
-</ul>
-<p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</a></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v1.rs</code>)如下：</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</span></span><br><span class="line"><span class="comment">/// PS：v1只能应对`+-*/`，不能处理带括号情况，甚至是其他优先级的情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> stack = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> pre_sign = <span class="string">'+'</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (idx, c) <span class="keyword">in</span> s.chars().enumerate() &#123;</span><br><span class="line">        <span class="keyword">if</span> c.is_numeric() &#123;</span><br><span class="line">            num = num * <span class="number">10</span> + parse_as_int(c)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> !c.is_numeric() &amp;&amp; !c.is_whitespace() || idx == n - <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">match</span> pre_sign &#123;</span><br><span class="line">                <span class="string">'+'</span> =&gt; stack.push(num),</span><br><span class="line">                <span class="string">'-'</span> =&gt; stack.push(-num),</span><br><span class="line">                <span class="string">'*'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev * num);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">'/'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev / num);</span><br><span class="line">                &#125;</span><br><span class="line">                _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            pre_sign = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.iter().sum()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="解法2：改进型全适应解法"><a href="#解法2：改进型全适应解法" class="headerlink" title="解法2：改进型全适应解法"></a>解法2：改进型全适应解法</h2><h3 id="改进的地方"><a href="#改进的地方" class="headerlink" title="改进的地方"></a>改进的地方</h3><ul>
-<li>使用双栈（数字栈和运算符栈）</li>
-<li>适用于有括号的表达式</li>
-<li>适用于<code>+ - * / ^ %</code>的运算符</li>
-</ul>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</a></p>
-<p><strong>思路一句话总结：模拟人计算表达式的过程，遇到括号先算括号内部的，遇到高优先级的先计算高优先级</strong></p>
-<p>思路具体如下：</p>
-<ul>
-<li>一共有两个栈：数字栈和运算符栈</li>
-<li><code>(</code>: 直接加入运算符栈中，等待与之匹配的<code>)</code></li>
-<li><code>+ - * / ^ %</code>: 需要将操作放入运算符栈中。</li>
-<li>只有「栈内运算符」比「当前运算符」优先级高/同等，才进行运算，（直到没有操作或者遇到左括号），计算结果放到栈中</li>
-</ul>
-<p>该算法来源中有个例子，比如当前已读取的运算符为<code>2 + 1</code>（完整的运算符为：<code>2 + 1 * 2</code>）。</p>
-<ol>
-<li>如果后面是<code>+ 2</code>或者是<code>- 1</code>，满足「栈内运算符」比「当前运算符」优先级相等或者更高，说明可以直接运算<code>2 + 1</code>然后把结果放入数字栈中</li>
-<li>如果后面是<code>* 2</code>或者是<code>/ 1</code>，当前的运算符为<code>*</code>或者<code>/</code>，比栈内运算符<code>+</code>要高，所以要先计算<code>*</code>或者<code>/</code>。即，「栈内运算符」比「当前运算符」低，不能直接运算<code>2 + 1</code>，只能先运算后面<code>1 * 2</code>。</li>
-</ol>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v2.rs</code>)如下：</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</span></span><br><span class="line"><span class="comment">/// PS：v2只能应对`+-*/%^`，甚至可以处理带括号的情况</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 原理：</span></span><br><span class="line"><span class="comment">/// 因为这套「表达式计算」处理逻辑，本质上模拟了人脑的处理逻辑：根据下一位的运算符优先级决定当前运算符是否可以马上计算。</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 改变：未完全按照原solution进行处理，暂时不考虑复杂情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> s = remove_whitespace(&amp;s);</span><br><span class="line">    <span class="keyword">if</span> s.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> nums_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ops_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> ops_priority = setup_op_priority();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; n &#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.chars().nth(i).unwrap();</span><br><span class="line">        <span class="keyword">match</span> c &#123;</span><br><span class="line">            <span class="string">'('</span> =&gt; ops_stack.push(c),</span><br><span class="line">            <span class="string">')'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 计算到最近一个左括号为止</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">                    <span class="keyword">if</span> ops_stack.last().unwrap() == &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                        ops_stack.pop();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="string">'0'</span>..=<span class="string">'9'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 把所有的数字都探测完成，然后压栈保存</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> j = i;</span><br><span class="line">                <span class="keyword">while</span> j &lt; n &amp;&amp; s.chars().nth(j).unwrap().is_numeric() &#123;</span><br><span class="line">                    <span class="keyword">let</span> j_char = s.chars().nth(j).unwrap();</span><br><span class="line">                    num = num * <span class="number">10</span> + parse_as_int(j_char);</span><br><span class="line">                    j += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">                nums_stack.push(num);</span><br><span class="line">            &#125;</span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="comment">// 分支：其他操作符号（无括号的运算符）</span></span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="comment">// 有一个新操作要入栈时，先把栈内可以算的都算了</span></span><br><span class="line">                <span class="comment">// 只有满足「栈内运算符」比「当前运算符」优先级高/同等，才进行运算</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &amp;&amp; ops_stack.last().unwrap() != &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev_op = ops_stack.last().unwrap();</span><br><span class="line">                    <span class="keyword">if</span> ops_priority.get(prev_op) &gt;= ops_priority.get(&amp;c) &#123;</span><br><span class="line">                        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ops_stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算剩余的栈中的数据</span></span><br><span class="line">    <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿出结果</span></span><br><span class="line">    nums_stack.pop().unwrap()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">calc</span></span>(nums_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, ops_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;) &#123;</span><br><span class="line">    <span class="keyword">let</span> b = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> a = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> op = ops_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="keyword">match</span> op &#123;</span><br><span class="line">        <span class="string">'+'</span> =&gt; a + b,</span><br><span class="line">        <span class="string">'-'</span> =&gt; a - b,</span><br><span class="line">        <span class="string">'*'</span> =&gt; a * b,</span><br><span class="line">        <span class="string">'/'</span> =&gt; a / b,</span><br><span class="line">        <span class="string">'%'</span> =&gt; a % b,</span><br><span class="line">        <span class="string">'^'</span> =&gt; a.pow(b <span class="keyword">as</span> <span class="built_in">u32</span>),</span><br><span class="line">        _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">    &#125;;</span><br><span class="line">    nums_stack.push(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">setup_op_priority</span></span>() -&gt; HashMap&lt;<span class="built_in">char</span>, <span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> map = HashMap::new();</span><br><span class="line">    map.insert(<span class="string">'+'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'-'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'*'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'/'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'%'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'^'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">remove_whitespace</span></span>(s: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    s.split_whitespace().collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-        <tag>Rust</tag>
-        <tag>中文</tag>
       </tags>
   </entry>
   <entry>
@@ -2284,6 +2226,120 @@
       </tags>
   </entry>
   <entry>
+    <title>Rust版Basic Calculator II以及改进</title>
+    <url>/zh-CN/Rust/2021/05/17-Rust%E7%89%88Basic-Calculator-II%E4%BB%A5%E5%8F%8A%E6%94%B9%E8%BF%9B/</url>
+    <content><![CDATA[<p>此文源自于<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">Leetcode的基本计算机II</a>。</p>
+<p>使用Rust语言完成，共计有两个版本。</p>
+<p>一个是基础版本（可以完成题目的要求），另一个是在此基础之上的改进（可以完成所有的运算符的要求）。</p>
+<p>无论是基础版还是改进版，均使用Rust版本。无其他语言版本。</p>
+<a id="more"></a>
+
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>原始题源：<a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a><br>中文题源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/" target="_blank" rel="noopener">点我</a></p>
+<p>题目描述：</p>
+<p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。<br>整数除法仅保留整数部分。</p>
+<ul>
+<li><p>示例 1：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">"3+2*2"</span></span><br><span class="line">输出：<span class="number">7</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例 2：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3/2 "</span></span><br><span class="line">输出：<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>示例 3：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">输入：s = <span class="string">" 3+5 / 2 "</span></span><br><span class="line">输出：<span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h1><h2 id="解法1：基础计算解法"><a href="#解法1：基础计算解法" class="headerlink" title="解法1：基础计算解法"></a>解法1：基础计算解法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>加法压入栈中</li>
+<li>减法压入负数的数字</li>
+<li>乘法和除法直接运算即可，并把结果压入栈中</li>
+</ul>
+<p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</a></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v1.rs</code>)如下：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/ji-ben-ji-suan-qi-ii-by-leetcode-solutio-cm28/</span></span><br><span class="line"><span class="comment">/// PS：v1只能应对`+-*/`，不能处理带括号情况，甚至是其他优先级的情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> stack = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> pre_sign = <span class="string">'+'</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (idx, c) <span class="keyword">in</span> s.chars().enumerate() &#123;</span><br><span class="line">        <span class="keyword">if</span> c.is_numeric() &#123;</span><br><span class="line">            num = num * <span class="number">10</span> + parse_as_int(c)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> !c.is_numeric() &amp;&amp; !c.is_whitespace() || idx == n - <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">match</span> pre_sign &#123;</span><br><span class="line">                <span class="string">'+'</span> =&gt; stack.push(num),</span><br><span class="line">                <span class="string">'-'</span> =&gt; stack.push(-num),</span><br><span class="line">                <span class="string">'*'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev * num);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">'/'</span> =&gt; &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev = stack.pop().unwrap();</span><br><span class="line">                    stack.push(prev / num);</span><br><span class="line">                &#125;</span><br><span class="line">                _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">            &#125;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            pre_sign = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.iter().sum()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="解法2：改进型全适应解法"><a href="#解法2：改进型全适应解法" class="headerlink" title="解法2：改进型全适应解法"></a>解法2：改进型全适应解法</h2><h3 id="改进的地方"><a href="#改进的地方" class="headerlink" title="改进的地方"></a>改进的地方</h3><ul>
+<li>使用双栈（数字栈和运算符栈）</li>
+<li>适用于有括号的表达式</li>
+<li>适用于<code>+ - * / ^ %</code>的运算符</li>
+</ul>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>算法来源：<a href="https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</a></p>
+<p><strong>思路一句话总结：模拟人计算表达式的过程，遇到括号先算括号内部的，遇到高优先级的先计算高优先级</strong></p>
+<p>思路具体如下：</p>
+<ul>
+<li>一共有两个栈：数字栈和运算符栈</li>
+<li><code>(</code>: 直接加入运算符栈中，等待与之匹配的<code>)</code></li>
+<li><code>+ - * / ^ %</code>: 需要将操作放入运算符栈中。</li>
+<li>只有「栈内运算符」比「当前运算符」优先级高/同等，才进行运算，（直到没有操作或者遇到左括号），计算结果放到栈中</li>
+</ul>
+<p>该算法来源中有个例子，比如当前已读取的运算符为<code>2 + 1</code>（完整的运算符为：<code>2 + 1 * 2</code>）。</p>
+<ol>
+<li>如果后面是<code>+ 2</code>或者是<code>- 1</code>，满足「栈内运算符」比「当前运算符」优先级相等或者更高，说明可以直接运算<code>2 + 1</code>然后把结果放入数字栈中</li>
+<li>如果后面是<code>* 2</code>或者是<code>/ 1</code>，当前的运算符为<code>*</code>或者<code>/</code>，比栈内运算符<code>+</code>要高，所以要先计算<code>*</code>或者<code>/</code>。即，「栈内运算符」比「当前运算符」低，不能直接运算<code>2 + 1</code>，只能先运算后面<code>1 * 2</code>。</li>
+</ol>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>rust代码(<code>v2.rs</code>)如下：</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// Solution: https://leetcode-cn.com/problems/basic-calculator-ii/solution/shi-yong-shuang-zhan-jie-jue-jiu-ji-biao-c65k/</span></span><br><span class="line"><span class="comment">/// PS：v2只能应对`+-*/%^`，甚至可以处理带括号的情况</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 原理：</span></span><br><span class="line"><span class="comment">/// 因为这套「表达式计算」处理逻辑，本质上模拟了人脑的处理逻辑：根据下一位的运算符优先级决定当前运算符是否可以马上计算。</span></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="comment">/// 改变：未完全按照原solution进行处理，暂时不考虑复杂情况</span></span><br><span class="line"><span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">calculate</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> s = remove_whitespace(&amp;s);</span><br><span class="line">    <span class="keyword">if</span> s.is_empty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> n = s.len();</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> nums_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> ops_stack: <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt; = <span class="built_in">vec!</span>[];</span><br><span class="line">    <span class="keyword">let</span> ops_priority = setup_op_priority();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> i &lt; n &#123;</span><br><span class="line">        <span class="keyword">let</span> c = s.chars().nth(i).unwrap();</span><br><span class="line">        <span class="keyword">match</span> c &#123;</span><br><span class="line">            <span class="string">'('</span> =&gt; ops_stack.push(c),</span><br><span class="line">            <span class="string">')'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 计算到最近一个左括号为止</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">                    <span class="keyword">if</span> ops_stack.last().unwrap() == &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                        ops_stack.pop();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="string">'0'</span>..=<span class="string">'9'</span> =&gt; &#123;</span><br><span class="line">                <span class="comment">// 把所有的数字都探测完成，然后压栈保存</span></span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">let</span> <span class="keyword">mut</span> j = i;</span><br><span class="line">                <span class="keyword">while</span> j &lt; n &amp;&amp; s.chars().nth(j).unwrap().is_numeric() &#123;</span><br><span class="line">                    <span class="keyword">let</span> j_char = s.chars().nth(j).unwrap();</span><br><span class="line">                    num = num * <span class="number">10</span> + parse_as_int(j_char);</span><br><span class="line">                    j += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                i = j - <span class="number">1</span>;</span><br><span class="line">                nums_stack.push(num);</span><br><span class="line">            &#125;</span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="comment">// 分支：其他操作符号（无括号的运算符）</span></span><br><span class="line">                <span class="comment">//</span></span><br><span class="line">                <span class="comment">// 有一个新操作要入栈时，先把栈内可以算的都算了</span></span><br><span class="line">                <span class="comment">// 只有满足「栈内运算符」比「当前运算符」优先级高/同等，才进行运算</span></span><br><span class="line">                <span class="keyword">while</span> !ops_stack.is_empty() &amp;&amp; ops_stack.last().unwrap() != &amp;<span class="string">'('</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> prev_op = ops_stack.last().unwrap();</span><br><span class="line">                    <span class="keyword">if</span> ops_priority.get(prev_op) &gt;= ops_priority.get(&amp;c) &#123;</span><br><span class="line">                        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ops_stack.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算剩余的栈中的数据</span></span><br><span class="line">    <span class="keyword">while</span> !ops_stack.is_empty() &#123;</span><br><span class="line">        calc(&amp;<span class="keyword">mut</span> nums_stack, &amp;<span class="keyword">mut</span> ops_stack);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 拿出结果</span></span><br><span class="line">    nums_stack.pop().unwrap()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">calc</span></span>(nums_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, ops_stack: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">char</span>&gt;) &#123;</span><br><span class="line">    <span class="keyword">let</span> b = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> a = nums_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> op = ops_stack.pop().unwrap();</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="keyword">match</span> op &#123;</span><br><span class="line">        <span class="string">'+'</span> =&gt; a + b,</span><br><span class="line">        <span class="string">'-'</span> =&gt; a - b,</span><br><span class="line">        <span class="string">'*'</span> =&gt; a * b,</span><br><span class="line">        <span class="string">'/'</span> =&gt; a / b,</span><br><span class="line">        <span class="string">'%'</span> =&gt; a % b,</span><br><span class="line">        <span class="string">'^'</span> =&gt; a.pow(b <span class="keyword">as</span> <span class="built_in">u32</span>),</span><br><span class="line">        _ =&gt; <span class="built_in">unreachable!</span>(),</span><br><span class="line">    &#125;;</span><br><span class="line">    nums_stack.push(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">setup_op_priority</span></span>() -&gt; HashMap&lt;<span class="built_in">char</span>, <span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> map = HashMap::new();</span><br><span class="line">    map.insert(<span class="string">'+'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'-'</span>, <span class="number">1</span>);</span><br><span class="line">    map.insert(<span class="string">'*'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'/'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'%'</span>, <span class="number">2</span>);</span><br><span class="line">    map.insert(<span class="string">'^'</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    map</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">parse_as_int</span></span>(c: <span class="built_in">char</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    (c <span class="keyword">as</span> <span class="built_in">u32</span> - <span class="string">'0'</span> <span class="keyword">as</span> <span class="built_in">u32</span>) <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">remove_whitespace</span></span>(s: &amp;<span class="built_in">str</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">    s.split_whitespace().collect::&lt;<span class="built_in">String</span>&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>Rust</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang中把io.TeeReader and io.Pipe结合使用</title>
+    <url>/zh-CN/Golang/2020/08/05-Golang%E4%B8%AD%E6%8A%8Aio-TeeReader-and-io-Pipe%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>这篇文章主要解释和展示怎么在Golang当中如何把 <code>io.TeeReader()</code> and <code>io.Pipe</code>结合使用。</p>
+<p>你可以轻松地根据<a href="https://pkg.go.dev/io?tab=doc#TeeReader" target="_blank" rel="noopener">官方样例</a>来使用<code>bytes.Buffer</code>和<code>io.TeeReader()</code>。</p>
+<p>但是，如果你去使用<code>io.Pipe</code>的时候你会遇到一些问题。所有有了这篇文章。</p>
+<p><strong>注意：这篇文章主要是面向初学者，而不是经验丰富的Golang使用者。</strong></p>
+<a id="more"></a>
+
+<hr>
+<h1 id="初始修改"><a href="#初始修改" class="headerlink" title="初始修改"></a>初始修改</h1><p>作为一个初学者，你可能轻松想到以下的修改方案。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">   pr, pw := io.Pipe()</span><br><span class="line">   tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// create channel to synchronize</span></span><br><span class="line">   done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">   <span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">   printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">      b, err := ioutil.ReadAll(r)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         log.Fatal(err)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">defer</span> pw.Close()</span><br><span class="line">   printall(tee)</span><br><span class="line">   printall(pr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你运行这段代码，你会得到如下的错误信息：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">fatal error: all goroutines are asleep - deadlock!</span><br></pre></td></tr></table></figure>
+
+<p>这个错误来愿意你尝试在一个<a href="https://rodaine.com/2015/04/async-split-io-reader-in-golang/" target="_blank" rel="noopener">相同的线程中去做这样的事</a>，这个就会在你的脑袋上敲出一个panic。</p>
+<h1 id="修复Bug！"><a href="#修复Bug！" class="headerlink" title="修复Bug！"></a>修复Bug！</h1><p>你可以轻松地通过一些微小的修改和增加同步来修复它。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := strings.NewReader(<span class="string">"some io.Reader stream to be read\n"</span>)</span><br><span class="line"></span><br><span class="line">	pr, pw := io.Pipe()</span><br><span class="line">	tee := io.TeeReader(r, pw)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create channel to synchronize</span></span><br><span class="line">	done := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">defer</span> <span class="built_in">close</span>(done)</span><br><span class="line"></span><br><span class="line">	printall := <span class="function"><span class="keyword">func</span><span class="params">(r io.Reader)</span></span> &#123;</span><br><span class="line">		b, err := ioutil.ReadAll(r)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Fatal(err)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">"%+v: %s"</span>, reflect.TypeOf(r), b)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		printall(pr)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> pw.Close()</span><br><span class="line"></span><br><span class="line">		printall(tee)</span><br><span class="line">		done &lt;- <span class="literal">true</span></span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">// wait until both are done</span></span><br><span class="line">	<span class="keyword">for</span> c := <span class="number">0</span>; c &lt; <span class="number">2</span>; c++ &#123;</span><br><span class="line">		&lt;-done</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>done</code> chan 被添加以此来确保同步能够正确地发生，即在main线程退出之前。</li>
+<li><code>pw.Close()</code>必须要和<code>printall(tr)</code>放在另一个goroutine内部。这是因为<code>TeeReader</code>会返回一个将 r 中的数据读出后同时写入 w 的Reader中。</li>
+<li>由于协程的存在，你现在可以更改两个独立的<code>go func(){}</code>的次序，不像官方例子<code>io.TeeReader()</code>提供的那样。</li>
+</ul>
+<p>希望这篇文章对你有用。</p>
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>Golang</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>TeeReader</tag>
+        <tag>Pipe</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Rust-DFS给表达式添加运算符</title>
     <url>/zh-CN/Rust/2021/05/19-Rust-DFS%E7%BB%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B7%BB%E5%8A%A0%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<p>在某一个信息流网站上，看到一个challenge，里面有部分是编程题。</p>
@@ -2349,118 +2405,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Measure function exection time elegantly in Rust(Python, Golang)</title>
-    <url>/en/Rust/2021/05/26-Measure-function-exection-time-in-Rust(Python-Golang)/</url>
-    <content><![CDATA[<p>Measuring function time is quite necessary sometimes.</p>
-<p>It is easy to implement this in other languages but not in Rust.</p>
-<p>Therefore, this post will demonstrate some tricks to measure the function execution time.</p>
-<p>From the easiest one to the reusable version. Other implementation will also be included, such as Python and Golang.</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="Basic-version"><a href="#Basic-version" class="headerlink" title="Basic version"></a>Basic version</h1><p>In any language, you can complete this task simply by calculating the time differences to measure the exection time.</p>
-<p>For example,</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    expensive_func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>This implementation is easy but not elegant. Not reusable as well.</p>
-<h1 id="Reusable-version"><a href="#Reusable-version" class="headerlink" title="Reusable version"></a>Reusable version</h1><h2 id="TL-DR-In-Rust"><a href="#TL-DR-In-Rust" class="headerlink" title="TL;DR: In Rust"></a>TL;DR: In Rust</h2><p>Use this:</p>
-<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// does not work with parameters</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// but you can pass it using powerful closure</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>We will take a few examples from Python and Golang to demonstrate what we want exactly.</p>
-<h2 id="In-Python"><a href="#In-Python" class="headerlink" title="In Python"></a>In Python</h2><p>Writing python is easy and comfortable although it sacrifices the most important performance.</p>
-<p>You can achieve this purpose by the following code:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># more detail: https://stackoverflow.com/a/803626/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">measure_time</span><span class="params">(func)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line">    _ = func()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">"Time: &#123;&#125; seconds"</span>.format(end_time - start_time))</span><br><span class="line"></span><br><span class="line"><span class="comment"># function is passwd as a parameter using lambda feature</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: expensive_func())</span><br><span class="line"></span><br><span class="line"><span class="comment"># you can reuse the code again without writing time-related codes</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: second_expensive_func())</span><br></pre></td></tr></table></figure>
-
-<h2 id="In-Golang"><a href="#In-Golang" class="headerlink" title="In Golang"></a>In Golang</h2><p>It is not easy to write similar code like python in Golang. </p>
-<p>But Golang has <code>defer</code> to work with. Great news!</p>
-<p>This version of code is the most simplest and practical I could find. You may want to use this as well.</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Comes from: https://dev.to/rubiin/measure-function-execution-time-in-golang-177l</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">measureTime</span><span class="params">(start time.Time, name <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	elapsed := time.Since(start)</span><br><span class="line">	log.Printf(<span class="string">"Time for %s: %s"</span>, name, elapsed)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">expensive_func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">defer</span> measureTime(time.Now(), <span class="string">"name"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// do your expensive calculation</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="In-Rust"><a href="#In-Rust" class="headerlink" title="In Rust"></a>In Rust</h2><p>It is much harder to write similar code like Python and Golang in Rust since passing function as a argument is really hard.</p>
-<p>At the same time, you can’t easily achieve dynamic dispatch for function argument.</p>
-<p>But then I suddenly find this in <a href="https://stackoverflow.com/a/25182801/8587335" target="_blank" rel="noopener">here</a>, which enlights me greatly.</p>
-<p>You can find codes in playground: </p>
-<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::thread::sleep;</span><br><span class="line"><span class="keyword">use</span> std::time::&#123;Duration, Instant&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        i = able_to_pass_with_return();</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// result: 1</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"i = &#123;&#125;"</span>, i);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// does not work</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// but you can pass it using closure</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_return</span></span>() -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function (return)"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsedpsed in is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>Tips</tag>
-        <tag>English</tag>
-        <tag>Rust</tag>
-        <tag>Golang</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优雅测函数执行时间（Rust, Golang, Python）</title>
-    <url>/zh-CN/Rust/2021/05/26-%E4%BC%98%E9%9B%85%E6%B5%8B%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%EF%BC%88Rust-Golang-Python%EF%BC%89/</url>
-    <content><![CDATA[<p>有时非常需要测量函数的执行时间。</p>
-<p>在其他语言中很容易实现比如像Python与Golang，而在Rust实现即相对比较困难。</p>
-<p>因此，本文将演示一些衡量函数执行时间的方法与技巧。</p>
-<p>本文从最简单的版本到可重用的版本均有，同时也包括了Python和Golang。</p>
-<a id="more"></a>
-
-<hr>
-<h1 id="基础版本"><a href="#基础版本" class="headerlink" title="基础版本"></a>基础版本</h1><p>在任何语言中，你都可以简单地通过计算时间差以测量函数的执行时间。</p>
-<p>例如，</p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    expensive_func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这种实现很容易，但并不优雅且不可重用。</p>
-<h1 id="可重用版本"><a href="#可重用版本" class="headerlink" title="可重用版本"></a>可重用版本</h1><h2 id="简短版-Rust"><a href="#简短版-Rust" class="headerlink" title="简短版: Rust"></a>简短版: Rust</h2><p>你可以在这里拿到代码：</p>
-<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带参数的无法工作</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 但是你可以通过闭包来完成这个工作</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>接下来，我们将使用Python和Golang的代码来简单演示一下我们到底想要什么样的。</p>
-<h2 id="在Python中"><a href="#在Python中" class="headerlink" title="在Python中"></a>在Python中</h2><p>写Python既轻松又舒适，尽管它牺牲了可能最重要的性能。</p>
-<p>对于衡量时间而言，你可以通过以下代码实现：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更多的细节：https://stackoverflow.com/a/803626/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">measure_time</span><span class="params">(func)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line">    _ = func()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">"Time: &#123;&#125; seconds"</span>.format(end_time - start_time))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数用lambda的特性来传递</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: expensive_func())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 你可以同样重用代码来避免写与时间相关的代码</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: second_expensive_func())</span><br></pre></td></tr></table></figure>
-
-<h2 id="在Golang中"><a href="#在Golang中" class="headerlink" title="在Golang中"></a>在Golang中</h2><p>在Golang中编写类似python这样的代码并不容易。</p>
-<p>但是Golang可以使用<code>defer</code>。 真是一个好消息！</p>
-<p>此版本的代码是我能找到的最简单和实用的代码。你可能会需要用到它。</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 来源: https://dev.to/rubiin/measure-function-execution-time-in-golang-177l</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">measureTime</span><span class="params">(start time.Time, name <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	elapsed := time.Since(start)</span><br><span class="line">	log.Printf(<span class="string">"Time for %s: %s"</span>, name, elapsed)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">expensive_func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">defer</span> measureTime(time.Now(), <span class="string">"name"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 开始你的函数计算</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="在Rust中"><a href="#在Rust中" class="headerlink" title="在Rust中"></a>在Rust中</h2><p>在Rust中编写类似Python和Golang之类的代码要困难得多，因为将函数作为参数传递确实很困难。</p>
-<p>同时，你也很难轻松实现函数参数的动态分发，这是一个令人头疼的问题。</p>
-<p>但是后来我突然在<a href="https://stackoverflow.com/a/25182801/8587335" target="_blank" rel="noopener">这里</a>中发现了这一点，这对我很有启发。</p>
-<p>您可以在playground上找到代码：</p>
-<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::thread::sleep;</span><br><span class="line"><span class="keyword">use</span> std::time::&#123;Duration, Instant&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        i = able_to_pass_with_return();</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// result: 1</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"i = &#123;&#125;"</span>, i);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带参数的无法工作</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 但是你可以通过closure来完成</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_return</span></span>() -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function (return)"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsedpsed in is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<blockquote class="blockquote-center">
-<p>End </p>
-
-</blockquote>]]></content>
-      <categories>
-        <category>Rust</category>
-      </categories>
-      <tags>
-        <tag>Tips</tag>
-        <tag>Rust</tag>
-        <tag>Golang</tag>
-        <tag>中文</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL布尔盲注自动化脚本二分查找实践（Python, Golang, Rust）</title>
-    <url>/zh-CN/Security/2021/05/25-SQL%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%AE%9E%E8%B7%B5%EF%BC%88Python-Golang-Rust%EF%BC%89/</url>
+    <title>SQL布尔盲注自动化脚本二分查找实践与踩坑（Python, Golang, Rust）</title>
+    <url>/zh-CN/Security/2021/05/25-SQL%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%AE%9E%E8%B7%B5%E4%B8%8E%E8%B8%A9%E5%9D%91%EF%BC%88Python-Golang-Rust%EF%BC%89/</url>
     <content><![CDATA[<p>SQL盲注类型可以通过sqlmap简单地完成，亦可自己写一个简单的盲注脚本。</p>
 <p>现有的盲注脚本代码与文章质量良莠不齐，且大部分用的是线性搜索，效率奇低。<br>故本文实践一下二分查找算法的盲注脚本，与此同时记录一下在这个过程中所遇到的坑点。（尤其是Golang实践中的坑）</p>
 <p>为以后各语言的注入脚本提供一个基于二分查找的可实践版本的代码。</p>
@@ -2677,9 +2623,63 @@
         <tag>Algorithm</tag>
         <tag>Rust</tag>
         <tag>Golang</tag>
-        <tag>中文</tag>
         <tag>Python</tag>
+        <tag>中文</tag>
         <tag>SQL-injection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优雅测函数执行时间（Rust, Golang, Python）</title>
+    <url>/zh-CN/Rust/2021/05/26-%E4%BC%98%E9%9B%85%E6%B5%8B%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%EF%BC%88Rust-Golang-Python%EF%BC%89/</url>
+    <content><![CDATA[<p>有时非常需要测量函数的执行时间。</p>
+<p>在其他语言中很容易实现比如像Python与Golang，而在Rust实现即相对比较困难。</p>
+<p>因此，本文将演示一些衡量函数执行时间的方法与技巧。</p>
+<p>本文从最简单的版本到可重用的版本均有，同时也包括了Python和Golang。</p>
+<a id="more"></a>
+
+<hr>
+<h1 id="基础版本"><a href="#基础版本" class="headerlink" title="基础版本"></a>基础版本</h1><p>在任何语言中，你都可以简单地通过计算时间差以测量函数的执行时间。</p>
+<p>例如，</p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    expensive_func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种实现很容易，但并不优雅且不可重用。</p>
+<h1 id="可重用版本"><a href="#可重用版本" class="headerlink" title="可重用版本"></a>可重用版本</h1><h2 id="简短版-Rust"><a href="#简短版-Rust" class="headerlink" title="简短版: Rust"></a>简短版: Rust</h2><p>你可以在这里拿到代码：</p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带参数的无法工作</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 但是你可以通过闭包来完成这个工作</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsed is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>接下来，我们将使用Python和Golang的代码来简单演示一下我们到底想要什么样的。</p>
+<h2 id="在Python中"><a href="#在Python中" class="headerlink" title="在Python中"></a>在Python中</h2><p>写Python既轻松又舒适，尽管它牺牲了可能最重要的性能。</p>
+<p>对于衡量时间而言，你可以通过以下代码实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更多的细节：https://stackoverflow.com/a/803626/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">measure_time</span><span class="params">(func)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line">    _ = func()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">"Time: &#123;&#125; seconds"</span>.format(end_time - start_time))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数用lambda的特性来传递</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: expensive_func())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 你可以同样重用代码来避免写与时间相关的代码</span></span><br><span class="line">measure_time(<span class="keyword">lambda</span>: second_expensive_func())</span><br></pre></td></tr></table></figure>
+
+<h2 id="在Golang中"><a href="#在Golang中" class="headerlink" title="在Golang中"></a>在Golang中</h2><p>在Golang中编写类似python这样的代码并不容易。</p>
+<p>但是Golang可以使用<code>defer</code>。 真是一个好消息！</p>
+<p>此版本的代码是我能找到的最简单和实用的代码。你可能会需要用到它。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 来源: https://dev.to/rubiin/measure-function-execution-time-in-golang-177l</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">measureTime</span><span class="params">(start time.Time, name <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	elapsed := time.Since(start)</span><br><span class="line">	log.Printf(<span class="string">"Time for %s: %s"</span>, name, elapsed)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">expensive_func</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">defer</span> measureTime(time.Now(), <span class="string">"name"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 开始你的函数计算</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="在Rust中"><a href="#在Rust中" class="headerlink" title="在Rust中"></a>在Rust中</h2><p>在Rust中编写类似Python和Golang之类的代码要困难得多，因为将函数作为参数传递确实很困难。</p>
+<p>同时，你也很难轻松实现函数参数的动态分发，这是一个令人头疼的问题。</p>
+<p>但是后来我突然在<a href="https://stackoverflow.com/a/25182801/8587335" target="_blank" rel="noopener">这里</a>中发现了这一点，这对我很有启发。</p>
+<p>您可以在playground上找到代码：</p>
+<p><a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6" target="_blank" rel="noopener">https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2018&amp;gist=4eee21bf6ed6e14cc1cfde18b30399d6</a></p>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> std::thread::sleep;</span><br><span class="line"><span class="keyword">use</span> std::time::&#123;Duration, Instant&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    measure_time(able_to_pass);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0</span>;</span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        i = able_to_pass_with_return();</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// result: 1</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"i = &#123;&#125;"</span>, i);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 带参数的无法工作</span></span><br><span class="line">    <span class="comment">// measure_time(able_to_pass_with_parameter);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 但是你可以通过closure来完成</span></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        able_to_pass_with_parameter(<span class="string">"test"</span>.to_string());</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    measure_time(|| &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">"works!"</span>);</span><br><span class="line">        sleep(Duration::new(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_return</span></span>() -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function (return)"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">able_to_pass_with_parameter</span></span>(x: <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"works! in function with &#123;&#125;"</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://stackoverflow.com/a/25182801/8587335</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">measure_time</span></span>&lt;F: <span class="built_in">FnOnce</span>()&gt;(func: F) &#123;</span><br><span class="line">    <span class="keyword">let</span> start = Instant::now();</span><br><span class="line">    func();</span><br><span class="line">    <span class="keyword">let</span> duration = start.elapsed();</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Time elapsedpsed in is: &#123;:?&#125;"</span>, duration);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote class="blockquote-center">
+<p>End </p>
+
+</blockquote>]]></content>
+      <categories>
+        <category>Rust</category>
+      </categories>
+      <tags>
+        <tag>Tips</tag>
+        <tag>Rust</tag>
+        <tag>Golang</tag>
+        <tag>Python</tag>
+        <tag>中文</tag>
       </tags>
   </entry>
 </search>
