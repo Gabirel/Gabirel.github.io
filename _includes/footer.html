@@ -2,14 +2,15 @@
 	<div class="container">
 		<p class="copy">
 			&copy;
-			{%- if site.start_year -%}
-				{{ site.start_year | append: "-" }}
+			{%- assign theme = site.data.config -%}
+			{%- if theme.start_year -%}
+				{{ theme.start_year | append: "-" }}
 			{%- endif -%} {{ site.time | date: '%Y' }}
-			{%- if site.owner.name -%}
-				{% if site.owner.url %}
-					<a href="{{ site.owner.url }}">{{ site.owner.name }}</a>.
+			{%- if theme.owner.name -%}
+				{% if theme.owner.url %}
+					<a href="{{ theme.owner.url }}">{{ theme.owner.name }}</a>.
 				{% else %}
-					<a href="{{ site.url }}">{{ site.owner.name }}</a>.
+					<a href="{{ site.url }}">{{ theme.owner.name }}</a>.
 				{% endif %}
 			{%- else -%}
 				&nbsp;<a href="{{ site.url }}">Brian Maier Jr</a>.&nbsp;
@@ -20,9 +21,10 @@
 
 		<div class="footer-links">
 			<ul class="noList">
-				{%- if site.social.facebook -%}
+				{%- assign theme = site.data.config -%}
+				{%- if theme.social.facebook -%}
 				<li>
-					<a href="https://www.facebook.com/{{ site.social.facebook }}" target="_blank">
+					<a href="https://www.facebook.com/{{ theme.social.facebook }}" target="_blank">
 						<svg id="facebook-square" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
 							style="height: 30px; width: 30px;">
@@ -33,9 +35,9 @@
 						</svg>
 					</a>
 				</li>
-				{%- endif -%} {%- if site.social.twitter -%}
+				{%- endif -%} {%- if theme.social.twitter -%}
 				<li>
-					<a href="https://twitter.com/{{ site.social.twitter }}" target="_blank">
+					<a href="https://twitter.com/{{ theme.social.twitter }}" target="_blank">
 						<svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
 							style="height: 30px; width: 30px;">
@@ -46,9 +48,9 @@
 						</svg>
 					</a>
 				</li>
-				{%- endif -%} {%- if site.social.linkedin -%}
+				{%- endif -%} {%- if theme.social.linkedin -%}
 				<li>
-					<a href="https://www.linkedin.com/in/{{ site.social.linkedin }}" target="_blank">
+					<a href="https://www.linkedin.com/in/{{ theme.social.linkedin }}" target="_blank">
 						<svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="96" height="96"
 							viewBox="0 0 96 96">
 							<g fill="none">
@@ -60,9 +62,9 @@
 						</svg>
 					</a>
 				</li>
-				{%- endif -%} {%- if site.social.github -%}
+				{%- endif -%} {%- if theme.social.github -%}
 				<li>
-					<a href="https://github.com/{{ site.social.github }}" target="_blank">
+					<a href="https://github.com/{{ theme.social.github }}" target="_blank">
 						<svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
 							style="height: 30px; width: 30px;">
@@ -73,9 +75,9 @@
 						</svg>
 					</a>
 				</li>
-				{%- endif -%} {%- if site.social.email -%}
+				{%- endif -%} {%- if theme.social.email -%}
 				<li>
-					<a href="mailto:{{ site.social.email }}" target="_blank">
+					<a href="mailto:{{ theme.social.email }}" target="_blank">
 						<svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
 							style="height: 30px; width: 30px;">

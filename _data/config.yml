@@ -1,0 +1,12 @@
+# this config is necessary
+start_year: 2017
+owner: 
+  name: Gabriel Farnsworth
+  url: https://godeep.pro/about
+
+social:
+  github: gabirel
+  # twitter: brianmaierjr
+  # facebook: brianmaierjr
+  email: gabirel@gmail.com
+  # linkedin: brianmaierjr
