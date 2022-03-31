@@ -9,8 +9,10 @@
 				{% if site.owner.url %}
 					<a href="{{ site.owner.url }}">{{ site.owner.name }}</a>.
 				{% else %}
-					<a href="{{ site.url }}">Brian Maier Jr</a>.
+					<a href="{{ site.url }}">{{ site.owner.name }}</a>.
 				{% endif %}
+			{%- else -%}
+				&nbsp;<a href="{{ site.url }}">Brian Maier Jr</a>.&nbsp;
 			{%- endif -%}
 			Powered by <a href="http://jekyllrb.com">Jekyll</a>.
 			Theme by <a href="https://github.com/brianmaierjr/long-haul">Long-haul</a>.
