@@ -1,7 +1,9 @@
 title: Long Haul
 description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
 
-url: https://long-haul.netlify.app
+# change to your URL
+url: https://godeep.pro
+# url: https://long-haul.netlify.app
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
@@ -16,10 +18,18 @@ paginate: 5
 navigation:
   - title: Home
     url: /index.html
-  - title: About
-    url: /about
+  - title: Articles (English)
+    url: /articles
+  - title: Articles (中文)
+    url: /articles-zh
+  - title: Articles (日本语)
+    url: /articles-jp
+  - title: Categories
+    url: /categories
   - title: Contact
     url: /contact
+  - title: About
+    url: /about
 
 social:
   github: brianmaierjr
