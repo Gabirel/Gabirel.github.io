@@ -22,7 +22,7 @@ navigation:
     url: /articles
   - title: Articles (中文)
     url: /articles-zh
-  - title: Articles (日本语)
+  - title: Articles (日本語)
     url: /articles-jp
   - title: Categories
     url: /categories
