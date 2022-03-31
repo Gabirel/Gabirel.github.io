@@ -3,5 +3,6 @@ _site
 .DS_Store
 .ruby-version
 node_modules
+bundle
 .jekyll-cache/
 .jekyll-cache/*
