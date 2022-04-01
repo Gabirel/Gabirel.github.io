@@ -41,11 +41,11 @@ If you really enjoy Long Haul and want to give me credit somewhere on the intern
 
 ## Blog Setup
 
-1. Remove all unnecessary files
+1. ~~Remove all unnecessary files~~
 
-   ```shell
-   $ rm -rf .git
-   ```
+   **Important：You should keep `.git` in order to keep update with upstreams.**
+
+   Skip this steps.
 
 2. Normal setup for jekyll 
 
@@ -56,7 +56,12 @@ If you really enjoy Long Haul and want to give me credit somewhere on the intern
 
 3. Modify site settings
 
+   - `./_config.yml`
+   - `./_data_/config.yml` (recommended)
+
 4. Add your posts
+
+   All existing posts are ok to get removed if you want it.
 
 5. Run preview
 
@@ -64,6 +69,18 @@ If you really enjoy Long Haul and want to give me credit somewhere on the intern
    $ jekyll serve -w
    ```
 
+
+6. Deploy
+
+   ```shell
+   # you may change `blog` to something else, or leave it.
+   $ git remote add blog <xxxxx>
+   
+   $ git init && git add . && git commit -m "Add posts"
+   
+   $ git push --set-upstream blog master
+   ```
+   
    
 
 ## Site Settings
