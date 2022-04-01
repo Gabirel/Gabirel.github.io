@@ -81,6 +81,15 @@ If you really enjoy Long Haul and want to give me credit somewhere on the intern
    $ git push --set-upstream blog master
    ```
    
+7. Update blogs templates [Optional]
+
+   ```shell
+   $ git remote rename origin upstream
+   
+   # normally you have conflicts, so you need `--rebase`
+   $ git pull upstream master --rebase
+   ```
+
    
 
 ## Site Settings
