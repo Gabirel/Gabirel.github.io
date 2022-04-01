@@ -70,7 +70,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll
+  jekyll (~> 4.2, >= 4.2.1)
   jekyll-paginate
   support-for
   webrick (~> 1.7)
