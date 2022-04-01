@@ -2,6 +2,8 @@
 
 Long Haul is a minimal jekyll theme built with SASS / GULP / BROWSERSYNC / AUTOPREFIXER and focuses on long form blog posts. It is meant to be used as a starting point for a jekyll blog/website.
 
+This version is modified based on Long Haul.
+
 If you really enjoy Long Haul and want to give me credit somewhere on the internet send or tweet out your experience with Long Haul and tag me [@brianmaierjr](https://twitter.com/brianmaierjr).
 
 #### [View Demo](http://brianmaierjr.com/long-haul)
@@ -34,6 +36,35 @@ If you really enjoy Long Haul and want to give me credit somewhere on the intern
 6. Install gulp dependencies by running `npm install`
 7. Run Jekyll and watch files by running `bundle exec gulp`
 8. Customize and watch the magic happen!
+
+
+
+## Blog Setup
+
+1. Remove all unnecessary files
+
+   ```shell
+   $ rm -rf .git
+   ```
+
+2. Normal setup for jekyll 
+
+   ```shell
+   $ bundle update
+   $ bundle install
+   ```
+
+3. Modify site settings
+
+4. Add your posts
+
+5. Run preview
+
+   ```shell
+   $ jekyll serve -w
+   ```
+
+   
 
 ## Site Settings
 
