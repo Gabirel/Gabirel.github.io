@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Articles (cn-zh)
+title: すべてのポスト
 ---
 
 <div id="articles">

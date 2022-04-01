@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Articles (cn-zh)
+title: 所有文章
 ---
 
 <div id="articles">
