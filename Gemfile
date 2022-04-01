@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem "jekyll"
+gem 'jekyll', '~> 4.2', '>= 4.2.1'
 gem "jekyll-paginate"
 gem "support-for"
 
