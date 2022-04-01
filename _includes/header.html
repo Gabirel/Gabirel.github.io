@@ -8,8 +8,7 @@
                      <a href="{{ link.url }}">{{ link.title }}</a>
                  </li> 
                  {%- endfor -%}
-                 <li> <a href="https://github.com/brianmaierjr/long-haul" target="_blank">GitHub</a></li>
-                 <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li>
+                 <li> <a href="https://github.com/{%- if site.data.config.social.github -%} {{ site.data.config.social.github }} {%- else -%} {{ site.social.github }} {%- endif -%}" target="_blank">GitHub</a></li>
              </ul>
          </nav>
      </div>
