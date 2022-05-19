@@ -3,7 +3,7 @@ layout: default
 title: About me
 ---
 
-<div class="post">
+<div class="post-about">
 	<h1 class="pageTitle">Resolute</h1>
     <p class="intro">One thing at a time, then LEAP.</p>
 	<img src="{{ '/assets/img/touring.jpg' }}" alt="">
