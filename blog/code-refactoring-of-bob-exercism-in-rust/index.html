@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Code Refactoring of Bob - Exercism in Rust</title>
+
+    <!-- Open Graph Meta -->
+    <meta content="Go deep" property="og:site_name"><meta content="Code Refactoring of Bob - Exercism in Rust" property="og:title"><meta content="article" property="og:type"><meta content="Go deep and be professional" property="og:description"><meta content="https://godeep.pro/blog/code-refactoring-of-bob-exercism-in-rust/" property="og:url"><meta content="2019-10-14T00:00:00+00:00" property="article:published_time">
+      <meta content="https://godeep.pro/about/" property="article:author"><meta content="https://godeep.pro/assets/img/touring.jpg" property="og:image"><!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@brianmaierjr">
+    <meta name="twitter:creator" content="@brianmaierjr"><meta name="twitter:title" content="Code Refactoring of Bob - Exercism in Rust"><meta name="twitter:url" content="https://godeep.pro/blog/code-refactoring-of-bob-exercism-in-rust/"><meta name="twitter:description" content="Go deep and be professional"><meta name="twitter:image:src" content="https://godeep.pro/assets/img/touring.jpg"><!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="Go deep" href="https://godeep.pro/feed.xml" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/mo.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="https://godeep.pro/blog/code-refactoring-of-bob-exercism-in-rust/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js"" type="text/javascript"></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-G-ZRGHXLDL9E', 'auto');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body> <div class="header ">
+     <div class="container">
+         <h1 class="logo"><a href="/">Go deep</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList"><li class="elementfirst">
+                     <a href="/index.html">Home</a>
+                 </li><li class="element">
+                     <a href="/articles">Articles (English)</a>
+                 </li><li class="element">
+                     <a href="/articles-zh">Articles (中文)</a>
+                 </li><li class="element">
+                     <a href="/articles-jp">Articles (日本語)</a>
+                 </li><li class="element">
+                     <a href="/categories">Categories</a>
+                 </li><li class="element">
+                     <a href="/contact">Contact</a>
+                 </li><li class="elementlast">
+                     <a href="/about">About</a>
+                 </li><li> <a href="https://github.com/gabirel" target="_blank">GitHub</a></li>
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+<div class="content">
+      <div class="container">
+         <article class="post"><header>
+    <h1 class="postTitle">Code Refactoring of Bob - Exercism in Rust</h1>
+    
+    <p class="meta">October 14, 2019 | <span class="time">23</span> Minutes Read</p>
+    
+  </header>
+
+  <p class="intro"><span class="dropcap">T</span>his comes from the side exercise of exercism in rust. Mentor `gaetanww` helped me a lot on code refactoring and logical improvements advice with great patience and careful instruction. He even changed my attitude towards work and researching. I have nothing else to say to express my thanks to my mentor.</p>
+
+<p>So I decide to record the whole process of code improvements and advice from <code class="language-plaintext highlighter-rouge">gaetanww</code>.</p>
+
+<p>I am pretty sure that you could gain lessons from this post as well.</p>
+
+<hr />
+<p>Table of Contents</p>
+
+<ul id="markdown-toc">
+  <li><a href="#instructions" id="markdown-toc-instructions">Instructions</a></li>
+  <li><a href="#test-suite" id="markdown-toc-test-suite">Test suite</a></li>
+  <li><a href="#solution" id="markdown-toc-solution">Solution</a>    <ul>
+      <li><a href="#version-1" id="markdown-toc-version-1">Version 1</a></li>
+      <li><a href="#comments-on-version-1" id="markdown-toc-comments-on-version-1">Comments on Version 1</a></li>
+      <li><a href="#version-2" id="markdown-toc-version-2">Version 2</a></li>
+      <li><a href="#comments-on-version2" id="markdown-toc-comments-on-version2">Comments on Version2</a></li>
+      <li><a href="#version-3" id="markdown-toc-version-3">Version 3</a></li>
+      <li><a href="#comments-on-version-3" id="markdown-toc-comments-on-version-3">Comments on Version 3</a></li>
+      <li><a href="#version-4" id="markdown-toc-version-4">Version 4</a></li>
+      <li><a href="#comments-on-version4" id="markdown-toc-comments-on-version4">Comments on Version4</a></li>
+      <li><a href="#version-5" id="markdown-toc-version-5">Version 5</a></li>
+      <li><a href="#comments-on-version-5" id="markdown-toc-comments-on-version-5">Comments on Version 5</a></li>
+      <li><a href="#version-6" id="markdown-toc-version-6">Version 6</a></li>
+      <li><a href="#comments-on-version-6" id="markdown-toc-comments-on-version-6">Comments on Version 6</a></li>
+      <li><a href="#version-7" id="markdown-toc-version-7">Version 7</a></li>
+      <li><a href="#comments-on-version-7" id="markdown-toc-comments-on-version-7">Comments on Version 7</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="instructions">Instructions</h1>
+
+<p>Bob is a lackadaisical teenager. In conversation, his responses are very limited.</p>
+
+<p>Bob answers ‘Sure.’ if you ask him a question, such as “How are you?”.</p>
+
+<p>He answers ‘Whoa, chill out!’ if you YELL AT HIM (in all capitals).</p>
+
+<p>He answers ‘Calm down, I know what I’m doing!’ if you yell a question at him.</p>
+
+<p>He says ‘Fine. Be that way!’ if you address him without actually saying anything.</p>
+
+<p>He answers ‘Whatever.’ to anything else.</p>
+
+<p>Bob’s conversational partner is a purist when it comes to written communication and always follows normal rules regarding sentence punctuation in English.</p>
+
+<h1 id="test-suite">Test suite</h1>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="n">bob</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">process_response_case</span><span class="p">(</span><span class="n">phrase</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span> <span class="n">expected_response</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="nn">bob</span><span class="p">::</span><span class="nf">reply</span><span class="p">(</span><span class="n">phrase</span><span class="p">),</span> <span class="n">expected_response</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_stating_something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Tom-ay-to, tom-aaaah-to."</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_shouting</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"WATCH OUT!"</span><span class="p">,</span> <span class="s">"Whoa, chill out!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_shouting_gibberish</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"FCECDFCAAB"</span><span class="p">,</span> <span class="s">"Whoa, chill out!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_asking_a_question</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Does this cryogenic chamber make me look fat?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_asking_a_numeric_question</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"You are, what, like 15?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_asking_gibberish</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"fffbbcbeab?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_talking_forcefully</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Let's go make out behind the gym!"</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_using_acronyms_in_regular_speech</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"It's OK if you don't want to go to the DMV."</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_forceful_question</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span>
+        <span class="s">"WHAT THE HELL WERE YOU THINKING?"</span><span class="p">,</span>
+        <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_shouting_numbers</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"1, 2, 3 GO!"</span><span class="p">,</span> <span class="s">"Whoa, chill out!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_no_letters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"1, 2, 3"</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_question_with_no_letters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"4?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_shouting_with_special_characters</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span>
+        <span class="s">"ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"</span><span class="p">,</span>
+        <span class="s">"Whoa, chill out!"</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_shouting_with_no_exclamation_mark</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"I HATE THE DMV"</span><span class="p">,</span> <span class="s">"Whoa, chill out!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_statement_containing_question_mark</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Ending with ? means a question."</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_nonletters_with_question</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">":) ?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_prattling_on</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Wait! Hang on. Are you going to be OK?"</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_silence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"Fine. Be that way!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_prolonged_silence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"          "</span><span class="p">,</span> <span class="s">"Fine. Be that way!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_alternate_silence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"</span><span class="se">\t\t\t\t\t\t\t\t\t\t</span><span class="s">"</span><span class="p">,</span> <span class="s">"Fine. Be that way!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_multiple_line_question</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span>
+        <span class="s">"</span><span class="se">\n</span><span class="s">Does this cryogenic chamber make me look fat?</span><span class="se">\n</span><span class="s">No."</span><span class="p">,</span>
+        <span class="s">"Whatever."</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_starting_with_whitespace</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"         hmmmmmmm..."</span><span class="p">,</span> <span class="s">"Whatever."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_ending_with_whitespace</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"Okay if like my  spacebar  quite a bit?   "</span><span class="p">,</span> <span class="s">"Sure."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_other_whitespace</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span><span class="s">"</span><span class="se">\n\r</span><span class="s"> </span><span class="se">\t</span><span class="s">"</span><span class="p">,</span> <span class="s">"Fine. Be that way!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="nd">#[ignore]</span>
+<span class="k">fn</span> <span class="nf">test_nonquestion_ending_with_whitespace</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">process_response_case</span><span class="p">(</span>
+        <span class="s">"This is a statement ending with whitespace      "</span><span class="p">,</span>
+        <span class="s">"Whatever."</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="solution">Solution</h1>
+
+<h2 id="version-1">Version 1</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'?'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.len</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'?'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">"Sure."</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s">"Whatever."</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nf">have_nothing</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'?'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"Sure."</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="s">"Whatever."</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">f</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'z'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">true</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">f</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'z'</span><span class="p">)</span> <span class="p">||</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'A'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'Z'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">false</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_nothing</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="o">!</span><span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">f</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">' '</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\t'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\r'</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version-1">Comments on Version 1</h2>
+
+<ul>
+  <li>
+    <p>Check out using <code class="language-plaintext highlighter-rouge">match</code> instead of <code class="language-plaintext highlighter-rouge">if</code>. For some things, like destructuring, it’s required. It’s an idiom specific to Rust, so I always default to it unless the logic is comparing many different things and a match, in that case, makes it messy.</p>
+  </li>
+  <li>
+    <p>Have a look at <a href="https://doc.rust-lang.org/std/string/struct.String.html#method.ends_with"><code class="language-plaintext highlighter-rouge">.ends_with()</code></a> to check if it’s a question, it expresses your intent better.</p>
+  </li>
+  <li>
+    <p>at line 48 you wrote:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">' '</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\t'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">!=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'\r'</span><span class="p">)</span>
+</code></pre></div>    </div>
+
+    <p>The method <code class="language-plaintext highlighter-rouge">.trim()</code> gets rid of all these characters for you :)</p>
+  </li>
+  <li>
+    <p>We don’t necessarily need to create separate functions here. We can put this all in one by setting these calls to variables instead (check iterator methods, like <code class="language-plaintext highlighter-rouge">.any()</code> etc.)</p>
+  </li>
+  <li>
+    <p>Your function <code class="language-plaintext highlighter-rouge">is_all_capitalized()</code> does not handle non-ASCII characters.</p>
+  </li>
+</ul>
+
+<h2 id="version-2">Version 2</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Sure."</span><span class="p">;</span>
+            <span class="p">},</span>
+            <span class="k">false</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.len</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">,</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="s">"Whatever."</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="k">in</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="n">ch</span> <span class="p">{</span>
+            <span class="sc">'a'</span><span class="o">..=</span><span class="sc">'z'</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="k">false</span><span class="p">,</span>
+            <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">true</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..</span><span class="n">message</span><span class="nf">.len</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">f</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.nth</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'z'</span><span class="p">)</span> <span class="p">||</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'A'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="nf">Some</span><span class="p">(</span><span class="sc">'Z'</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">false</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version2">Comments on Version2</h2>
+
+<ul>
+  <li>
+    <p>One of the main goals of exercism is to teach ‘fluency’ in a programming language. One of the aspects of fluency in Rust is finding information easily in the standard library and third-party libraries, there is often a way to do things more shortly, correctly and efficiently.</p>
+
+    <p>For example, you can replace some of your functions by methods on characters (<code class="language-plaintext highlighter-rouge">.is_alphabetic()</code>, <code class="language-plaintext highlighter-rouge">.is_uppercase</code>) or iterators and strings (<code class="language-plaintext highlighter-rouge">.is_empty()</code> instead of <code class="language-plaintext highlighter-rouge">string.len() == 0</code>). May I suggest you look up these functions and see if it would help you? It might also bring some edge-cases that you haven’t considered (Is <code class="language-plaintext highlighter-rouge">Ü</code> uppercase and/or alphabetic? ).</p>
+
+    <ul>
+      <li>My answer: <code class="language-plaintext highlighter-rouge">Ü</code> is uppercase and is not alphabetic.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="version-3">Version 3</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Sure."</span><span class="p">;</span>
+            <span class="p">},</span>
+            <span class="k">false</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">,</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="nf">.trim</span><span class="p">())</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="s">"Whatever."</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="k">in</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="n">ch</span><span class="nf">.is_uppercase</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">false</span> <span class="k">=&gt;</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">ch</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{</span>
+                <span class="nd">println!</span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">ch</span><span class="nf">.is_uppercase</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">true</span>
+<span class="p">}</span>
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="k">in</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="n">ch</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="k">true</span><span class="p">,</span>
+            <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">false</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version-3">Comments on Version 3</h2>
+
+<ul>
+  <li>
+    <p>You recompute <code class="language-plaintext highlighter-rouge">message.trim()</code> several times (at line 2, 12, 16 and 18), it could be better to store it in a variable like:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">trimmed_message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+<span class="n">or</span> <span class="n">even</span>
+<span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+</code></pre></div>    </div>
+
+    <p>This is probably going to get optimized by the compiler, but it would at least make your program a bit shorter.</p>
+  </li>
+  <li>
+    <p>In the functions <code class="language-plaintext highlighter-rouge">is_all_capitalized</code> and <code class="language-plaintext highlighter-rouge">have_letters</code> you use an iterator (<code class="language-plaintext highlighter-rouge">message.chars()</code>) match on the elements to verify some properties on them. You can rewrite those two functions with only iterators methods, would you like to try it?</p>
+
+    <p>It would look a bit like that:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">is_all_capitalized</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.method1</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+</code></pre></div>    </div>
+
+    <p>If you’re stuck, have a look at the <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.any">any()</a> and <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.all">all()</a> methods.</p>
+  </li>
+</ul>
+
+<h2 id="version-4">Version 4</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Sure."</span><span class="p">;</span>
+            <span class="p">},</span>
+            <span class="k">false</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">,</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="s">"Whatever."</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="o">!</span><span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="nf">.is_lowercase</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version4">Comments on Version4</h2>
+
+<ul>
+  <li>
+    <p>You can use <code class="language-plaintext highlighter-rouge">match</code> statements on tuples. For example:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">match</span> <span class="p">(</span><span class="n">condition1</span><span class="p">,</span> <span class="n">condition2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="o">...</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="o">...</span><span class="p">,</span> 
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>Can you use that to make your code more straightforward?</p>
+  </li>
+</ul>
+
+<h2 id="version-5">Version 5</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="p">(</span><span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">))</span> <span class="p">{</span>
+            <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">,</span>
+            <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+            <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">,</span>
+        <span class="n">_</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="p">(</span><span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">))</span> <span class="p">{</span>
+        <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    <span class="s">"Whatever."</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="o">!</span><span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="nf">.is_lowercase</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version-5">Comments on Version 5</h2>
+
+<ul>
+  <li>
+    <p>We don’t tend to use lots of return statements, so if you have a lot of them you might be able to iprove your code. The reason why wer don’t use them so much is that it makes the control flow of your program more difficult to read.
+For example, in that exercise, you can get rid of all the return statements and have only one big match. Try and find how to do it :)</p>
+  </li>
+  <li>
+    <p>One way you can move forward with this exercise is to store boolean results in variable: for example:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">is_empty</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">();</span>
+<span class="k">let</span> <span class="n">is_question</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">);</span>
+<span class="k">let</span> <span class="n">is_all_capitalized</span> <span class="o">=</span> <span class="n">etc</span><span class="o">...</span>
+</code></pre></div>    </div>
+
+    <p>Hopefully this will clear things up for the <code class="language-plaintext highlighter-rouge">match</code> statement.</p>
+  </li>
+</ul>
+
+<h2 id="version-6">Version 6</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">is_empty</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">is_question</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">is_all_capitalized</span> <span class="o">=</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">is_having_letters</span> <span class="o">=</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+
+    <span class="k">match</span> <span class="n">is_question</span> <span class="p">{</span>
+        <span class="k">true</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="k">match</span> <span class="p">(</span><span class="n">is_all_capitalized</span><span class="p">,</span> <span class="n">is_having_letters</span><span class="p">)</span> <span class="p">{</span>
+                <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">,</span>
+                <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+                <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Sure."</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">false</span> <span class="k">=&gt;</span> <span class="p">{</span>
+            <span class="k">match</span> <span class="n">is_empty</span> <span class="p">{</span>
+                <span class="k">true</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">,</span>
+                <span class="k">false</span> <span class="k">=&gt;</span> <span class="k">match</span> <span class="p">(</span><span class="n">is_all_capitalized</span><span class="p">,</span> <span class="n">is_having_letters</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="s">"Whoa, chill out!"</span><span class="p">,</span>
+                    <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="p">{}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="s">"Whatever."</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.all</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="nf">.is_uppercase</span><span class="p">()</span> <span class="p">||</span> <span class="o">!</span><span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version-6">Comments on Version 6</h2>
+
+<ul>
+  <li>Rust  has other paradigms that are fun and interesting to explore. One of them is that Rust is an <a href="https://doc.rust-lang.org/1.8.0/book/glossary.html#expression-oriented-language">expression-oriented language</a> where all statements return a value, and that’s why you don’t necessarily need a <code class="language-plaintext highlighter-rouge">return</code> to return a value from a function. You’ll see that if you avoid using it (when it makes sense to, returning early is a valid use case for using <code class="language-plaintext highlighter-rouge">return</code>) it will compose very well with other bits of rust code.</li>
+</ul>
+
+<hr />
+
+<p>As for your code, if you want to get rid of te return statements, try:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">match</span><span class="p">(</span><span class="n">is_question</span><span class="p">,</span> <span class="n">is_question</span><span class="p">,</span> <span class="n">is_having_letters</span><span class="p">,</span> <span class="n">etc</span><span class="err">.</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>I think you can simplify the problem to have two or three variables in the match statements.</p>
+
+    <p>Consider matching with:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">is_yelled</span> <span class="o">=</span> <span class="n">is_all_capitalized</span> <span class="o">&amp;&amp;</span> <span class="n">is_having_letters</span><span class="p">;</span>
+<span class="k">match</span> <span class="p">(</span><span class="n">is_empty</span><span class="p">,</span> <span class="n">is_question</span><span class="p">,</span> <span class="n">is_yelled</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>Or even:</p>
+
+    <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">match</span> <span class="p">(</span><span class="n">is_question</span><span class="p">,</span> <span class="n">is_yelled</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Your code can be refactored. Please see:</p>
+  </li>
+</ul>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">match</span> <span class="p">(</span><span class="n">is_question</span><span class="p">,</span> <span class="n">is_yelled</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Sure."</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Whoa, chill out!"</span><span class="p">,</span>
+    <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Whatever."</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="version-7">Version 7</h2>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">reply</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.trim</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">is_question</span> <span class="o">=</span> <span class="n">message</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"?"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">is_yelled</span> <span class="o">=</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="n">message</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"Fine. Be that way!"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">match</span> <span class="p">(</span><span class="n">is_question</span><span class="p">,</span> <span class="n">is_yelled</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Calm down, I know what I'm doing!"</span><span class="p">,</span>
+        <span class="p">(</span><span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Sure."</span><span class="p">,</span>
+        <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Whoa, chill out!"</span><span class="p">,</span>
+        <span class="p">(</span><span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="s">"Whatever."</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">is_all_capitalized</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.all</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="nf">.is_uppercase</span><span class="p">()</span> <span class="p">||</span> <span class="o">!</span><span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">have_letters</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">message</span><span class="nf">.chars</span><span class="p">()</span><span class="nf">.any</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span><span class="nf">.is_ascii_alphabetic</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="comments-on-version-7">Comments on Version 7</h2>
+
+<ul>
+  <li>Well done!</li>
+</ul>
+
+<center><blockquote>The End</blockquote></center>
+
+
+
+  <!-- POST NAVIGATION -->
+  <footer class="postNav clearfix"><a class="prev" href="/blog/0-1-knapsack-problem-solver-code/"><span>&laquo;&nbsp;0/1 Knapsack Problem Solver Code</span></a><a class="next" href="/blog/atbash-cipher-code-refactoring-record/"><span>Atbash Cipher Code Refactoring Record&nbsp;&raquo;</span></a></footer>
+</article>
+      </div>
+   </div><!-- end .content --><div class="footer">
+	<div class="container">
+		<p class="copy">
+			&copy;2017-2022
+					<a href="https://godeep.pro/about">Gabriel Farnsworth</a>.
+				Powered by <a href="http://jekyllrb.com">Jekyll</a>.
+			Theme by <a href="https://github.com/brianmaierjr/long-haul">Long-haul</a>.<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">Visits: <span id="busuanzi_value_site_pv"></span></span></p>
+
+		<div class="footer-links">
+			<ul class="noList"><li>
+					<a href="https://github.com/gabirel" target="_blank">
+						<svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+							style="height: 30px; width: 30px;">
+							<circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+							<path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)"
+								d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z">
+							</path>
+						</svg>
+					</a>
+				</li><li>
+					<a href="mailto:godeeppro@pm.me" target="_blank">
+						<svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+							style="height: 30px; width: 30px;">
+							<circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+							<path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)"
+								d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M25.5,25.5h49 c0.874,0,1.723,0.188,2.502,0.542L50,57.544L22.998,26.041C23.777,25.687,24.626,25.499,25.5,25.5L25.5,25.5z M19.375,68.375v-36.75 c0-0.128,0.005-0.256,0.014-0.383l17.96,20.953L19.587,69.958C19.448,69.447,19.376,68.916,19.375,68.375L19.375,68.375z M74.5,74.5 h-49c-0.541,0-1.072-0.073-1.583-0.212l17.429-17.429L50,66.956l8.653-10.096l17.429,17.429C75.572,74.427,75.041,74.5,74.5,74.5 L74.5,74.5z M80.625,68.375c0,0.541-0.073,1.072-0.211,1.583L62.652,52.195l17.96-20.953c0.008,0.127,0.014,0.255,0.014,0.383 L80.625,68.375L80.625,68.375z">
+							</path>
+						</svg>
+					</a>
+				</li></ul>
+		</div>
+	</div>
+</div>
+<!-- end .footer --><!-- Add jQuery and other scripts -->
+<!-- seems to no need to load jquery from network -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+</body>
+
+</html>
