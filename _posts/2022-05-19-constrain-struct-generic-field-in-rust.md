@@ -250,154 +250,155 @@ However, it can also be used for dispatching,
 which is already a common sense for veterans. In the following secions,
 you may learn it from some demos.
 
-**1.Make constraints**
+1. **Make constraints**
 
-```rust
-struct Container<T: ContainerTrait> {
-    field: T,
-}
-```
-All types must follow constraints, which is called `ContainerTrait`.
+   ```rust
+   struct Container<T: ContainerTrait> {
+       field: T,
+   }
+   ```
 
-**2.Define Trait/Boundary**
+   All types must follow constraints, which is called `ContainerTrait`.
 
-```rust
-// you can alow use empty trait only
-// `foo` is used to show some details
-trait ContainerTrait {
-    fn foo(&self);
-}
-```
+2. **Define Trait/Boundary**
 
-**3.Define what boundary it is**
+   ```rust
+   // you can alow use empty trait only
+   // `foo` is used to show some details
+   trait ContainerTrait {
+       fn foo(&self);
+   }
+   ```
 
-Explanation: Traits act like the void, which is nothing there.
+3. **Define what boundary it is**
+
+   Explanation: Traits act like the void, which is nothing there.
 Rust compiler would never know when it is the void, right?
 So, we need to add some actual stuff in that "void" trait for the compiler.
 
-Let's add then.
+   Let's add then.
 
-```rust
-impl ContainerTrait for Color {
-    fn foo(&self) {
-        println!("Color -> {:?}", self);
-        println!("\tColor.red -> {}", self.red);
-        println!("\tColor.green -> {}", self.green);
-        println!("\tColor.blue -> {}", self.blue);
-    }
-}
+   ```rust
+   impl ContainerTrait for Color {
+       fn foo(&self) {
+           println!("Color -> {:?}", self);
+           println!("\tColor.red -> {}", self.red);
+           println!("\tColor.green -> {}", self.green);
+           println!("\tColor.blue -> {}", self.blue);
+       }
+   }
+   
+   impl ContainerTrait for i32 {
+       fn foo(&self) {
+           println!("i32 -> {}", self);
+       }
+   }
+   
+   impl ContainerTrait for f64 {
+       fn foo(&self) {
+           println!("f64 -> {}", self);
+       }
+   }
+   ```
 
-impl ContainerTrait for i32 {
-    fn foo(&self) {
-        println!("i32 -> {}", self);
-    }
-}
-
-impl ContainerTrait for f64 {
-    fn foo(&self) {
-        println!("f64 -> {}", self);
-    }
-}
-```
-
-So, other types does not satisfy the bound `ContainerTrait`, such as `u32`.
+   So, other types does not satisfy the bound `ContainerTrait`, such as `u32`.
 These are basic constraints for that trait.
 
-**4.Full picture**
+4. **Full picture**
 
-That's it. Let's see the big picture and check whether it works or not.
+   That's it. Let's see the big picture and check whether it works or not.
 
-```rust
-use std::fmt::Debug;
-    
-#[derive(Debug)]
-struct Color {
-    red: u8,
-    green: u8,
-    blue: u8,
-}
-    
-trait ContainerTrait {
-    fn foo(&self);
-}
-    
-impl ContainerTrait for Color {
-    fn foo(&self) {
-        println!("Color -> {:?}", self);
-        println!("\tColor.red -> {}", self.red);
-        println!("\tColor.green -> {}", self.green);
-        println!("\tColor.blue -> {}", self.blue);
-    }
-}
-    
-impl ContainerTrait for i32 {
-    fn foo(&self) {
-        println!("i32 -> {}", self);
-    }
-}
-    
-impl ContainerTrait for f64 {
-    fn foo(&self) {
-        println!("f64 -> {}", self);
-    }
-}
-    
-struct Container<T: ContainerTrait> {
-    field: T,
-}
-    
-pub fn fun() {
-    let inst1 = Container {
-        field: Color {
-            red: 10,
-            green: 20,
-            blue: 30,
-        },
-    };
-    let inst2 = Container { field: 10 };
-    let inst3 = Container { field: 12.2 };
-    
-    inst1.field.foo(); // This will work
-    inst2.field.foo(); // This will work
-    inst3.field.foo(); // This will work
-}
-```
+   ```rust
+   use std::fmt::Debug;
+       
+   #[derive(Debug)]
+   struct Color {
+       red: u8,
+       green: u8,
+       blue: u8,
+   }
+       
+   trait ContainerTrait {
+       fn foo(&self);
+   }
+       
+   impl ContainerTrait for Color {
+       fn foo(&self) {
+           println!("Color -> {:?}", self);
+           println!("\tColor.red -> {}", self.red);
+           println!("\tColor.green -> {}", self.green);
+           println!("\tColor.blue -> {}", self.blue);
+       }
+   }
+       
+   impl ContainerTrait for i32 {
+       fn foo(&self) {
+           println!("i32 -> {}", self);
+       }
+   }
+       
+   impl ContainerTrait for f64 {
+       fn foo(&self) {
+           println!("f64 -> {}", self);
+       }
+   }
+       
+   struct Container<T: ContainerTrait> {
+       field: T,
+   }
+       
+   pub fn fun() {
+       let inst1 = Container {
+           field: Color {
+               red: 10,
+               green: 20,
+               blue: 30,
+           },
+       };
+       let inst2 = Container { field: 10 };
+       let inst3 = Container { field: 12.2 };
+       
+       inst1.field.foo(); // This will work
+       inst2.field.foo(); // This will work
+       inst3.field.foo(); // This will work
+   }
+   ```
 
-It still works:
-    
-```shell
-Color { red: 10, green: 20, blue: 30 }
-10
-12.2
-```
+   It still works:
 
-If we comment out the implementation for `f64`, check the compiler:
-    
-```shell
-error[E0277]: the trait bound `{float}: ContainerTrait` is not satisfied
-  --> src/fun_3_trait.rs:48:17
-   |
-48 |     let inst3 = Container { field: 12.2 };
-   |                 ^^^^^^^^^ the trait `ContainerTrait` is not implemented for `{float}`
-   |
-   = help: the following implementations were found:
-             <Color as ContainerTrait>
-             <i32 as ContainerTrait>
-note: required by a bound in `Container`
-  --> src/fun_3_trait.rs:35:21
-   |
-35 | struct Container<T: ContainerTrait> {
-   |                     ^^^^^^^^^^^^^^ required by this bound in `Container`
+   ```shell
+   Color { red: 10, green: 20, blue: 30 }
+   10
+   12.2
+   ```
 
-error[E0689]: can't call method `foo` on ambiguous numeric type `{float}`
-  --> src/fun_3_trait.rs:52:17
-   |
-52 |     inst3.field.foo(); // Won't work - "the trait `ContainerTrait` is not implemented for `{float}`"
-   |                 ^^^
+   If we comment out the implementation for `f64`, check the compiler:
 
-Some errors have detailed explanations: E0277, E0689.
-For more information about an error, try `rustc --explain E0277`.
-```
+   ```shell
+   error[E0277]: the trait bound `{float}: ContainerTrait` is not satisfied
+     --> src/fun_3_trait.rs:48:17
+      |
+   48 |     let inst3 = Container { field: 12.2 };
+      |                 ^^^^^^^^^ the trait `ContainerTrait` is not implemented for `{float}`
+      |
+      = help: the following implementations were found:
+                <Color as ContainerTrait>
+                <i32 as ContainerTrait>
+   note: required by a bound in `Container`
+     --> src/fun_3_trait.rs:35:21
+      |
+   35 | struct Container<T: ContainerTrait> {
+      |                     ^^^^^^^^^^^^^^ required by this bound in `Container`
+   
+   error[E0689]: can't call method `foo` on ambiguous numeric type `{float}`
+     --> src/fun_3_trait.rs:52:17
+      |
+   52 |     inst3.field.foo(); // Won't work - "the trait `ContainerTrait` is not implemented for `{float}`"
+      |                 ^^^
+   
+   Some errors have detailed explanations: E0277, E0689.
+   For more information about an error, try `rustc --explain E0277`.
+   ```
 
 Rust compiler says no implementation for `{float}`. That's it. Constraints!
 
