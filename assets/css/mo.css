@@ -16,3 +16,16 @@
 .archive-item-post a {
     text-decoration: none;
 }
+
+.post dl,
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6, 
+.post ol, .post ul, 
+.post p {
+    width: 100%;
+}
+
+.post-about p {
+    width: 75%;
+    float: none;
+    margin: 0 auto 2em;
+}
