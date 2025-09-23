@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://godeep.pro/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-Hans">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>这是Web Feed，又称为Atom Feed，把现在的网址复制到新闻阅读器即可订阅本站文章。造访「About Feeds」来了解更多资讯。</tabi:about_feeds>
+        <tabi:visit_the_site>造访网站</tabi:visit_the_site>
+        <tabi:recent_posts>近期文章</tabi:recent_posts>
+        <tabi:last_updated_on>更新于 $DATE</tabi:last_updated_on>
+        <tabi:default_theme></tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>gossip</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://godeep.pro/skins/mint.css?h=504215cf6bc10586b487" /><title>GO DEEP - gossip</title>
+        <subtitle>不断探索，不断超越</subtitle>
+    <link href="https://godeep.pro/zh-Hans/tags/gossip/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://godeep.pro/zh-Hans/tags/gossip/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-05-30T00:00:00+00:00</updated>
+    <id>https://godeep.pro/zh-Hans/tags/gossip/atom.xml</id><entry xml:lang="zh-Hans">
+        <title>第一篇</title>
+        <published>2017-05-30T00:00:00+00:00</published>
+        <updated>2017-05-30T00:00:00+00:00</updated>
+        <author>
+            <name>Gabriel Farnsworth</name>
+        </author>
+        <link rel="alternate" href="https://godeep.pro/zh-Hans/blog/first-post/" type="text/html"/>
+        <id>https://godeep.pro/zh-Hans/blog/first-post/</id>
+        
+            <content type="html">&lt;h1 id=&quot;zheng-wen&quot;&gt;正文&lt;&#x2F;h1&gt;
+&lt;p&gt;博客主题&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Gabirel&#x2F;next-geek&quot;&gt;next-geek&lt;&#x2F;a&gt;弄得差不多啦&lt;&#x2F;p&gt;
+&lt;p&gt;当初移植主题的时候，只是为了“装逼”，哈哈哈～&lt;&#x2F;p&gt;
+&lt;p&gt;但是没想到代价是这么大的。&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;bo-ke-da-suan&quot;&gt;博客打算&lt;&#x2F;h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;主题先慢慢改进着。当然因为要与时俱进嘛，主题应该会经常换，或者加一些乱七八糟的东西&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;因为是** go deep **，所以博客里的文章质量我一定不会放水。或许会因为能力不够，相关领域可能对部分人来说非常简单&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;但是，&lt;&#x2F;p&gt;
+&lt;p&gt;我一定能保证，我写的技术文章一定是在特定领域是我的当前能力水平的最高水准去写！&lt;&#x2F;p&gt;
+&lt;p&gt;因为自己经常看一些文章，一点帮助作用都没有，都是大水比！结果花了很多时间去看，什么都没有任何收获！&lt;&#x2F;p&gt;
+&lt;p&gt;所以，&lt;&#x2F;p&gt;
+&lt;p&gt;** 绝对保证文章质量！绝对！ **&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;luan-qi-ba-zao-de-tu-cao&quot;&gt;乱七八糟的吐槽&lt;&#x2F;h1&gt;
+&lt;p&gt;为什么会这么说代价很大呢？因为&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Gabirel&#x2F;next-geek&quot;&gt;next-geek&lt;&#x2F;a&gt;是2017年1月份左右的时候创建的，因为碍于各种各样繁杂的事情，一直都没有去集中时间去弄。&lt;&#x2F;p&gt;
+&lt;p&gt;当时去&lt;a href=&quot;http:&#x2F;&#x2F;isitmaintained.com&#x2F;project&#x2F;Gabirel&#x2F;next-geek&quot;&gt;isitmaintained&lt;&#x2F;a&gt;统计的时候。嚯！100多天的issue都没有修，吓得我赶紧弄。&lt;&#x2F;p&gt;
+&lt;p&gt;最近两个礼拜一直在弄这个主题，唉，总算是弄好了一丢丢。&lt;&#x2F;p&gt;
+&lt;p&gt;但是还是有很多的问题，慢慢修吧以后。现在事情还是有点多的，不能因为这个主题的关系就影响到我的日程。&lt;&#x2F;p&gt;
+&lt;p&gt;然后，还买了三年的域名（马德，花了我191￥）。本来就很穷了，唉，希望对得起我买得这个域名吧&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;wei-lai-da-suan&quot;&gt;未来打算&lt;&#x2F;h1&gt;
+&lt;p&gt;1.未来呢，先把争取把研究生考上去&lt;&#x2F;p&gt;
+&lt;p&gt;有的人可能问，你为什么不直接去找工作直接工作呢？又不是找不到？&lt;&#x2F;p&gt;
+&lt;p&gt;是的吧，但是研究生毕业后就是硕士生，学历要高点。&lt;&#x2F;p&gt;
+&lt;p&gt;那为什么要高学历呢？有什么理由么？&lt;&#x2F;p&gt;
+&lt;p&gt;:) 没有，从高中开始就下定决心会考研究生。没有什么特殊的理由，就是想考。&lt;&#x2F;p&gt;
+&lt;p&gt;2.专业技能给弄一弄&lt;&#x2F;p&gt;
+&lt;p&gt;毕竟是要找工作嘛，没办法嘛，所以专业技能肯定是要有的，不然跟咸鱼有什么区别。&lt;&#x2F;p&gt;
+&lt;p&gt;再说了，&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人一定要有梦想，即使是咸鱼，也要做最咸的那条！&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;godeep.pro&#x2F;zh-Hans&#x2F;blog&#x2F;first-post&#x2F;salty-fish-has-a-dream.zh.jpg&quot; alt=&quot;salty-fish&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;3.前端知识折腾一下&lt;&#x2F;p&gt;
+&lt;p&gt;哈哈哈，为了写博客主题啊，还有就是为了** 装逼 **， 哈哈哈哈～～～&lt;&#x2F;p&gt;
+&lt;p&gt;博客写得逼格高，自己才看得爽&lt;&#x2F;p&gt;
+&lt;p&gt;4.语言选择&lt;&#x2F;p&gt;
+&lt;p&gt;很不幸，我既** 会 ** C++又会Java。&lt;&#x2F;p&gt;
+&lt;p&gt;麻烦啊，因为我还要选方向。两个我都喜欢，但是专精只能选一个。&lt;&#x2F;p&gt;
+&lt;p&gt;现在太年轻，很任性，两个都想专精～～&lt;&#x2F;p&gt;
+&lt;p&gt;C++为主，Java系的Kotlin辅助，Java本身作为后援吧&lt;&#x2F;p&gt;
+&lt;p&gt;5.尽量保证文章多语言版本&lt;&#x2F;p&gt;
+&lt;p&gt;我自己目前会英文，中文，日文，我会尽量按照自己的能力去写多语言以去适应很多人。与此同时，顺便当是锻炼自己的语言水平吧。&lt;&#x2F;p&gt;
+&lt;p&gt;或许以后会加韩文～尽情期待吧 :)&lt;&#x2F;p&gt;
+</content>
+        <summary type="html">正文
+博客主题next-geek弄得差不多啦
+当初移植主题的时候，只是为了“装逼”，哈哈哈～
+但是没想到代价是这么大的。…</summary>
+        </entry>
+</feed>

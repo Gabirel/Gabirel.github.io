@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://godeep.pro/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>これはウェブフィードです、また、Atomフィードとしても知られています。URLをアドレスバーからニュースリーダーにコピーして登録してください。About Feedsを訪れて、詳細を知り、始めてください。無料です。</tabi:about_feeds>
+        <tabi:visit_the_site>ウェブサイトを訪れる</tabi:visit_the_site>
+        <tabi:recent_posts>最近の投稿</tabi:recent_posts>
+        <tabi:last_updated_on>$DATE に更新</tabi:last_updated_on>
+        <tabi:default_theme></tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>GO DEEP</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://godeep.pro/skins/mint.css?h=504215cf6bc10586b487" /><title>GO DEEP</title>
+        <subtitle>深く探求し、さらに高みへ</subtitle>
+    <link href="https://godeep.pro/ja/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://godeep.pro/ja/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-04-01T00:00:00+00:00</updated>
+    <id>https://godeep.pro/ja/atom.xml</id><entry xml:lang="ja">
+        <title>初めのポスト</title>
+        <published>2017-06-21T00:00:00+00:00</published>
+        <updated>2022-04-01T00:00:00+00:00</updated>
+        <author>
+            <name>Gabriel Farnsworth</name>
+        </author>
+        <link rel="alternate" href="https://godeep.pro/ja/blog/first-post/" type="text/html"/>
+        <id>https://godeep.pro/ja/blog/first-post/</id>
+        
+            <content type="html">&lt;h1 id=&quot;ben-wen&quot;&gt;本文&lt;&#x2F;h1&gt;
+&lt;p&gt;ブログのテーマ&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Gabirel&#x2F;next-geek&quot;&gt;next-geek&lt;&#x2F;a&gt;はほとんど終わりました。&lt;&#x2F;p&gt;
+&lt;p&gt;この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～&lt;&#x2F;p&gt;
+&lt;p&gt;しかし、そんなに高く付きちゃたとは思いも寄らない。&lt;&#x2F;p&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h1 id=&quot;burogunoyi-tu&quot;&gt;ブログの意図&lt;&#x2F;h1&gt;
+&lt;p&gt;1.最初のテーマはゆっくりと改善しました。時代とともに前進しているためにん、テーマは常に変化し、或いは面白いものを追加する。&lt;&#x2F;p&gt;
+&lt;p&gt;2.ブログの名前は　** go deep **　なので、ブログの文章には僕は品質を保証しなければなりません。おそらく、僕の自分自身の能力不足の原因ですが、ある文章の内容はすっごく簡単です、これを許してほしい。僕だって、何でも出きるでしょう？&lt;&#x2F;p&gt;
+&lt;p&gt;しかし、&lt;&#x2F;p&gt;
+&lt;p&gt;僕は、特定の分野における僕は現在の最高レベルを書くことでなければならない信念で、技術的な記事を書くことを保証します！&lt;&#x2F;p&gt;
+&lt;p&gt;彼らの文章はしばしば読んだことたくさんあった。でも、多くの時間をかかって、なんの収穫にもありません！&lt;&#x2F;p&gt;
+&lt;p&gt;ですかる、&lt;&#x2F;p&gt;
+&lt;p&gt;**　文章の品質絶対だ！絶対！ **　&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;yang-no-tutukomi&quot;&gt;様々の「ツッコミ」&lt;&#x2F;h1&gt;
+&lt;p&gt;何故高く付きちゃたのを言うでしょうか？ &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Gabirel&#x2F;next-geek&quot;&gt;next-geek&lt;&#x2F;a&gt;は２０１７年１月に始まりまして、でも様々のものなので、これを解決する暇がなかった。&lt;&#x2F;p&gt;
+&lt;p&gt;その後、&lt;a href=&quot;http:&#x2F;&#x2F;isitmaintained.com&#x2F;project&#x2F;Gabirel&#x2F;next-geek&quot;&gt;isitmaintained&lt;&#x2F;a&gt;でこのテーマの統計情報見るとき吃驚しました。ああ！100以上の日の問題はまだ残っていった。次の日に僕はすぐに全部の問題を解決しました。&lt;&#x2F;p&gt;
+&lt;p&gt;最近の２週間まで、このブログのテーマしてます。ああああ、最終的には何とかできるそうみたい。&lt;&#x2F;p&gt;
+&lt;p&gt;しかし、まだたくさんの問題残りしましたが、後でゆっくりとそれを修復する。現在は山ほどの煩雑なことありますから。&lt;&#x2F;p&gt;
+&lt;p&gt;それで、僕は3年間のドメイン名を購入しました（くそ！３１２２円を取った）すでに金を持ってない僕には。。。。&lt;&#x2F;p&gt;
+&lt;p&gt;このドメイン名を購入した価値を発揮できる欲しい。&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;jin-hou-noji-hua&quot;&gt;今後の計画&lt;&#x2F;h1&gt;
+&lt;p&gt;1.先ずは院生になりたい&lt;&#x2F;p&gt;
+&lt;p&gt;ある人は「なぜあなたは直接に仕事に行っていない？あなたには仕事を絶対に見つけることができるし。」って聞いていた。&lt;&#x2F;p&gt;
+&lt;p&gt;はい、そう化もしれない。でもね、院生の卒業後は学歴はちょっと高いんです。それだけ。&lt;&#x2F;p&gt;
+&lt;p&gt;何故高い学歴が欲しいですか？何が理由あるのかなあ？&lt;&#x2F;p&gt;
+&lt;p&gt;:)　いいえ、とくにないです。高等学校卒業する前に決定した。&lt;&#x2F;p&gt;
+&lt;p&gt;2.専門関する能力を強化する&lt;&#x2F;p&gt;
+&lt;p&gt;まあ、結局、誰にも仕事を探しなきゃならない。それは確かに専門的なスキルを持っていなきゃならない。そうしないと、何にもできないでしょう？&lt;&#x2F;p&gt;
+&lt;p&gt;3.フロントエンド開発関するの知識を勉強する&lt;&#x2F;p&gt;
+&lt;p&gt;ハハハハ、、ブログのテーマのために、それとも** 格好つけるために **、こんな知識は絶対に必要ですから。&lt;&#x2F;p&gt;
+&lt;p&gt;ブログの「格好」あるなら、自分自身が気持ちがよいできる。&lt;&#x2F;p&gt;
+&lt;p&gt;4.コンピューター言語の選択&lt;&#x2F;p&gt;
+&lt;p&gt;残念ながら、僕はC++とJavaできる。&lt;&#x2F;p&gt;
+&lt;p&gt;これは面倒になりました。私は言語を選択する必要があります。でも、僕は両方を好きですが、唯一の言語を選択する後でこの言語でプロになって欲しい。&lt;&#x2F;p&gt;
+&lt;p&gt;今若すぎるなので、非常に頑固って、両方が専門をしたかった〜〜&lt;&#x2F;p&gt;
+&lt;p&gt;C++を主とすると、Kotlinは補助的な存在になりたい時、Javaは最後の選択しになりますと思います。&lt;&#x2F;p&gt;
+&lt;p&gt;5.できるだけ複数の言語で文章を書きたい&lt;&#x2F;p&gt;
+&lt;p&gt;僕は英語、中国語と日本語できます。できるだけたくさんの人に満足するために、私は複数の言語でかきます。同時に、このやり方は僕にやくたつかります。&lt;&#x2F;p&gt;
+&lt;p&gt;おそらく将来はハ韓国語のバージョンの文章を追加されます化もしれない。お期待してください :)&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ご注意：この文章は私は初めで書いた。それぞれの間違いあります。間違いところで教えて欲しい。
+(●ゝω)ノ&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        <summary type="html">本文
+ブログのテーマnext-geekはほとんど終わりました。
+この元のテーマは移植されたときに、格好つけるだけです。ハッハッハ～～
+しかし、そんなに高く付きちゃたとは思いも寄らない。…</summary>
+        </entry>
+</feed>
